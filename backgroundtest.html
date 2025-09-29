@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+        body {
+    margin: 0;
+    height: 100vh; /*makes the body take up the full height of the viewport*/
+    width: 100vw; /*makes the body take up the full width of the viewport*/
+    background: black;
+    overflow: hidden; /*hides any overflow*/
+    z-index: -20; /*makes sure the background is behind all other elements*/
+    background-repeat: no-repeat; /*prevents the background from repeating*/
+}
+
+body::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image:
+        radial-gradient(at 20% 20%, #9b5de5, transparent 40%),
+        radial-gradient(at 80% 60%, #00f5d4, transparent 40%),
+        radial-gradient(at 50% 80%, #f72585, transparent 40%),
+        radial-gradient(at 80% 25%, #00b4d8, transparent 40%);
+    animation: moveBlob 20s linear infinite, Blobpulse 3s infinite alternate;
+    background-size: 200% 200%;
+    z-index : -10; /*makes sure the background is behind all other elements*/
+}
+@keyframes moveBlob {
+    0% {
+        background-position: 0% 0%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 0%;
+    }
+}
+
+@keyframes Blobpulse {
+    0% {
+        filter: brightness(0.3);
+    }
+    100% {
+        filter: brightness(1);
+    }
+}
+    </style>
+</html>
