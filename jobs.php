@@ -1,6 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="css/styles.css">
+<link rel="stylesheet" type="text/css" href="styles/styles.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,21 +12,7 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" /> <!--google fonts icon-->
 </head>
 <body>
-    <header role="banner">
-        <img src="images/powerpuffcorpfooterlogoblack.jpg" alt="Powerpuff Corp logo">
-        <nav id="navbar" role="navigation" aria-label="Primary">
-            <ul>
-                <li><a href="./index.html">Home</a></li> 
-                <li><a href="./jobs.html">Jobs</a></li>
-                <li><a href="./apply.html">Apply</a></li>
-                <li><a href="./about.html">About</a></li>
-            </ul>
-        </nav>
-        <div id="title-slogan">
-            <h1>Powerpuff Corp</h1>
-            <p id="slogan">Sugar, spice, and games at half price</p>
-        </div>
-    </header>
+    <?php include "./includes/header.inc" ?>
         <div class="container_jobs"> 
             <input class="jobpage" type="radio" name="joblist" id="job1"><!--Makes input so the webpage is interactive without Javascript-->
             <input class="jobpage" type="radio" name="joblist" id="job2"><!--same name so only 1 can be selected at a time-->
@@ -340,18 +326,6 @@
                 </div>
             </aside>
         </div>
-        <footer role="contentinfo" aria-label="footer"> <!--footer is authored by venson with slight changes made by lira-->
-            <div class="footer-content"> 
-                <ul class="footer-links">
-                    <li><a href="https://student-team-ikdwg2wc.atlassian.net/jira/software/projects/POW/boards/34?atlOrigin=eyJpIjoiN2E5OTliZmQ1MWRlNGYyZWIxYWMzYTU4N2FiZTQ4MTEiLCJwIjoiaiJ9" target="_blank">Jira board</a></li>
-                    <li><a href="https://github.com/Swin-Group-Project/PowerpuffgirlsGroupProject1.git" target="_blank">GitHub repository</a></li>
-                    <li><a href="mailto:info@powerpuffcorp.com">Email us</a></li>
-                </ul>
-                <p class="footer-copy">&copy; 2025 Powerpuff Corp. All rights reserved.</p>
-            </div>     
-            <div class="footer-logo">
-                <img src="images/powerpuffcorpfooterlogoblack.jpg" alt="Powerpuff Corp Logo" width="100px">
-            </div>
-        </footer> <!--footer is authored by venson with slight changes made by lira-->  
+        <?php include "./includes/footer.inc" ?>
 </body>
 </html> 

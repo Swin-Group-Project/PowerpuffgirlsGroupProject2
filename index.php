@@ -9,7 +9,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish a connection with google API -->
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons"> <!-- Load Google icons -->
-    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="./styles/styles.css">
     <!-- RYAN: Example of embedded CSS: homepage tiles -->
     <style>
 
@@ -33,23 +33,7 @@
 
   <body>
 
-    <!-- Website header with logo and company name -->
-    <header role="banner">
-      <img src="images/powerpuffcorpfooterlogoblack.jpg" alt="Powerpuff Corp logo">
-      <nav id="navbar" role="navigation" aria-label="Primary">
-          <ul>
-              <li><a href="./index.html">Home</a></li> 
-              <li><a href="./jobs.html">Jobs</a></li>
-              <li><a href="./apply.html">Apply</a></li>
-              <li><a href="./about.html">About</a></li>
-          </ul>
-      </nav>
-      <div id="title-slogan">
-        <h1>Powerpuff Corp</h1>
-        <p id="slogan">Sugar, spice, and games at half price</p>
-      </div>
-      
-    </header>
+  <?php include "./includes/header.inc" ?>
 
     <!-- Main content container -->
     <main id="main" role="main" class="container" tabindex="-1">
@@ -98,19 +82,8 @@
       </section>
     </main>
 
-    <footer role="contentinfo" aria-label="footer"> <!--footer is authored by venson with slight changes made by lira-->
-        <div class="footer-content"> 
-            <ul class="footer-links">
-                <li><a href="https://student-team-ikdwg2wc.atlassian.net/jira/software/projects/POW/boards/34?atlOrigin=eyJpIjoiN2E5OTliZmQ1MWRlNGYyZWIxYWMzYTU4N2FiZTQ4MTEiLCJwIjoiaiJ9" target="_blank">Jira board</a></li>
-                <li><a href="https://github.com/Swin-Group-Project/PowerpuffgirlsGroupProject1.git" target="_blank">GitHub repository</a></li>
-                <li><a href="mailto:info@powerpuffcorp.com">Email us</a></li>
-            </ul>
-            <p class="footer-copy">&copy; 2025 Powerpuff Corp. All rights reserved.</p>
-        </div>     
-        <div class="footer-logo">
-            <img src="images/powerpuffcorpfooterlogoblack.jpg" alt="Powerpuff Corp Logo" width="100px">
-        </div>
-    </footer> <!--footer is authored by venson with slight changes made by lira-->  
+  <?php include "./includes/footer.inc" ?>
+  
   </body>
 
 </html>
