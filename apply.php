@@ -24,7 +24,7 @@ Author: Ryan Tay
         <main role="main">
             <div id="wrapper">
                 <h2 id="apply_heading">Apply Now!</h2>
-                <img id="powerpuff_rodents" src="images/powerpuff-corp-logo.png" alt="Powerpuff girls with rodents photoshopped on each of their faces">
+                <img id="powerpuff_rodents" src="images/apply/powerpuff-corp-logo.png" alt="Powerpuff girls with rodents photoshopped on each of their faces">
                 <p id="preamble">If you're serious about becoming an honourary Powerpuff Girl, <strong>fill out the form below</strong> and we will reach out to you soon!</p>
                 <!--    FORM STARTS HERE
                         'post' method used for submitting user form data

@@ -126,7 +126,7 @@ Date: Aug 26 - Sep 26 2025
             <section class="about-section" role="region" aria-label="Our Team">
             <h2 style="text-align: left;">Our Team</h2>
                 <figure class="group-photo" >
-                    <img src="images/group_photo.jpg" alt="powerpuff_corp_group_photo">
+                    <img src="images/about/group_photo.jpg" alt="powerpuff_corp_group_photo">
                     <figcaption>Powerpuff Corp</figcaption>
                 </figure>
             </section>
