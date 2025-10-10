@@ -14,7 +14,7 @@ Date: Sep 29 - Oct 27 2025
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish a connection with google API -->
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons"> <!-- Load Google icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"> <!-- Load Google icons -->
         <style> 
             .about-section {box-shadow: 0 0 10px rgba(0, 200, 255, 0.8),
                                         0 0 20px rgba(0, 150, 255, 0.6),
@@ -22,10 +22,10 @@ Date: Sep 29 - Oct 27 2025
                                         0 0 80px rgba(0, 50, 255, 0.2);
                             transition: all 0.9s ease;}
             .about-section:hover { box-shadow: 0 0 20px rgba(0, 200, 255, 1),
-            0 0 40px rgba(0, 150, 255, 0.8),
-            0 0 80px rgba(0, 100, 255, 0.6),
-            0 0 160px rgba(0, 50, 255, 0.4);
-                                    transform: translateY(-15px) scale(1.02);}                
+                                               0 0 40px rgba(0, 150, 255, 0.8),
+                                               0 0 80px rgba(0, 100, 255, 0.6),
+                                               0 0 160px rgba(0, 50, 255, 0.4);
+                                   transform: translateY(-15px) scale(1.02);}                
         </style>
     </head>
     <body>
@@ -33,16 +33,16 @@ Date: Sep 29 - Oct 27 2025
         
         <main>
             <section id="meet-section" class="about-section" aria-label="Meet the Team"><!--id and class are authored by ryan-->
-            <h2 style="text-align: left;">Meet the Team</h2>
-                <p>We are Powerpuff Corp, a team of four, based in Melbourne. We are a game development company with a passion for building creative and engaging experiences. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. When we put it all together, it feels like unlocking the final boss: teamwork. </p>
-                <p>Our team is growing, and we&apos;re excited to welcome anyone who wants to code, design, or just bring wild ideas to the table. Join us if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don&apos;t always agree).</p>
-                <p>We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to come up with ideas that might sound crazy at first, but sometimes those ideas turn into our most memorable projects. We love experimenting, learning from each other, and turning challenges into opportunities to level up.</p> 
-                <p id="job_link">Curious? Excited?? Think you&apos;d enjoy being part of our team??? Check our <a href="jobs.html" target="_blank"><strong>Jobs</strong></a> and <a href="apply.html" target="_blank"><strong>Apply</strong></a> pages to see how you can hop on board!</p>
-                <p>That&apos;s a wrap! Hope to see you joining our quest!</p>
+            <h2 style="text-align: left;">Meet the Team <span class="material-symbols-outlined">star</span></h2>
+                <p>We are <strong><em>Powerpuff Corp!</em></strong> A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we&apos;re good. Together? We&apos;re unstoppable!<span class="material-symbols-outlined">diamond_shine</span></p>
+                <p>Our team is growing, and we&apos;re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER. <strong> Join us</strong> if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don&apos;t always agree).</p>
+                <p>We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.</p> 
+                <p id="job_link"><strong>Curious? Excited?? Think you&apos;d enjoy being part of our team??? Check our </strong><a href="jobs.php" target="_blank"><strong> Jobs</strong></a> <strong>and</strong> <a href="apply.php" target="_blank"><strong> Apply</strong></a> <strong>pages to see how you can hop on board!</strong></p>
+                <p>That&apos;s a wrap! Hope to see you joining our quest! <span class="material-symbols-outlined">partner_exchange</span></p> 
             </section>
             
             <section id="group-section" class="about-section" aria-label="Group Information"><!--id and class are authored by ryan-->
-                <h2>Academic Information</h2>
+                <h2>Academic Information <span class="material-symbols-outlined">school</span></h2>
                 <ul>
                     <li>Team: Powerpuff Girls</li>
                     <li>Class Hours:
@@ -55,7 +55,7 @@ Date: Sep 29 - Oct 27 2025
             </section>
 
             <section id="members-section" class="about-section" aria-label="Team Members"><!--id and class are authored by ryan-->
-                <h2>Team Members</h2>
+                <h2>Team Members <span class="material-symbols-outlined">person_play</span></h2>
                 <div class="members">
                         <div class="member" id="member1" role="group" aria-labelledby="member1-Venson">
                             <span class="student-id">105205347</span>
@@ -97,7 +97,7 @@ Date: Sep 29 - Oct 27 2025
             </section>
             
             <section id="fun-facts" class="about-section" aria-label="Fun Facts"><!--id and class are authored by ryan-->
-                <h2>Fun Facts</h2>
+                <h2>Fun Facts <span class="material-symbols-outlined">interests</span></h2>
                 <table>
                     <caption>The Not-So-Serious Section</caption>
                     <tr>
@@ -136,7 +136,7 @@ Date: Sep 29 - Oct 27 2025
             </section>
             
             <section class="about-section" aria-label="Our Team">
-            <h2 style="text-align: left;">Our Team</h2>
+            <h2 style="text-align: left;">Our Team <span class="material-symbols-outlined">groups_3</span></h2>
                 <figure class="group-photo" >
                     <img src="images/about/group_photo.jpg" alt="powerpuff_corp_group_photo">
                     <figcaption>Powerpuff Corp</figcaption>
