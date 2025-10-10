@@ -692,7 +692,7 @@ last modified: September 26 2025
 
 /*ABOUT-SECTION IS INCLUDED IN ALL SECTIONS*/
 .about-section {
-    margin: 50px;
+    margin: 70px;
     padding: 30px;
     background-color:aliceblue;
     border-radius: 10px;
@@ -718,8 +718,14 @@ ul ul {
 .members {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
-    gap: 20px;
+    gap: 30px;            /*space between the profiles*/ 
     margin: 0 auto; /* center horizontally */
+    padding: 0 30px;      /*distance from the sides*/
+    margin-bottom: 10px;  /*space between the profiles and bottom*/ 
+}
+
+#members-section h2 {
+    margin-bottom: 20px; /*space between heading and the profiles*/
 }
 
 /*TEAM MEMBERS: PROFILES LAYOUT SETTINGS*/
@@ -727,30 +733,39 @@ ul ul {
     position: relative;
     overflow: hidden;
     background: #d5e6f3;
-    min-height: 300px;
-    padding: 20px;
+    min-height: 250px;
+    padding: 40px;
     border-radius: 12px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
+    transition: all 0.6s ease;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
 .student-id {
     float: right;
     font-weight: normal;
     color: #333; /*to match with other text in profile section */
-    font-size: 1em;
+    font-size: 1.1em;
     background: none;
 }
 
 .member:hover {
-    transform: translateY(-10px);
-    background-color: #5a809b;
-    box-shadow: 0 0 15px rgba(0, 200, 255, 0.7);
-    transition: 0.6s ease-in-out;
+    transform: translateY(-15px) scale(1.02);
+    background-color: #1a2a3a;;
+    box-shadow: /*using similar colours like embedded css to match glow effect*/
+        0 0 20px rgba(0, 200, 255, 1),
+        0 0 40px rgba(0, 150, 255, 0.8),
+        0 0 80px rgba(0, 100, 255, 0.6),
+        0 0 160px rgba(0, 50, 255, 0.4);
+    transition: all 0.9s ease;  
 }
 
 .member:hover::before {
     opacity: 0.6; /* semi-transparent */
+}
+
+.member:hover * {
+    color: #f5f5f5; /*text colour changes to white as hovered*/
 }
 
 .member::before {
@@ -818,19 +833,24 @@ ul ul {
 
 .group-photo img {
     margin: 0 auto; /* centers the image */
-    opacity: 0.6;
+    opacity: 0.7;
     width: 600px;
-    border: 6px solid #5a809b;
     border-radius: 20px;
+    border: 8px solid #2a4bd4;
+    box-shadow:  0 0 25px rgba(42, 75, 212, 0.8),
+        0 0 50px rgba(42, 75, 212, 0.5);
 }
 
 .group-photo figcaption {
     text-align: center;
     margin-top: 10px;
     font-weight: bold;
+    font-size: 1.1em;
 }
 
 /*END OF ABOUT PAGE*/
+
+
 
 /*INDEX STYLES
     author: venson
