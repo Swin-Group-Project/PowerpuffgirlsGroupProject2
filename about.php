@@ -15,6 +15,18 @@ Date: Sep 29 - Oct 27 2025
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish a connection with google API -->
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Icons"> <!-- Load Google icons -->
+        <style> 
+            .about-section {box-shadow: 0 0 10px rgba(0, 200, 255, 0.8),
+                                        0 0 20px rgba(0, 150, 255, 0.6),
+                                        0 0 40px rgba(0, 100, 255, 0.4),
+                                        0 0 80px rgba(0, 50, 255, 0.2);
+                            transition: all 0.9s ease;}
+            .about-section:hover { box-shadow: 0 0 20px rgba(0, 200, 255, 1),
+            0 0 40px rgba(0, 150, 255, 0.8),
+            0 0 80px rgba(0, 100, 255, 0.6),
+            0 0 160px rgba(0, 50, 255, 0.4);
+                                    transform: translateY(-15px) scale(1.02);}                
+        </style>
     </head>
     <body>
         <?php include "./includes/header.inc" ?>
@@ -30,13 +42,13 @@ Date: Sep 29 - Oct 27 2025
             </section>
             
             <section id="group-section" class="about-section" aria-label="Group Information"><!--id and class are authored by ryan-->
-                <h2>Group Information</h2>
+                <h2>Academic Information</h2>
                 <ul>
-                    <li>Group Name: Powerpuffgirls</li>
-                    <li>Class Schedule:
+                    <li>Team: Powerpuff Girls</li>
+                    <li>Class Hours:
                         <ul>
                             <li>Day: Tuesday</li>
-                            <li>Time: 2:30 AM - 4:30 PM</li>
+                            <li>Time: 2:30 PM - 4:30 PM</li>
                         </ul>
                     </li>
                 </ul>
