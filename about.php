@@ -1,7 +1,7 @@
 <!--
 File: About Us 
 Author: Lira Khisha
-Date: Aug 26 - Sep 26 2025
+Date: Sep 29 - Oct 27 2025
 -->
 <!DOCTYPE html>
 <html lang="en">
@@ -20,7 +20,7 @@ Date: Aug 26 - Sep 26 2025
         <?php include "./includes/header.inc" ?>
         
         <main>
-            <section id="meet-section" class="about-section" role="region" aria-label="Meet the Team"><!--id and class are authored by ryan-->
+            <section id="meet-section" class="about-section" aria-label="Meet the Team"><!--id and class are authored by ryan-->
             <h2 style="text-align: left;">Meet the Team</h2>
                 <p>We are Powerpuff Corp, a team of four, based in Melbourne. We are a game development company with a passion for building creative and engaging experiences. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. When we put it all together, it feels like unlocking the final boss: teamwork. </p>
                 <p>Our team is growing, and we&apos;re excited to welcome anyone who wants to code, design, or just bring wild ideas to the table. Join us if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don&apos;t always agree).</p>
@@ -29,7 +29,7 @@ Date: Aug 26 - Sep 26 2025
                 <p>That&apos;s a wrap! Hope to see you joining our quest!</p>
             </section>
             
-            <section id="group-section" class="about-section" role="region" aria-label="Group Information"><!--id and class are authored by ryan-->
+            <section id="group-section" class="about-section" aria-label="Group Information"><!--id and class are authored by ryan-->
                 <h2>Group Information</h2>
                 <ul>
                     <li>Group Name: Powerpuffgirls</li>
@@ -42,7 +42,7 @@ Date: Aug 26 - Sep 26 2025
                 </ul>
             </section>
 
-            <section id="members-section" class="about-section" role="region" aria-label="Team Members"><!--id and class are authored by ryan-->
+            <section id="members-section" class="about-section" aria-label="Team Members"><!--id and class are authored by ryan-->
                 <h2>Team Members</h2>
                 <div class="members">
                         <div class="member" id="member1" role="group" aria-labelledby="member1-Venson">
@@ -84,9 +84,9 @@ Date: Aug 26 - Sep 26 2025
                 </div>
             </section>
             
-            <section id="fun-facts" class="about-section" role="region" aria-label="Fun Facts"><!--id and class are authored by ryan-->
+            <section id="fun-facts" class="about-section" aria-label="Fun Facts"><!--id and class are authored by ryan-->
                 <h2>Fun Facts</h2>
-                <table border="1">
+                <table>
                     <caption>The Not-So-Serious Section</caption>
                     <tr>
                         <th>The Real Deal</th>
@@ -123,7 +123,7 @@ Date: Aug 26 - Sep 26 2025
                 </table>
             </section>
             
-            <section class="about-section" role="region" aria-label="Our Team">
+            <section class="about-section" aria-label="Our Team">
             <h2 style="text-align: left;">Our Team</h2>
                 <figure class="group-photo" >
                     <img src="images/about/group_photo.jpg" alt="powerpuff_corp_group_photo">
