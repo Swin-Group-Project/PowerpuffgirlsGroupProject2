@@ -1,4 +1,4 @@
-<nav id="navbar" role="navigation" aria-label="Primary">
+<nav id="navbar" aria-label="Primary">
     <ul>
         <li><a href="./index.php">Home</a></li>
         <li><a href="./jobs.php">Jobs</a></li>
