@@ -166,7 +166,6 @@ Author: Ryan Tay
 
                     </fieldset>
                     
-                    
                     <div id="button_container" class="flex_item">
                         <input id="submit_btn" type="submit" value="Submit Form">
                         <input id="reset_btn" type="reset" value="Reset">
