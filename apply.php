@@ -31,7 +31,7 @@ Author: Ryan Tay
                         Regex patterns sourced from Tutor Nick:
                         - https://arziel1992.github.io/input-pattern-tester/
                 -->
-                <form id="apply_form" role="form" aria-labelledby="apply_heading" action="https://mercury.swin.edu.au/it000000/formtest.php" method="post">
+                <form id="apply_form" role="form" aria-labelledby="apply_heading" action="process_eoi.php" method="post">
                     
                     <div id="job_reference_num_container" class="flex_item">
                         <label for="job_reference_num">Job Ref No: <span class="red_text">*</span></label>
