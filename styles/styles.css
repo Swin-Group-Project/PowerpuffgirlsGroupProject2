@@ -696,6 +696,7 @@ last modified: September 26 2025
     padding: 30px;
     background-color:aliceblue;
     border-radius: 10px;
+    border: 1px solid #2a4bd4;
 }
 
 #meet-section p {
@@ -739,6 +740,7 @@ ul ul {
     text-align: center;
     transition: all 0.6s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border: 1px solid #2a4bd4;
 }
 
 .student-id {
@@ -813,7 +815,7 @@ ul ul {
 
 #fun-facts th,
 #fun-facts td {
-    border: 1px solid #ccc;
+    border: 2px solid #2a4bd4;
     padding: 8px 12px;
 }
 
@@ -836,7 +838,7 @@ ul ul {
     opacity: 0.7;
     width: 600px;
     border-radius: 20px;
-    border: 8px solid #2a4bd4;
+    border: 4px solid #2a4bd4;
     box-shadow:  0 0 25px rgba(42, 75, 212, 0.8),
         0 0 50px rgba(42, 75, 212, 0.5);
 }
