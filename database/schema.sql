@@ -66,10 +66,6 @@ CREATE TABLE `skills_lookup` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
--- Indexes for dumped tables
---
-
---
 -- Indexes for table `applicant_skills`
 --
 ALTER TABLE `applicant_skills`
@@ -90,18 +86,10 @@ ALTER TABLE `skills_lookup`
   ADD UNIQUE KEY `skill_name` (`skill_name`);
 
 --
--- AUTO_INCREMENT for dumped tables
---
-
---
 -- AUTO_INCREMENT for table `skills_lookup`
 --
 ALTER TABLE `skills_lookup`
   MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
--- Constraints for dumped tables
---
 
 --
 -- Constraints for table `applicant_skills`
