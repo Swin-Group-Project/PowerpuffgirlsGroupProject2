@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 15, 2025 at 12:11 PM
+-- Generation Time: Oct 16, 2025 at 03:13 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -41,9 +41,9 @@ CREATE TABLE `about` (
 --
 
 CREATE TABLE `about_contribution1` (
-  `contribution_id` int(11) NOT NULL,
+  `contribution1_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
-  `contribution` text NOT NULL
+  `contribution1_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -61,13 +61,13 @@ CREATE TABLE `about_contribution2` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `about_fun_fact`
+-- Table structure for table `about_funfact`
 --
 
-CREATE TABLE `about_fun_fact` (
-  `fun_fact_id` int(11) NOT NULL,
+CREATE TABLE `about_funfact` (
+  `funfact_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
-  `fun_fact` text NOT NULL
+  `funfact_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -78,33 +78,38 @@ CREATE TABLE `about_fun_fact` (
 
 CREATE TABLE `about_member` (
   `member_id` int(11) NOT NULL,
-  `member_first_name` varchar(50) NOT NULL,
-  `member_last_name` varchar(50) DEFAULT NULL,
+  `first_name` varchar(50) NOT NULL,
+  `last_name` varchar(50) DEFAULT NULL,
+  `student_id` varchar(9) NOT NULL,
   `member_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `about_quotes`
+-- Table structure for table `about_quote`
 --
 
-CREATE TABLE `about_quotes` (
+CREATE TABLE `about_quote` (
   `quote_id` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
-  `quote` text NOT NULL,
-  `quote_translation` text DEFAULT NULL
+  `quote_text` text NOT NULL,
+  `quote_translation` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
 --
--- Table structure for table `applicant_skills`
+-- Table structure for table `about_team`
 --
 
-CREATE TABLE `applicant_skills` (
-  `email` varchar(50) NOT NULL,
-  `skill_id` int(11) NOT NULL
+CREATE TABLE `about_team` (
+  `team_id` int(11) NOT NULL,
+  `meet_text` text NOT NULL,
+  `team_photo` varchar(255) NOT NULL,
+  `team_name` varchar(50) NOT NULL,
+  `class_day` varchar(50) NOT NULL,
+  `class_time` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -132,6 +137,20 @@ CREATE TABLE `eoi` (
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `eoi_location`
+--
+
+CREATE TABLE `eoi_location` (
+  `eoi_id` int(11) NOT NULL,
+  `address` varchar(50) NOT NULL,
+  `suburb` varchar(50) NOT NULL,
+  `state` varchar(50) NOT NULL,
+  `postcode` int(11) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `eoi_main`
 --
 
@@ -145,8 +164,30 @@ CREATE TABLE `eoi_main` (
   `birth_date` date NOT NULL,
   `gender` varchar(50) DEFAULT NULL,
   `phone_num` varchar(50) NOT NULL,
-  `other_skills` text NOT NULL,
+  `other_skills` text DEFAULT NULL,
   `status` enum('New','Current','Final') NOT NULL DEFAULT 'New'
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eoi_skill`
+--
+
+CREATE TABLE `eoi_skill` (
+  `skill_id` int(11) NOT NULL,
+  `skill_name` varchar(50) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `eoi_skill_selection`
+--
+
+CREATE TABLE `eoi_skill_selection` (
+  `eoi_id` int(11) NOT NULL,
+  `skill_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
@@ -273,17 +314,6 @@ CREATE TABLE `job_summary` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `skills_lookup`
---
-
-CREATE TABLE `skills_lookup` (
-  `skill_id` int(11) NOT NULL,
-  `skill_name` varchar(50) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `users`
 --
 
@@ -292,20 +322,6 @@ CREATE TABLE `users` (
   `username` varchar(255) NOT NULL,
   `user_password` varchar(255) NOT NULL,
   `admin` tinyint(1) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
--- Table structure for table `user_location`
---
-
-CREATE TABLE `user_location` (
-  `user_id` int(11) NOT NULL,
-  `street_address` varchar(255) NOT NULL,
-  `suburb_town` varchar(255) NOT NULL,
-  `state` varchar(10) NOT NULL,
-  `postcode` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -322,7 +338,7 @@ ALTER TABLE `about`
 -- Indexes for table `about_contribution1`
 --
 ALTER TABLE `about_contribution1`
-  ADD PRIMARY KEY (`contribution_id`),
+  ADD PRIMARY KEY (`contribution1_id`),
   ADD KEY `member_id` (`member_id`);
 
 --
@@ -333,10 +349,10 @@ ALTER TABLE `about_contribution2`
   ADD KEY `member_id` (`member_id`);
 
 --
--- Indexes for table `about_fun_fact`
+-- Indexes for table `about_funfact`
 --
-ALTER TABLE `about_fun_fact`
-  ADD PRIMARY KEY (`fun_fact_id`),
+ALTER TABLE `about_funfact`
+  ADD PRIMARY KEY (`funfact_id`),
   ADD KEY `member_id` (`member_id`);
 
 --
@@ -346,24 +362,29 @@ ALTER TABLE `about_member`
   ADD PRIMARY KEY (`member_id`);
 
 --
--- Indexes for table `about_quotes`
+-- Indexes for table `about_quote`
 --
-ALTER TABLE `about_quotes`
+ALTER TABLE `about_quote`
   ADD PRIMARY KEY (`quote_id`),
   ADD KEY `member_id` (`member_id`);
 
 --
--- Indexes for table `applicant_skills`
+-- Indexes for table `about_team`
 --
-ALTER TABLE `applicant_skills`
-  ADD PRIMARY KEY (`email`,`skill_id`),
-  ADD KEY `skill_id` (`skill_id`);
+ALTER TABLE `about_team`
+  ADD PRIMARY KEY (`team_id`);
 
 --
 -- Indexes for table `eoi`
 --
 ALTER TABLE `eoi`
   ADD PRIMARY KEY (`email`);
+
+--
+-- Indexes for table `eoi_location`
+--
+ALTER TABLE `eoi_location`
+  ADD PRIMARY KEY (`eoi_id`);
 
 --
 -- Indexes for table `eoi_main`
@@ -373,6 +394,19 @@ ALTER TABLE `eoi_main`
   ADD UNIQUE KEY `email` (`email`),
   ADD KEY `ref_num` (`ref_num`),
   ADD KEY `user_id` (`user_id`);
+
+--
+-- Indexes for table `eoi_skill`
+--
+ALTER TABLE `eoi_skill`
+  ADD PRIMARY KEY (`skill_id`);
+
+--
+-- Indexes for table `eoi_skill_selection`
+--
+ALTER TABLE `eoi_skill_selection`
+  ADD PRIMARY KEY (`eoi_id`,`skill_id`),
+  ADD KEY `skill_id` (`skill_id`);
 
 --
 -- Indexes for table `jobs`
@@ -431,22 +465,9 @@ ALTER TABLE `job_summary`
   ADD KEY `ref_num` (`ref_num`);
 
 --
--- Indexes for table `skills_lookup`
---
-ALTER TABLE `skills_lookup`
-  ADD PRIMARY KEY (`skill_id`),
-  ADD UNIQUE KEY `skill_name` (`skill_name`);
-
---
 -- Indexes for table `users`
 --
 ALTER TABLE `users`
-  ADD PRIMARY KEY (`user_id`);
-
---
--- Indexes for table `user_location`
---
-ALTER TABLE `user_location`
   ADD PRIMARY KEY (`user_id`);
 
 --
@@ -463,7 +484,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `about_contribution1`
 --
 ALTER TABLE `about_contribution1`
-  MODIFY `contribution_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `about_contribution2`
@@ -472,10 +493,10 @@ ALTER TABLE `about_contribution2`
   MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `about_fun_fact`
+-- AUTO_INCREMENT for table `about_funfact`
 --
-ALTER TABLE `about_fun_fact`
-  MODIFY `fun_fact_id` int(11) NOT NULL AUTO_INCREMENT;
+ALTER TABLE `about_funfact`
+  MODIFY `funfact_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `about_member`
@@ -484,16 +505,28 @@ ALTER TABLE `about_member`
   MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `about_quotes`
+-- AUTO_INCREMENT for table `about_quote`
 --
-ALTER TABLE `about_quotes`
+ALTER TABLE `about_quote`
   MODIFY `quote_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `about_team`
+--
+ALTER TABLE `about_team`
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `eoi_main`
 --
 ALTER TABLE `eoi_main`
   MODIFY `eoi_id` int(11) NOT NULL AUTO_INCREMENT;
+
+--
+-- AUTO_INCREMENT for table `eoi_skill`
+--
+ALTER TABLE `eoi_skill`
+  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
 -- AUTO_INCREMENT for table `job_appeal`
@@ -532,12 +565,6 @@ ALTER TABLE `job_summary`
   MODIFY `summary_id` int(11) NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT for table `skills_lookup`
---
-ALTER TABLE `skills_lookup`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
-
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
@@ -560,23 +587,22 @@ ALTER TABLE `about_contribution2`
   ADD CONSTRAINT `about_contribution2_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `about_member` (`member_id`);
 
 --
--- Constraints for table `about_fun_fact`
+-- Constraints for table `about_funfact`
 --
-ALTER TABLE `about_fun_fact`
-  ADD CONSTRAINT `about_fun_fact_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `about_member` (`member_id`);
+ALTER TABLE `about_funfact`
+  ADD CONSTRAINT `about_funfact_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `about_member` (`member_id`);
 
 --
--- Constraints for table `about_quotes`
+-- Constraints for table `about_quote`
 --
-ALTER TABLE `about_quotes`
-  ADD CONSTRAINT `about_quotes_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `about_member` (`member_id`);
+ALTER TABLE `about_quote`
+  ADD CONSTRAINT `about_quote_ibfk_1` FOREIGN KEY (`member_id`) REFERENCES `about_member` (`member_id`);
 
 --
--- Constraints for table `applicant_skills`
+-- Constraints for table `eoi_location`
 --
-ALTER TABLE `applicant_skills`
-  ADD CONSTRAINT `email` FOREIGN KEY (`email`) REFERENCES `eoi` (`email`),
-  ADD CONSTRAINT `skill_id` FOREIGN KEY (`skill_id`) REFERENCES `skills_lookup` (`skill_id`);
+ALTER TABLE `eoi_location`
+  ADD CONSTRAINT `eoi_location_ibfk_1` FOREIGN KEY (`eoi_id`) REFERENCES `eoi_main` (`eoi_id`);
 
 --
 -- Constraints for table `eoi_main`
@@ -584,6 +610,13 @@ ALTER TABLE `applicant_skills`
 ALTER TABLE `eoi_main`
   ADD CONSTRAINT `eoi_main_ibfk_2` FOREIGN KEY (`ref_num`) REFERENCES `job_main` (`ref_num`),
   ADD CONSTRAINT `eoi_main_ibfk_3` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
+
+--
+-- Constraints for table `eoi_skill_selection`
+--
+ALTER TABLE `eoi_skill_selection`
+  ADD CONSTRAINT `eoi_skill_selection_ibfk_1` FOREIGN KEY (`eoi_id`) REFERENCES `eoi_main` (`eoi_id`),
+  ADD CONSTRAINT `eoi_skill_selection_ibfk_2` FOREIGN KEY (`skill_id`) REFERENCES `eoi_skill` (`skill_id`);
 
 --
 -- Constraints for table `job_appeal`
@@ -627,12 +660,6 @@ ALTER TABLE `job_requirement`
 --
 ALTER TABLE `job_summary`
   ADD CONSTRAINT `job_summary_ibfk_1` FOREIGN KEY (`ref_num`) REFERENCES `job_main` (`ref_num`);
-
---
--- Constraints for table `user_location`
---
-ALTER TABLE `user_location`
-  ADD CONSTRAINT `user_location_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`);
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
