@@ -55,7 +55,7 @@ CREATE TABLE `about_contribution1` (
 CREATE TABLE `about_contribution2` (
   `contribution_id2` int(11) NOT NULL,
   `member_id` int(11) NOT NULL,
-  `contribution2` text NOT NULL
+  `contribution2_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
