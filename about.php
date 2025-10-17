@@ -16,7 +16,7 @@ if (!$conn) {
           echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
         } else {
             // Queries
-            $sql = "SELECT team_id,meet_text, team_name, class_day, class_time FROM about_team ORDER BY team_id";
+            $sql = "SELECT team_id, meet_text, team_name, class_day, class_time, team_photo FROM about_team ORDER BY team_id";
             $result = mysqli_query($conn, $sql);
             $meet_texts = [];
             $team_name = "";
@@ -29,11 +29,25 @@ if (!$conn) {
             if ($team_name == "") {      // For team_name, class_day, class_time, take the first row only
             $team_name = htmlspecialchars($row['team_name']);
             $class_day = htmlspecialchars($row['class_day']);
-            $class_time = htmlspecialchars($row['class_time']);}
+            $class_time = htmlspecialchars($row['class_time']);
+            $team_photo = htmlspecialchars($row['team_photo']);}
             }
           }
         }
-// Close databse connection
+            //Resources: MYSQL Join With Table Aliases https://www.geeksforgeeks.org/mysql/mysql-aliases/
+            $sql_members = "SELECT m.member_id, m.first_name, m.last_name, m.student_id, q.quote_text, q.quote_translation FROM about_member m LEFT JOIN about_quote q ON m.member_id = q.member_id ORDER BY m.member_id";
+            $result_members = mysqli_query($conn, $sql_members);
+            $members = [];
+            $quotes = [];
+            if ($result_members && mysqli_num_rows($result_members) > 0) {
+            while ($row = mysqli_fetch_assoc($result_members)) {
+            $members[$row['member_id']]['first_name'] = htmlspecialchars($row['first_name']);
+            $members[$row['member_id']]['last_name'] = htmlspecialchars($row['last_name']);         
+            $members[$row['member_id']]['student_id'] = htmlspecialchars($row['student_id']);
+            $quotes[$row['member_id']]['quote_text'] = htmlspecialchars($row['quote_text']);
+            $quotes[$row['member_id']]['quote_translation'] = htmlspecialchars($row['quote_translation']);
+        }}
+            // Close databse connection
 mysqli_close($conn);
 ?>
 
@@ -91,36 +105,38 @@ mysqli_close($conn);
             <section id="members-section" class="about-section" aria-label="Team Members"><!--id and class are authored by ryan-->
                 <h2>Team Members <span class="material-symbols-outlined">person_play</span></h2>
                 <div class="members">
+                    <!--Resources: 1.Multidimensional Associative Array in PHP https://www.geeksforgeeks.org/php/multidimensional-associative-array-in-php/
+                                 2.Concatenation of two strings in PHP https://www.geeksforgeeks.org/php/concatenation-two-string-php/-->
                         <div class="member" id="member1" role="group" aria-labelledby="member1-Venson">
-                            <span class="student-id">105205347</span>
+                            <span class="student-id"><?php echo $members[1]['student_id']; ?></span>
                             <dl>
-                            <dt class="member_venson" id="member1-Venson">Wei-ting Chen</dt>
-                                <dd><q>Japanese Poem (最愛の詩) - 「古池や蛙飛びこむ水の音</q>
-                                <br>An old pond—a frog jumps in, the sound of water.</dd>
+                            <dt class="member_venson" id="member1-Venson"><?php $full_name = $members[1]['first_name'] . " " . $members[1]['last_name']; echo $full_name;?></dt>
+                                <dd><q><?php echo $quotes[1]['quote_text']; ?></q>
+                                <br><?php echo $quotes[1]['quote_translation']; ?></dd>
                             </dl>
                         </div>
                         <div class="member" id="member2" role="group" aria-labelledby="member2-Lira">
-                            <span class="student-id">105960769</span>
+                            <span class="student-id"><?php echo $members[2]['student_id']; ?></span>
                             <dl>
-                                <dt class="member_lira" id="member2-Lira">Lira Khisha</dt>
-                                <dd><q>Se a vaca voar, apenas aplaude e aceita</q>
-                                <br>If the cow flies, just clap and accept it</dd>
+                                <dt class="member_lira" id="member2-Lira"><?php $full_name = $members[2]['first_name'] . " " . $members[2]['last_name']; echo $full_name;?></dt>
+                                <dd><q><?php echo $quotes[2]['quote_text']; ?></q>
+                                <br><?php echo $quotes[2]['quote_translation']; ?></dd>
                             </dl>
                         </div>
                         <div class="member" id="member3" role="group" aria-labelledby="member3-Ryan">
-                            <span class="student-id">106060754</span>
+                            <span class="student-id"><?php echo $members[3]['student_id']; ?></span>
                             <dl>
-                                <dt class="member_ryan" id="member3-Ryan">Ryan Tay</dt>
-                                <dd><q>你爱我，我爱你, 蜜雪冰城甜蜜蜜</q>
-                                <br>I love you you love me MIXUE Ice cream and tea</dd>
+                                <dt class="member_ryan" id="member3-Ryan"><?php $full_name = $members[3]['first_name'] . " " . $members[3]['last_name']; echo $full_name;?></dt>
+                                <dd><q><?php echo $quotes[3]['quote_text']; ?></q>
+                                <br><?php echo $quotes[3]['quote_translation']; ?></dd>
                             </dl>
                         </div>
                         <div class="member" id="member4" role="group" aria-labelledby="member4-Aron"> 
-                            <span class="student-id">105556236</span>
+                            <span class="student-id"><?php echo $members[4]['student_id']; ?></span>
                             <dl>
-                                <dt class="member_aron" id="member4-Aron">Aron Winjoto</dt>
-                                <dd><q>你叫我去这样干，他叫我去那样干。真是一群大混蛋</q>
-                                <br>You tell me to do this, he told me to do that, you are all bastards</dd>
+                                <dt class="member_aron" id="member4-Aron"><?php $full_name = $members[4]['first_name'] . " " . $members[4]['last_name']; echo $full_name;?></dt>
+                                <dd><q><?php echo $quotes[4]['quote_text']; ?></q>
+                                <br><?php echo $quotes[4]['quote_translation']; ?></dd>
                             </dl>
                         </div>
                 </div>
@@ -133,7 +149,7 @@ mysqli_close($conn);
                     <tr>
                         <th>Member</th>
                         <th>Contribution Project 1</th>
-                        <th>Contribution Project 1</th>
+                        <th>Contribution Project 2</th>
                         <th>Fun fact</th>
                     </tr>
                     <tr>
@@ -166,7 +182,7 @@ mysqli_close($conn);
             <section class="about-section" aria-label="Our Team">
             <h2 style="text-align: left;">Our Team <span class="material-symbols-outlined">groups_3</span></h2>
                 <figure class="group-photo" >
-                    <img src="images/about/group_photo.jpg" alt="powerpuff_corp_group_photo">
+                    <img src="<?php echo $team_photo; ?>" alt="powerpuff_corp_group_photo">
                     <figcaption>Powerpuff Corp</figcaption>
                 </figure>
             </section>
