@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 17, 2025 at 06:49 AM
+-- Generation Time: Oct 17, 2025 at 07:12 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,21 +51,21 @@ CREATE TABLE `about_contribution1` (
 --
 
 INSERT INTO `about_contribution1` (`contribution1_id`, `member_id`, `contribution1_text`) VALUES
-(31, 1, 'Home page html + css'),
-(32, 1, 'Home background w/Ryan'),
-(33, 1, 'Footer html + css w/Lira'),
-(34, 2, 'About page html + css'),
-(35, 2, 'Company logo #1'),
-(36, 2, 'Github folder management'),
-(37, 2, 'Footer html+css w/Wei-ting'),
-(38, 3, 'Apply page html + css'),
-(39, 3, 'Company logo #2'),
-(40, 3, 'Jira project management'),
-(41, 3, 'Header nav bar html+css w/Aron'),
-(42, 4, 'Jobs page html + css'),
-(43, 4, 'Company/Group name'),
-(44, 4, 'Background keyframe animation'),
-(45, 4, 'Header nav bar html+css w/Ryan');
+(1, 1, 'Home page html + css'),
+(2, 1, 'Home background w/Ryan'),
+(3, 1, 'Footer html + css w/Lira'),
+(4, 2, 'About page html + css'),
+(5, 2, 'Company logo #1'),
+(6, 2, 'Github folder management'),
+(7, 2, 'Footer html+css w/Wei-ting'),
+(8, 3, 'Apply page html + css'),
+(9, 3, 'Company logo #2'),
+(10, 3, 'Jira project management'),
+(11, 3, 'Header nav bar html+css w/Aron'),
+(12, 4, 'Jobs page html + css'),
+(13, 4, 'Company/Group name'),
+(14, 4, 'Background keyframe animation'),
+(15, 4, 'Header nav bar html+css w/Ryan');
 
 -- --------------------------------------------------------
 
@@ -574,7 +574,7 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `about_contribution1`
 --
 ALTER TABLE `about_contribution1`
-  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
+  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `about_contribution2`
