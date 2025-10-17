@@ -3,6 +3,40 @@ File: About Us
 Author: Lira Khisha
 Date: Sep 29 - Oct 27 2025
 -->
+
+<?php
+// Include settings for database connection 
+require_once("settings.php");
+
+//connection to the database
+$conn = mysqli_connect($host, $username, $password, $database);
+
+// Check connection
+if (!$conn) {
+          echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
+        } else {
+            // Queries
+            $sql = "SELECT team_id,meet_text, team_name, class_day, class_time FROM about_team ORDER BY team_id";
+            $result = mysqli_query($conn, $sql);
+            $meet_texts = [];
+            $team_name = "";
+            $class_day = "";
+            $class_time = "";
+           
+            if ($result && mysqli_num_rows($result) > 0) {
+            while ($row = mysqli_fetch_assoc($result)) {
+            $meet_texts[$row['team_id']] = htmlspecialchars($row['meet_text']);
+            if ($team_name == "") {      // For team_name, class_day, class_time, take the first row only
+            $team_name = htmlspecialchars($row['team_name']);
+            $class_day = htmlspecialchars($row['class_day']);
+            $class_time = htmlspecialchars($row['class_time']);}
+            }
+          }
+        }
+// Close databse connection
+mysqli_close($conn);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -34,21 +68,21 @@ Date: Sep 29 - Oct 27 2025
         <main>
             <section id="meet-section" class="about-section" aria-label="Meet the Team"><!--id and class are authored by ryan-->
             <h2 style="text-align: left;">Meet the Team <span class="material-symbols-outlined">star</span></h2>
-                <p>We are <strong><em>Powerpuff Corp!</em></strong> A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we&apos;re good. Together? We&apos;re unstoppable!<span class="material-symbols-outlined">diamond_shine</span></p>
-                <p>Our team is growing, and we&apos;re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER. <strong> Join us</strong> if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don&apos;t always agree).</p>
-                <p>We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.</p> 
-                <p id="job_link">Curious? Excited?? Think you&apos;d enjoy being part of our team??? Check our <a href="jobs.php" target="_blank"><strong> Jobs</strong></a> and <a href="apply.php" target="_blank"><strong> Apply</strong></a> pages to see how you can hop on board!</p>
-                <p>That&apos;s a wrap! Hope to see you joining our quest! <span class="material-symbols-outlined">partner_exchange</span></p> 
+                <p><?php echo $meet_texts[1]; ?> <strong><em><?php echo $meet_texts[2]; ?></em></strong> <?php echo $meet_texts[3]; ?><span class="material-symbols-outlined">diamond_shine</span></p>
+                <p><?php echo $meet_texts[4]; ?><strong> <?php echo $meet_texts[5]; ?></strong> <?php echo $meet_texts[6]; ?></p>
+                <p><?php echo $meet_texts[7]; ?></p> 
+                <p id="job_link"><?php echo $meet_texts[8]; ?><a href="jobs.php" target="_blank"><strong> Jobs</strong></a> and <a href="apply.php" target="_blank"><strong> Apply</strong></a> <?php echo $meet_texts[9]; ?></p>
+                <p><?php echo $meet_texts[10]; ?><span class="material-symbols-outlined">partner_exchange</span></p> 
             </section>
             
             <section id="group-section" class="about-section" aria-label="Group Information"><!--id and class are authored by ryan-->
                 <h2>Academic Information <span class="material-symbols-outlined">school</span></h2>
                 <ul>
-                    <li>Team: Powerpuff Girls</li>
+                    <li>Team: <?php echo $team_name; ?></li>
                     <li>Class Hours:
                         <ul>
-                            <li>Day: Tuesday</li>
-                            <li>Time: 2:30 PM - 4:30 PM</li>
+                            <li>Day: <?php echo $class_day; ?></li>
+                            <li>Time: <?php echo $class_time; ?></li>
                         </ul>
                     </li>
                 </ul>
@@ -64,7 +98,6 @@ Date: Sep 29 - Oct 27 2025
                                 <dd><q>Japanese Poem (最愛の詩) - 「古池や蛙飛びこむ水の音</q>
                                 <br>An old pond—a frog jumps in, the sound of water.</dd>
                             </dl>
-                            <p><strong>Contribution:</strong> Home Page</p>
                         </div>
                         <div class="member" id="member2" role="group" aria-labelledby="member2-Lira">
                             <span class="student-id">105960769</span>
@@ -73,7 +106,6 @@ Date: Sep 29 - Oct 27 2025
                                 <dd><q>Se a vaca voar, apenas aplaude e aceita</q>
                                 <br>If the cow flies, just clap and accept it</dd>
                             </dl>
-                            <p><strong>Contribution:</strong> About Page</p>
                         </div>
                         <div class="member" id="member3" role="group" aria-labelledby="member3-Ryan">
                             <span class="student-id">106060754</span>
@@ -82,7 +114,6 @@ Date: Sep 29 - Oct 27 2025
                                 <dd><q>你爱我，我爱你, 蜜雪冰城甜蜜蜜</q>
                                 <br>I love you you love me MIXUE Ice cream and tea</dd>
                             </dl>
-                            <p><strong>Contribution:</strong> Apply Page</p>
                         </div>
                         <div class="member" id="member4" role="group" aria-labelledby="member4-Aron"> 
                             <span class="student-id">105556236</span>
@@ -91,7 +122,6 @@ Date: Sep 29 - Oct 27 2025
                                 <dd><q>你叫我去这样干，他叫我去那样干。真是一群大混蛋</q>
                                 <br>You tell me to do this, he told me to do that, you are all bastards</dd>
                             </dl>
-                            <p><strong>Contribution:</strong> Jobs Page</p>   
                         </div>
                 </div>
             </section>
@@ -101,36 +131,34 @@ Date: Sep 29 - Oct 27 2025
                 <table>
                     <caption>The Not-So-Serious Section</caption>
                     <tr>
-                        <th>The Real Deal</th>
-                        <th>Random Quirks</th>
+                        <th>Member</th>
+                        <th>Contribution Project 1</th>
+                        <th>Contribution Project 1</th>
+                        <th>Fun fact</th>
                     </tr>
                     <tr>
-                        <td>Venson</td>
-                        <td>Head was once stung by a bee, and I had to go to the hospital.
-                            <br>Love Japanese food, especially sushi and ramen.
-                            <br>The first time I visited a casino, I ran A$100 up to over A$1,000, then gave it all back the next day.
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td>Lira</td>
-                        <td>Had a serious fight with a 4 y/o because he broke my Rubik's Cube when I was 11.
-                            <br>Fell down the stairs and had to get a stitch near my eye.
-                            <br>Had to save my stupid bird at home without a vet because he nearly got tangled and hung himself in his toy.
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                     <tr>
-                        <td>Ryan</td>
-                        <td>Aspiring barista/latte artist
-                            <br>Ran a half marathon in a banana costume
-                            <br>Broke his front tooth at age 7 while pretending to surf on a towel
-                        </td> 
+                        <td></td>
+                        <td></td>
+                        <td></td> 
+                        <td></td>
                     </tr>     
                     <tr>
-                        <td>Aron</td>
-                        <td>Ate mud as a kid
-                        <br>Dropped a deuce in my pants during preschool for 5 days in a row
-                        <br>Got lost once when i was a kid in Melbourne with no way of contacting anyone
-                        </td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
+                        <td></td>
                     </tr>
                 </table>
             </section>
