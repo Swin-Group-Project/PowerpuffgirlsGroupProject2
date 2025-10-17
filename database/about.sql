@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 16, 2025 at 05:09 PM
+-- Generation Time: Oct 17, 2025 at 06:49 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -51,10 +51,21 @@ CREATE TABLE `about_contribution1` (
 --
 
 INSERT INTO `about_contribution1` (`contribution1_id`, `member_id`, `contribution1_text`) VALUES
-(1, 1, '-Home page html + css\n-Home background w/Ryan\n-Footer html + css w/Lira'),
-(2, 2, '-About page html + css\n-Company logo #1\n-Github folder management\n-Footer html+css w/Wei-ting'),
-(3, 3, '-Apply page html + css\n-Company logo #2\n-Jira project management\n-Header nav bar html+css w/Aron'),
-(4, 4, '-Jobs page html + css\n-Company/Group name\n-Background keyframe animation\n-Header nav bar html+css w/Ryan');
+(31, 1, 'Home page html + css'),
+(32, 1, 'Home background w/Ryan'),
+(33, 1, 'Footer html + css w/Lira'),
+(34, 2, 'About page html + css'),
+(35, 2, 'Company logo #1'),
+(36, 2, 'Github folder management'),
+(37, 2, 'Footer html+css w/Wei-ting'),
+(38, 3, 'Apply page html + css'),
+(39, 3, 'Company logo #2'),
+(40, 3, 'Jira project management'),
+(41, 3, 'Header nav bar html+css w/Aron'),
+(42, 4, 'Jobs page html + css'),
+(43, 4, 'Company/Group name'),
+(44, 4, 'Background keyframe animation'),
+(45, 4, 'Header nav bar html+css w/Ryan');
 
 -- --------------------------------------------------------
 
@@ -73,10 +84,23 @@ CREATE TABLE `about_contribution2` (
 --
 
 INSERT INTO `about_contribution2` (`contribution_id2`, `member_id`, `contribution2_text`) VALUES
-(1, 1, '-Cleaned up w3c validation errors for home page\r\n-Addressed Part 1 feedback (index page)'),
-(2, 2, '-manage.php w/Aron: handled admin page\r\n-about.php: table and page\r\n-Reuse common UI with PHP includes w/Ryan\r\n-Cleaned up w3c validation errors for about page\r\n-Addressed Part 1 feedback (about page)'),
-(3, 3, '-settings.php\r\n-eoi.php: table\r\n-process_eoi.php: table and page\r\n-Reuse common UI with PHP includes w/Lira\r\n-Cleaned up w3c validation errors for jobs/apply page\r\n-Addressed Part 1 feedback (apply page)'),
-(4, 4, '-jobs.php: table and page\r\n-manage.php w/Lira: handled user login table\r\n-Addressed Part 1 feedback (jobs page)');
+(1, 1, 'Cleaned up w3c validation errors for home page'),
+(2, 1, 'Addressed Part 1 feedback (index page)'),
+(3, 2, 'manage.php w/Aron: handled admin page'),
+(4, 2, 'about.php: table and page'),
+(5, 2, 'Reuse common UI with PHP includes w/Ryan'),
+(6, 2, 'Cleaned up w3c validation errors for about page'),
+(7, 2, 'Addressed Part 1 feedback (about page)'),
+(8, 3, 'settings.php'),
+(9, 3, 'eoi.php: table'),
+(10, 3, 'process_eoi.php: table and page'),
+(11, 3, 'Reuse common UI with PHP includes w/Lira'),
+(12, 3, 'Cleaned up w3c validation errors for jobs/apply page'),
+(13, 3, 'Addressed Part 1 feedback (apply page)'),
+(14, 4, 'jobs.php: table and page'),
+(15, 4, 'manage.php w/Lira: handled user login table'),
+(16, 4, 'Cleaned up w3c validation errors for jobs/apply page'),
+(17, 4, 'Addressed Part 1 feedback (jobs page)');
 
 -- --------------------------------------------------------
 
@@ -167,11 +191,16 @@ CREATE TABLE `about_team` (
 --
 
 INSERT INTO `about_team` (`team_id`, `meet_text`, `team_photo`, `team_name`, `class_day`, `class_time`) VALUES
-(1, 'We are <strong><em>Powerpuff Corp!</em></strong> A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we&apos;re good. Together? We&apos;re unstoppable!<span class=\"material-symbols-outlined\">diamond_shine</span>', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
-(2, 'Our team is growing, and we&apos;re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER. <strong>Join us</strong> if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don&apos;t always agree).', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
-(3, 'We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
-(4, 'Curious? Excited?? Think you&apos;d enjoy being part of our team??? Check our <a href=\"jobs.php\" target=\"_blank\"><strong>Jobs</strong></a> and <a href=\"apply.php\" target=\"_blank\"><strong>Apply</strong></a> pages to see how you can hop on board!', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
-(5, 'That&apos;s a wrap! Hope to see you joining our quest! <span class=\"material-symbols-outlined\">partner_exchange</span>', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM');
+(1, 'We are', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(2, 'Powerpuff Corp!', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(3, 'A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we\'re good. Together? We\'re unstoppable!', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(4, 'Our team is growing, and we\'re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER.', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(5, 'Join us', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(6, 'if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don\'t always agree).', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(7, 'We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(8, 'Curious? Excited?? Think you\'d enjoy being part of our team??? Check our ', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(9, 'pages to see how you can hop on board!', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM'),
+(10, 'That\'s a wrap! Hope to see you joining our quest!', 'images/about/group_photo.jpg', 'Powerpuff Corp', 'Tuesday', '2:30 PM - 4:30 PM');
 
 -- --------------------------------------------------------
 
@@ -545,13 +574,13 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `about_contribution1`
 --
 ALTER TABLE `about_contribution1`
-  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=46;
 
 --
 -- AUTO_INCREMENT for table `about_contribution2`
 --
 ALTER TABLE `about_contribution2`
-  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
 
 --
 -- AUTO_INCREMENT for table `about_funfact`
@@ -575,7 +604,7 @@ ALTER TABLE `about_quote`
 -- AUTO_INCREMENT for table `about_team`
 --
 ALTER TABLE `about_team`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `eoi_main`
