@@ -685,9 +685,7 @@ credit: Stephanie Eckles
 
 /* ABOUT PAGE STYLES
 author: Lira Khisha
-date: Aug 26 - Sep 26, 2025
-created: Aug 30 2025
-last modified: September 26 2025
+date: Sep 29 - Oct 27, 2025
 */
 
 /*ABOUT-SECTION IS INCLUDED IN ALL SECTIONS*/
@@ -810,7 +808,7 @@ ul ul {
 #fun-facts table {
     margin: 0 auto; /* centers the table */
     border-collapse: collapse;
-    text-align: center; /* centers text in cells */
+    text-align: left; /* text alignment in cells */
 }
 
 #fun-facts th,
