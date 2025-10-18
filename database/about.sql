@@ -199,16 +199,16 @@ CREATE TABLE `about_team` (
 --
 
 INSERT INTO `about_team` (`team_id`, `meet_text`, `team_photo`, `team_name`, `class_day`, `class_time`) VALUES
-(1, "We are", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(2, "Powerpuff Corp!", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(3, "A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we''re good. Together? We''re unstoppable!", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(4, "Our team is growing, and we''re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER.", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(5, "Join us", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(6, "if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don''t always agree).", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(7, "We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(8, "Curious? Excited?? Think you''d enjoy being part of our team??? Check our ", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(9, "pages to see how you can hop on board!", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM"),
-(10, "That''s a wrap! Hope to see you joining our quest!", "images/about/group_photo.jpg", "Powerpuff Corp", "Tuesday", "2:30 PM - 4:30 PM");
+(1, "We are", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(2, "Powerpuff Corp!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(3, "A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we''re good. Together? We''re unstoppable!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(4, "Our team is growing, and we''re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER.", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(5, "Join us", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(6, "if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don''t always agree).", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(7, "We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(8, "Curious? Excited?? Think you''d enjoy being part of our team??? Check our ", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(9, "pages to see how you can hop on board!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
+(10, "That''s a wrap! Hope to see you joining our quest!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM");
 
 -- --------------------------------------------------------
 
