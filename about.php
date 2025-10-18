@@ -22,8 +22,8 @@ if (!$conn) {
             $team_name = "";
             $class_day = "";
             $class_time = "";
-           
-            if ($result && mysqli_num_rows($result) > 0) {
+            $team_photo = "";
+            if ($result && mysqli_num_rows($result) > 0) {   //query error checking
             while ($row = mysqli_fetch_assoc($result)) {
             $meet_texts[$row['team_id']] = htmlspecialchars($row['meet_text']);
             if ($team_name == "") {      // For team_name, class_day, class_time, take the first row only
@@ -39,13 +39,34 @@ if (!$conn) {
             $result_members = mysqli_query($conn, $sql_members);
             $members = [];
             $quotes = [];
-            if ($result_members && mysqli_num_rows($result_members) > 0) {
+            if ($result_members && mysqli_num_rows($result_members) > 0) {      //query error checking
             while ($row = mysqli_fetch_assoc($result_members)) {
             $members[$row['member_id']]['first_name'] = htmlspecialchars($row['first_name']);
             $members[$row['member_id']]['last_name'] = htmlspecialchars($row['last_name']);         
             $members[$row['member_id']]['student_id'] = htmlspecialchars($row['student_id']);
             $quotes[$row['member_id']]['quote_text'] = htmlspecialchars($row['quote_text']);
             $quotes[$row['member_id']]['quote_translation'] = htmlspecialchars($row['quote_translation']);
+        }}
+            $sql_contrib1 = "SELECT member_id, contribution1_text FROM about_contribution1 ORDER BY member_id";
+            $result_contrib1 = mysqli_query($conn, $sql_contrib1);
+            $contrib1 = [];
+            if ($result_contrib1 && mysqli_num_rows($result_contrib1) > 0) {  //query error checking
+            while ($row = mysqli_fetch_assoc($result_contrib1)){
+            $contrib1[$row['member_id']][] = htmlspecialchars($row['contribution1_text']);
+        }}
+            $sql_contrib2 = "SELECT member_id, contribution2_text FROM about_contribution2 ORDER BY member_id";
+            $result_contrib2 = mysqli_query($conn, $sql_contrib2);
+            $contrib2 = [];
+            if ($result_contrib2 && mysqli_num_rows($result_contrib2) > 0) { //query error checking
+            while ($row = mysqli_fetch_assoc($result_contrib2)){
+            $contrib2[$row['member_id']][] = htmlspecialchars($row['contribution2_text']);
+        }}
+            $sql_funfacts = "SELECT * FROM about_funfact ORDER BY member_id, funfact_id";
+            $result_funfacts = mysqli_query($conn, $sql_funfacts);
+            $funfacts = [];
+            if ($result_funfacts && mysqli_num_rows($result_funfacts) > 0) {    //query error checking
+            while ($row = mysqli_fetch_assoc($result_funfacts)){
+            $funfacts[(int)$row['member_id']][] = htmlspecialchars($row['funfact_text']);
         }}
             // Close databse connection
 mysqli_close($conn);
@@ -152,30 +173,20 @@ mysqli_close($conn);
                         <th>Contribution Project 2</th>
                         <th>Fun fact</th>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
+                   <!--Resources: foreach loop syntax adapted from https://www.geeksforgeeks.org/php/how-to-populate-dropdown-list-with-array-values-in-php/
+                       Used implode() to generate nested <ul><li> lists for contributions and fun facts-->
+                    <?php foreach ($members as $id => $member): 
+                               $member_id = (int)$id;?> <!--adjusts automatically if members are removed/added-->
+                    <tr style="text-align: left;">
+                        <td><?php $full_name = $member['first_name'] . " " . $member['last_name']; echo $full_name;?></td>
+                        <td><?php if (isset($contrib1[$member_id])) { echo "<ul><li>" . implode("</li><li>", $contrib1[$member_id]) . "</li></ul>";
+                                } else { echo "—"; } ?></td>
+                        <td><?php if (isset($contrib2[$member_id])) { echo "<ul><li>" . implode("</li><li>", $contrib2[$member_id]) . "</li></ul>"; 
+                                } else { echo "—"; } ?></td>
+                        <td><?php if (isset($funfacts[$member_id])) { echo "<ul><li>" . implode("</li><li>", $funfacts[$member_id]) . "</li></ul>";
+                                } else { echo "—"; } ?></td>
                     </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td> 
-                        <td></td>
-                    </tr>     
-                    <tr>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                        <td></td>
-                    </tr>
+                    <?php endforeach; ?>
                 </table>
             </section>
             
