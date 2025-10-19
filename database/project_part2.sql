@@ -115,28 +115,6 @@ CREATE TABLE `about_team` (
 -- --------------------------------------------------------
 
 --
--- Table structure for table `eoi`
---
-
-CREATE TABLE `eoi` (
-  `email` varchar(50) NOT NULL,
-  `ref_num` varchar(9) NOT NULL,
-  `first_name` varchar(11) NOT NULL,
-  `last_name` varchar(11) NOT NULL,
-  `birthdate` date NOT NULL,
-  `gender` varchar(50) NOT NULL,
-  `street_address` varchar(50) NOT NULL,
-  `suburb_town` varchar(50) NOT NULL,
-  `state` varchar(50) NOT NULL,
-  `postcode` int(4) NOT NULL,
-  `phone_num` int(12) NOT NULL,
-  `other_skills` varchar(11) DEFAULT NULL,
-  `status` varchar(50) NOT NULL DEFAULT 'New'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `eoi_location`
 --
 
@@ -373,12 +351,6 @@ ALTER TABLE `about_quote`
 --
 ALTER TABLE `about_team`
   ADD PRIMARY KEY (`team_id`);
-
---
--- Indexes for table `eoi`
---
-ALTER TABLE `eoi`
-  ADD PRIMARY KEY (`email`);
 
 --
 -- Indexes for table `eoi_location`

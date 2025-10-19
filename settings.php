@@ -1,5 +1,5 @@
 <!-- 
-Created: 14/10/25
+Date reated: 14/10/25
 Last modified: 20/10/25
 
 Database settings 
@@ -9,6 +9,12 @@ Allows for connection to the database -->
     $username = "root";
     $password = ""; // Assessment requirement: Do not set a password
     $database = "project_part2";
+
+$conn = mysqli_connect($host, $username, $password, $database);
+
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 
 // EOI form - skills config
 $skills_data = [
