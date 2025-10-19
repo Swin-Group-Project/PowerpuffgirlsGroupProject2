@@ -1,7 +1,7 @@
 <!-- 
 Title: About page
 Date created: 26/8/25
-Date modified: 7/9/25
+Last modified: 20/9/25
 Author: Ryan Tay
 -->
 <?php require_once "settings.php" ?>
