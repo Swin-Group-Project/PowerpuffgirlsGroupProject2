@@ -8,6 +8,7 @@ Author: Ryan Tay
 
 <?php
 session_start();
+
 $required_errors = $_SESSION['required_errors'] ?? [];
 $pattern_errors = $_SESSION['pattern_errors'] ?? [];
 $form_data = $_SESSION['form_data'] ?? [];

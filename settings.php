@@ -10,12 +10,6 @@ Allows for connection to the database -->
     $password = ""; // Assessment requirement: Do not set a password
     $database = "project_part2";
 
-$conn = mysqli_connect($host, $username, $password, $database);
-
-if (!$conn) {
-    die("Database connection failed: " . mysqli_connect_error());
-}
-
 // EOI form - skills config
 $skills_data = [
     1 => "Project Management",

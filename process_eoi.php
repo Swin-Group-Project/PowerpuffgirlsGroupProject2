@@ -10,6 +10,12 @@ Author: Ryan Tay
 session_start();
 require_once("settings.php");
 
+$conn = mysqli_connect($host, $username, $password, $database);
+
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
+
 function sanitize($data) {
     $data = trim($data);
     $data = stripslashes($data);
@@ -34,7 +40,7 @@ function update_skills_table($conn, $skill_data) {
     foreach ($skill_data as $skill_id => $skill_name) {
         
         if (!isset($existing_skills[$skill_id]) || $existing_skills[$skill_id] !== $skill_name) { // if skill doesn't exist or name has changed
-            $insert_stmt->bind_param("is", $skill_id, $skill_name); // integer => string, prevents SQL injection
+            $insert_stmt->bind_param("is", $skill_id, $skill_name);
             if (!$insert_stmt->execute()) { // Add error check for execute
                 error_log("Error inserting skill $skill_id: " . $insert_stmt->error);
                 // Continue with other skills instead of returning false immediately
@@ -84,7 +90,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $phone_num = sanitize($_POST["phone_num"]);
     $other_skills = sanitize($_POST["other_skills"]);
     // Handle checkboxes: perform sanitize() on each item in skills, storing set items into an array
-    $skills = isset($_POST["skills"]) ? implode(", ", array_map("sanitize", $_POST["skills"])) : "";
+    $skills = $_POST['skills'] ?? [];
 
     // Validation
     $required_errors = [];
@@ -139,8 +145,31 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pattern_errors['gender'] = "Please select a valid gender";
     }
     
-    if (empty($required_errors) && empty($pattern_errors)) { // if input mees validation criteria
-        // TODO: Success action
+    if (empty($required_errors) && empty($pattern_errors)) { // if input meets validation criteria
+        
+        $stmt_eoi_main = $conn->prepare("INSERT INTO eoi_main (
+                email, ref_num, first_name, last_name,
+                birth_date, gender, phone_num, other_skills
+            ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+        $stmt_eoi_main->bind_param("ssssssis",
+            $email, $job_ref_num, $first_name, $last_name,
+            $date_of_birth, $gender, $phone_num, $other_skills);
+        $result = $stmt_eoi_main->execute();
+        if (!$result) {
+            echo "<p style='color:red;'>Error: " . mysqli_error($conn) . "</p>";
+        }
+
+        $eoi_id = mysqli_insert_id($conn);
+
+        foreach ($skills as $skill_id) {
+            $stmt_skill = $conn->prepare("INSERT INTO target_table (eoi_id, skill_id)
+            VALUES (?, ?)");
+            $stmt_skill->bind_param("ii", $eoi_id, $skill_id);
+            $result = $stmt_skill->execute();
+            if (!$result) {
+            echo "<p style='color:red;'>Error: " . mysqli_error($conn) . "</p>";
+            }
+        }
         header("Location: index.php");
         exit;
     } else {
