@@ -134,7 +134,7 @@ CREATE TABLE `eoi_location` (
 
 CREATE TABLE `eoi_main` (
   `eoi_id` int(11) NOT NULL,
-  `user_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL
   `email` varchar(255) NOT NULL,
   `ref_num` varchar(9) NOT NULL,
   `first_name` varchar(50) NOT NULL,
