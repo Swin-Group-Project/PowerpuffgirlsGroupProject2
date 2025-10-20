@@ -29,6 +29,32 @@ unset($_SESSION['form_data']);
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=help" /> <!-- Load Google icons -->
         <title>Apply Now</title>
+        
+        <!-- Example of embedded CSS: Error styling -->
+        <style> 
+            .error-message {
+                color: #d32f2f;
+                font-size: 0.5em; 
+                margin-top: 5px;
+                display: block;
+                padding: 5px;
+                background: #ffebee;
+                border: 1px solid #f44336;
+                border-radius: 4px;
+            }
+
+            .field-error {
+                border: 2px solid #f44336 !important;
+                background-color: #ffebee;
+            }
+
+            .skills-error {
+                border: 2px solid #f44336;
+                padding: 10px;
+                border-radius: 4px;
+                margin: 10px 0;
+            }
+        </style>
     </head>
     <body>
         <?php include "./includes/header.inc" ?>
@@ -48,11 +74,11 @@ unset($_SESSION['form_data']);
                         <label for="job_reference_num">Job Ref No: <span class="red_text">*</span></label>
                         <input id="job_reference_num" name="job_reference_num" type="text"
                             value="<?php echo isset($form_data['job_reference_num']) ? htmlspecialchars($form_data['job_reference_num']) : ''; ?>"
-                            class="<?php echo isset($required_errors['job_reference_num']) || isset($pattern_errors['job_reference_num']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['job_reference_num']) || isset($pattern_errors['job_reference_num']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['job_reference_num'])): ?>
-                            <span class="error-message"><?php echo $required_errors['job_reference_num']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['job_reference_num']; ?></span>
                         <?php elseif (isset($pattern_errors['job_reference_num'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['job_reference_num']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['job_reference_num']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -68,11 +94,11 @@ unset($_SESSION['form_data']);
                         <label for="first_name">First Name: <span class="red_text">*</span></label>
                         <input id="first_name" name="first_name" type="text"
                             value="<?php echo isset($form_data['first_name']) ? htmlspecialchars($form_data['first_name']) : ''; ?>"
-                            class="<?php echo isset($required_errors['first_name']) || isset($pattern_errors['first_name']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['first_name']) || isset($pattern_errors['first_name']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['first_name'])): ?>
-                            <span class="error-message"><?php echo $required_errors['first_name']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['first_name']; ?></span>
                         <?php elseif (isset($pattern_errors['first_name'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['first_name']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['first_name']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -80,11 +106,11 @@ unset($_SESSION['form_data']);
                         <label for="last_name">Last Name: <span class="red_text">*</span></label>
                         <input id="last_name" name="last_name" type="text"
                             value="<?php echo isset($form_data['last_name']) ? htmlspecialchars($form_data['last_name']) : ''; ?>"
-                            class="<?php echo isset($required_errors['last_name']) || isset($pattern_errors['last_name']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['last_name']) || isset($pattern_errors['last_name']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['last_name'])): ?>
-                            <span class="error-message"><?php echo $required_errors['last_name']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['last_name']; ?></span>
                         <?php elseif (isset($pattern_errors['last_name'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['last_name']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['last_name']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -92,11 +118,11 @@ unset($_SESSION['form_data']);
                         <label for="date_of_birth">Date of Birth: <span class="red_text">*</span></label>
                         <input id="date_of_birth" name="date_of_birth" type="text" placeholder="dd/mm/yyyy"
                             value="<?php echo isset($form_data['date_of_birth']) ? htmlspecialchars($form_data['date_of_birth']) : ''; ?>"
-                            class="<?php echo isset($required_errors['date_of_birth']) || isset($pattern_errors['date_of_birth']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['date_of_birth']) || isset($pattern_errors['date_of_birth']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['date_of_birth'])): ?>
-                            <span class="error-message"><?php echo $required_errors['date_of_birth']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['date_of_birth']; ?></span>
                         <?php elseif (isset($pattern_errors['date_of_birth'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['date_of_birth']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['date_of_birth']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -107,7 +133,7 @@ unset($_SESSION['form_data']);
                     </div>
                         
                     <fieldset id="gender_fieldset" role="group" aria-labelledby="gender_legend" 
-                            class="<?php echo isset($required_errors['gender']) || isset($pattern_errors['gender']) ? 'skills-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['gender']) || isset($pattern_errors['gender']) ? 'fieldset_error' : ''; ?>">
                         <legend id="gender_legend">Gender: <span class="red_text">*</span></legend>
                         
                         <label for="male" class="radio_container">
@@ -127,9 +153,9 @@ unset($_SESSION['form_data']);
                         </label>
                         
                         <?php if (isset($required_errors['gender'])): ?>
-                            <span class="error-message"><?php echo $required_errors['gender']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['gender']; ?></span>
                         <?php elseif (isset($pattern_errors['gender'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['gender']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['gender']; ?></span>
                         <?php endif; ?>
                     </fieldset>
                         
@@ -137,11 +163,11 @@ unset($_SESSION['form_data']);
                         <label for="street_address">Street Address: <span class="red_text">*</span></label>
                         <input id="street_address" name="street_address" type="text"
                             value="<?php echo isset($form_data['street_address']) ? htmlspecialchars($form_data['street_address']) : ''; ?>"
-                            class="<?php echo isset($required_errors['street_address']) || isset($pattern_errors['street_address']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['street_address']) || isset($pattern_errors['street_address']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['street_address'])): ?>
-                            <span class="error-message"><?php echo $required_errors['street_address']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['street_address']; ?></span>
                         <?php elseif (isset($pattern_errors['street_address'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['street_address']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['street_address']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -149,17 +175,17 @@ unset($_SESSION['form_data']);
                         <label for="suburb_town">Suburb/Town: <span class="red_text">*</span></label>
                         <input id="suburb_town" name="suburb_town" type="text"
                             value="<?php echo isset($form_data['suburb_town']) ? htmlspecialchars($form_data['suburb_town']) : ''; ?>"
-                            class="<?php echo isset($required_errors['suburb_town']) || isset($pattern_errors['suburb_town']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['suburb_town']) || isset($pattern_errors['suburb_town']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['suburb_town'])): ?>
-                            <span class="error-message"><?php echo $required_errors['suburb_town']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['suburb_town']; ?></span>
                         <?php elseif (isset($pattern_errors['suburb_town'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['suburb_town']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['suburb_town']; ?></span>
                         <?php endif; ?>
                     </div>
                         
                     <div id="state_container" class="flex_item">
                         <label for="state">State: <span class="red_text">*</span></label>
-                        <select id="state" name="state" class="<?php echo isset($required_errors['state']) || isset($pattern_errors['state']) ? 'field-error' : ''; ?>">
+                        <select id="state" name="state" class="<?php echo isset($required_errors['state']) || isset($pattern_errors['state']) ? 'field_error' : ''; ?>">
                             <option value="" disabled <?php echo !isset($form_data['state']) ? 'selected' : ''; ?>>Please select</option>
                             <option value="vic" <?php echo (isset($form_data['state']) && $form_data['state'] === 'vic') ? 'selected' : ''; ?>>VIC</option>
                             <option value="nsw" <?php echo (isset($form_data['state']) && $form_data['state'] === 'nsw') ? 'selected' : ''; ?>>NSW</option>
@@ -171,9 +197,9 @@ unset($_SESSION['form_data']);
                             <option value="act" <?php echo (isset($form_data['state']) && $form_data['state'] === 'act') ? 'selected' : ''; ?>>ACT</option>
                         </select>
                         <?php if (isset($required_errors['state'])): ?>
-                            <span class="error-message"><?php echo $required_errors['state']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['state']; ?></span>
                         <?php elseif (isset($pattern_errors['state'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['state']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['state']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -181,11 +207,11 @@ unset($_SESSION['form_data']);
                         <label for="postcode">Postcode: <span class="red_text">*</span></label>
                         <input id="postcode" name="postcode" type="text"
                             value="<?php echo isset($form_data['postcode']) ? htmlspecialchars($form_data['postcode']) : ''; ?>"
-                            class="<?php echo isset($required_errors['postcode']) || isset($pattern_errors['postcode']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['postcode']) || isset($pattern_errors['postcode']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['postcode'])): ?>
-                            <span class="error-message"><?php echo $required_errors['postcode']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['postcode']; ?></span>
                         <?php elseif (isset($pattern_errors['postcode'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['postcode']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['postcode']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -193,11 +219,11 @@ unset($_SESSION['form_data']);
                         <label for="email">Email: <span class="red_text">*</span></label>
                         <input id="email" name="email" type="email"
                             value="<?php echo isset($form_data['email']) ? htmlspecialchars($form_data['email']) : ''; ?>"
-                            class="<?php echo isset($required_errors['email']) || isset($pattern_errors['email']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['email']) || isset($pattern_errors['email']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['email'])): ?>
-                            <span class="error-message"><?php echo $required_errors['email']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['email']; ?></span>
                         <?php elseif (isset($pattern_errors['email'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['email']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['email']; ?></span>
                         <?php endif; ?>
                     </div>
                         
@@ -205,16 +231,16 @@ unset($_SESSION['form_data']);
                         <label for="phone_num">Phone Number: <span class="red_text">*</span></label>
                         <input id="phone_num" name="phone_num" type="text"
                             value="<?php echo isset($form_data['phone_num']) ? htmlspecialchars($form_data['phone_num']) : ''; ?>"
-                            class="<?php echo isset($required_errors['phone_num']) || isset($pattern_errors['phone_num']) ? 'field-error' : ''; ?>">
+                            class="<?php echo isset($required_errors['phone_num']) || isset($pattern_errors['phone_num']) ? 'field_error' : ''; ?>">
                         <?php if (isset($required_errors['phone_num'])): ?>
-                            <span class="error-message"><?php echo $required_errors['phone_num']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['phone_num']; ?></span>
                         <?php elseif (isset($pattern_errors['phone_num'])): ?>
-                            <span class="error-message"><?php echo $pattern_errors['phone_num']; ?></span>
+                            <span class="error_message"><?php echo $pattern_errors['phone_num']; ?></span>
                         <?php endif; ?>
                     </div>
                         
                     <fieldset id="skills_fieldset" role="group" aria-labelledby="skills_legend"
-                        class="<?php echo isset($required_errors['skills']) ? 'skills-error' : ''; ?>">
+                        class="<?php echo isset($required_errors['skills']) ? 'fieldset_error' : ''; ?>">
                         <legend id="skills_legend">Skills: <span class="red_text">*</span></legend>
                         
                         <?php
@@ -244,7 +270,7 @@ unset($_SESSION['form_data']);
                         </label>
                         
                         <?php if (isset($required_errors['skills'])): ?>
-                            <span class="error-message"><?php echo $required_errors['skills']; ?></span>
+                            <span class="error_message"><?php echo $required_errors['skills']; ?></span>
                         <?php endif; ?>
                     </fieldset>
                         
