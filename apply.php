@@ -6,6 +6,16 @@ Author: Ryan Tay
 -->
 <?php require_once "settings.php" ?>
 
+<?php
+session_start();
+$required_errors = $_SESSION['required_errors'] ?? [];
+$pattern_errors = $_SESSION['pattern_errors'] ?? [];
+$form_data = $_SESSION['form_data'] ?? [];
+unset($_SESSION['required_errors']);
+unset($_SESSION['pattern_errors']);
+unset($_SESSION['form_data']);
+?>
+
 <!DOCTYPE html>
 <html lang="en">
     <head>
@@ -33,121 +43,216 @@ Author: Ryan Tay
                         - https://arziel1992.github.io/input-pattern-tester/
                 -->
                 <form id="apply_form" role="form" aria-labelledby="apply_heading" action="process_eoi.php" method="post">
-                    
+
                     <div id="job_reference_num_container" class="flex_item">
                         <label for="job_reference_num">Job Ref No: <span class="red_text">*</span></label>
-                        <input id="job_reference_num" name="job_reference_num" type="text">
+                        <input id="job_reference_num" name="job_reference_num" type="text"
+                            value="<?php echo isset($form_data['job_reference_num']) ? htmlspecialchars($form_data['job_reference_num']) : ''; ?>"
+                            class="<?php echo isset($required_errors['job_reference_num']) || isset($pattern_errors['job_reference_num']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['job_reference_num'])): ?>
+                            <span class="error-message"><?php echo $required_errors['job_reference_num']; ?></span>
+                        <?php elseif (isset($pattern_errors['job_reference_num'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['job_reference_num']; ?></span>
+                        <?php endif; ?>
                     </div>
-
+                        
                     <!-- Hoverable tooltip for job reference number -->
                     <div class="flex_item help_container">
                         <span class="material-symbols-outlined help-icon" aria-label="Show job reference number help" tabindex="0" aria-describedby="job_ref_help">help</span>
                         <span id="job_ref_help" class="help_hint" role="tooltip">The 5 alphanumberic characters in the job reference code, e.g. REF-<span class="bold">SE842</span></span>
                     </div>
-
+                        
                     <p id="job_link">You can find your <a class="bold" href="jobs.html">job reference number and other job details here.</a></p>
-
+                        
                     <div id="first_name_container" class="flex_item">
                         <label for="first_name">First Name: <span class="red_text">*</span></label>
-                        <input id="first_name" name="first_name" type="text">
+                        <input id="first_name" name="first_name" type="text"
+                            value="<?php echo isset($form_data['first_name']) ? htmlspecialchars($form_data['first_name']) : ''; ?>"
+                            class="<?php echo isset($required_errors['first_name']) || isset($pattern_errors['first_name']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['first_name'])): ?>
+                            <span class="error-message"><?php echo $required_errors['first_name']; ?></span>
+                        <?php elseif (isset($pattern_errors['first_name'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['first_name']; ?></span>
+                        <?php endif; ?>
                     </div>
+                        
                     <div id="last_name_container" class="flex_item">
                         <label for="last_name">Last Name: <span class="red_text">*</span></label>
-                        <input id="last_name" name="last_name" type="text">
+                        <input id="last_name" name="last_name" type="text"
+                            value="<?php echo isset($form_data['last_name']) ? htmlspecialchars($form_data['last_name']) : ''; ?>"
+                            class="<?php echo isset($required_errors['last_name']) || isset($pattern_errors['last_name']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['last_name'])): ?>
+                            <span class="error-message"><?php echo $required_errors['last_name']; ?></span>
+                        <?php elseif (isset($pattern_errors['last_name'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['last_name']; ?></span>
+                        <?php endif; ?>
                     </div>
+                        
                     <div id="date_of_birth_container" class="flex_item">
                         <label for="date_of_birth">Date of Birth: <span class="red_text">*</span></label>
-                        <input id="date_of_birth" name="date_of_birth" type="text" placeholder="dd/mm/yyyy">
+                        <input id="date_of_birth" name="date_of_birth" type="text" placeholder="dd/mm/yyyy"
+                            value="<?php echo isset($form_data['date_of_birth']) ? htmlspecialchars($form_data['date_of_birth']) : ''; ?>"
+                            class="<?php echo isset($required_errors['date_of_birth']) || isset($pattern_errors['date_of_birth']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['date_of_birth'])): ?>
+                            <span class="error-message"><?php echo $required_errors['date_of_birth']; ?></span>
+                        <?php elseif (isset($pattern_errors['date_of_birth'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['date_of_birth']; ?></span>
+                        <?php endif; ?>
                     </div>
-
+                        
                     <!-- Hoverable tooltip for dd/mm/yyyy format -->
                     <div class="flex_item help_container">
                         <span class="material-symbols-outlined help-icon" aria-label="Show date of birth help" tabindex="0" aria-describedby="birth_date_help">help</span>
                         <span id="birth_date_help" class="help_hint" role="tooltip">Please enter your DOB with the format: <span class="bold">dd/mm/yyyy</span></span>
                     </div>
-
-                    <fieldset id="gender_fieldset" role="group" aria-labelledby="gender_legend">
+                        
+                    <fieldset id="gender_fieldset" role="group" aria-labelledby="gender_legend" 
+                            class="<?php echo isset($required_errors['gender']) || isset($pattern_errors['gender']) ? 'skills-error' : ''; ?>">
                         <legend id="gender_legend">Gender: <span class="red_text">*</span></legend>
-
+                        
                         <label for="male" class="radio_container">
-                            <input id="male" value="male" name="gender" type="radio">
+                            <input id="male" value="male" name="gender" type="radio"
+                            <?php echo (isset($form_data['gender']) && $form_data['gender'] === 'male') ? 'checked' : ''; ?>>
                             Male
                         </label>
                         <label for="female" class="radio_container">
-                            <input id="female" value="female" name="gender" type="radio">   
+                            <input id="female" value="female" name="gender" type="radio"
+                            <?php echo (isset($form_data['gender']) && $form_data['gender'] === 'female') ? 'checked' : ''; ?>>   
                             Female
                         </label>
                         <label for="non-binary" class="radio_container">
-                            <input id="non-binary" value="non-binary" name="gender" type="radio">
+                            <input id="non-binary" value="non-binary" name="gender" type="radio"
+                            <?php echo (isset($form_data['gender']) && $form_data['gender'] === 'non-binary') ? 'checked' : ''; ?>>
                             Non-binary
                         </label>
+                        
+                        <?php if (isset($required_errors['gender'])): ?>
+                            <span class="error-message"><?php echo $required_errors['gender']; ?></span>
+                        <?php elseif (isset($pattern_errors['gender'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['gender']; ?></span>
+                        <?php endif; ?>
                     </fieldset>
-
+                        
                     <div id="street_address_container" class="flex_item">
                         <label for="street_address">Street Address: <span class="red_text">*</span></label>
-                        <input id="street_address" name="street_address" type="text">
+                        <input id="street_address" name="street_address" type="text"
+                            value="<?php echo isset($form_data['street_address']) ? htmlspecialchars($form_data['street_address']) : ''; ?>"
+                            class="<?php echo isset($required_errors['street_address']) || isset($pattern_errors['street_address']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['street_address'])): ?>
+                            <span class="error-message"><?php echo $required_errors['street_address']; ?></span>
+                        <?php elseif (isset($pattern_errors['street_address'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['street_address']; ?></span>
+                        <?php endif; ?>
                     </div>
-
+                        
                     <div id="suburb_town_container" class="flex_item">
                         <label for="suburb_town">Suburb/Town: <span class="red_text">*</span></label>
-                        <input id="suburb_town" name="suburb_town" type="text">
+                        <input id="suburb_town" name="suburb_town" type="text"
+                            value="<?php echo isset($form_data['suburb_town']) ? htmlspecialchars($form_data['suburb_town']) : ''; ?>"
+                            class="<?php echo isset($required_errors['suburb_town']) || isset($pattern_errors['suburb_town']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['suburb_town'])): ?>
+                            <span class="error-message"><?php echo $required_errors['suburb_town']; ?></span>
+                        <?php elseif (isset($pattern_errors['suburb_town'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['suburb_town']; ?></span>
+                        <?php endif; ?>
                     </div>
-
+                        
                     <div id="state_container" class="flex_item">
                         <label for="state">State: <span class="red_text">*</span></label>
-                        <select id="state">
-                            <option value="" selected disabled>Please select</option>
-                            <option value="vic">VIC</option>
-                            <option value="nsw">NSW</option>
-                            <option value="qld">QLD</option>
-                            <option value="nt">NT</option>
-                            <option value="wa">WA</option>
-                            <option value="sa">SA</option>
-                            <option value="tas">TAS</option>
-                            <option value="act">ACT</option>
+                        <select id="state" name="state" class="<?php echo isset($required_errors['state']) || isset($pattern_errors['state']) ? 'field-error' : ''; ?>">
+                            <option value="" disabled <?php echo !isset($form_data['state']) ? 'selected' : ''; ?>>Please select</option>
+                            <option value="vic" <?php echo (isset($form_data['state']) && $form_data['state'] === 'vic') ? 'selected' : ''; ?>>VIC</option>
+                            <option value="nsw" <?php echo (isset($form_data['state']) && $form_data['state'] === 'nsw') ? 'selected' : ''; ?>>NSW</option>
+                            <option value="qld" <?php echo (isset($form_data['state']) && $form_data['state'] === 'qld') ? 'selected' : ''; ?>>QLD</option>
+                            <option value="nt" <?php echo (isset($form_data['state']) && $form_data['state'] === 'nt') ? 'selected' : ''; ?>>NT</option>
+                            <option value="wa" <?php echo (isset($form_data['state']) && $form_data['state'] === 'wa') ? 'selected' : ''; ?>>WA</option>
+                            <option value="sa" <?php echo (isset($form_data['state']) && $form_data['state'] === 'sa') ? 'selected' : ''; ?>>SA</option>
+                            <option value="tas" <?php echo (isset($form_data['state']) && $form_data['state'] === 'tas') ? 'selected' : ''; ?>>TAS</option>
+                            <option value="act" <?php echo (isset($form_data['state']) && $form_data['state'] === 'act') ? 'selected' : ''; ?>>ACT</option>
                         </select>
+                        <?php if (isset($required_errors['state'])): ?>
+                            <span class="error-message"><?php echo $required_errors['state']; ?></span>
+                        <?php elseif (isset($pattern_errors['state'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['state']; ?></span>
+                        <?php endif; ?>
                     </div>
-
+                        
                     <div id="postcode_container" class="flex_item">
                         <label for="postcode">Postcode: <span class="red_text">*</span></label>
-                        <input id="postcode" name="postcode" type="text">
+                        <input id="postcode" name="postcode" type="text"
+                            value="<?php echo isset($form_data['postcode']) ? htmlspecialchars($form_data['postcode']) : ''; ?>"
+                            class="<?php echo isset($required_errors['postcode']) || isset($pattern_errors['postcode']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['postcode'])): ?>
+                            <span class="error-message"><?php echo $required_errors['postcode']; ?></span>
+                        <?php elseif (isset($pattern_errors['postcode'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['postcode']; ?></span>
+                        <?php endif; ?>
                     </div>
+                        
                     <div id="email_container" class="flex_item">
                         <label for="email">Email: <span class="red_text">*</span></label>
-                        <input id="email" name="email" type="email">
+                        <input id="email" name="email" type="email"
+                            value="<?php echo isset($form_data['email']) ? htmlspecialchars($form_data['email']) : ''; ?>"
+                            class="<?php echo isset($required_errors['email']) || isset($pattern_errors['email']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['email'])): ?>
+                            <span class="error-message"><?php echo $required_errors['email']; ?></span>
+                        <?php elseif (isset($pattern_errors['email'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['email']; ?></span>
+                        <?php endif; ?>
                     </div>
+                        
                     <div id="phone_num_container" class="flex_item">
                         <label for="phone_num">Phone Number: <span class="red_text">*</span></label>
-                        <input id="phone_num" name="phone_num" type="text">
+                        <input id="phone_num" name="phone_num" type="text"
+                            value="<?php echo isset($form_data['phone_num']) ? htmlspecialchars($form_data['phone_num']) : ''; ?>"
+                            class="<?php echo isset($required_errors['phone_num']) || isset($pattern_errors['phone_num']) ? 'field-error' : ''; ?>">
+                        <?php if (isset($required_errors['phone_num'])): ?>
+                            <span class="error-message"><?php echo $required_errors['phone_num']; ?></span>
+                        <?php elseif (isset($pattern_errors['phone_num'])): ?>
+                            <span class="error-message"><?php echo $pattern_errors['phone_num']; ?></span>
+                        <?php endif; ?>
                     </div>
-
-                    <fieldset id="skills_fieldset" role="group" aria-labelledby="skills_legend">
+                        
+                    <fieldset id="skills_fieldset" role="group" aria-labelledby="skills_legend"
+                        class="<?php echo isset($required_errors['skills']) ? 'skills-error' : ''; ?>">
                         <legend id="skills_legend">Skills: <span class="red_text">*</span></legend>
-
-                        <?php foreach ($skills_data as $value => $label): ?>
+                        
+                        <?php
+                        $selected_skills = isset($form_data['skills']) ? $form_data['skills'] : [];
+                        foreach ($skills_data as $value => $label): ?>
                             <label for="skill_<?php echo $value; ?>" class="checkbox_container">
                                 <input id="skill_<?php echo $value; ?>" 
-                                        value="<?php echo $value; ?>" 
-                                        name="skills[]" 
-                                        type="checkbox">
+                                    value="<?php echo $value; ?>" 
+                                    name="skills[]" 
+                                    type="checkbox"
+                                <?php echo (in_array($value, $selected_skills)) ? 'checked' : ''; ?>>
                                 <?php echo htmlspecialchars($label); ?>
                             </label>
                         <?php endforeach; ?>
+                        
                         <label for="other" class="checkbox_container">
-                            <input id="other" value="other" name="skills[]" type="checkbox" controls="other_skills_container">
+                            <input id="other" value="other" name="skills[]" type="checkbox" controls="other_skills_container"
+                                <?php echo (in_array('other', $selected_skills)) ? 'checked' : ''; ?>>
                             Other skills...
                             <div id="other_skills_container">
                                 <label for="other_skills">Enter other skills below: </label>
-                                <textarea id="other_skills" name="other_skills" rows="4" cols="60" placeholder="Link to your portfolio, list any other relevant skills here..."></textarea>
+                                <textarea id="other_skills" name="other_skills" rows="4" cols="60" 
+                                    placeholder="Link to your portfolio, list any other relevant skills here..."><?php 
+                                    echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; 
+                                    ?></textarea>
                             </div>
                         </label>
+                        
+                        <?php if (isset($required_errors['skills'])): ?>
+                            <span class="error-message"><?php echo $required_errors['skills']; ?></span>
+                        <?php endif; ?>
                     </fieldset>
-                    
+                        
                     <div id="button_container" class="flex_item">
                         <input id="submit_btn" type="submit" value="Submit Form">
                         <input id="reset_btn" type="reset" value="Reset">
                     </div>
-                    
+                        
                 </form>
                 <!--    FORM ENDS HERE
                         'post' method used for submitting user form data

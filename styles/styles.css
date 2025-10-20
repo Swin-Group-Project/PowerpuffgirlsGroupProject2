@@ -573,22 +573,6 @@ legend {
     padding: 0 0.3em;
 }
 
-/* Validation styling - radio/checkbox inputs have their own custom styling */
-#wrapper input[type="text"]:valid,
-input[type="email"]:valid,
-select:valid {
-    border: 2px solid #a3db40;
-    background-color: #f2f5ed;
-}
-
-#wrapper input[type="text"]:invalid,
-input[type="email"]:invalid,
-select:invalid {
-    border: 2px solid #eb8188;
-    background-color: #fcf2f0;
-}
-
-
 /* Custom radio buttons/checkboxes
 
 Remove default browser styling and create radio/checkbox buttons of custom height, width and colour
