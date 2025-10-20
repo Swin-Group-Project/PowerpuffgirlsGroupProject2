@@ -4,6 +4,13 @@ Date created: 7/9/25
 Last modified: 20/9/25
 Author: Ryan Tay
 -->
+
+<?php
+// Turn on error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+?>
+
 <?php
 
 // Connection to database "project_part2"
@@ -68,6 +75,16 @@ function load_skills_table($conn) {
     return $existing_skills;
 }
 
+// Check table structure
+$result = $conn->query("SHOW CREATE TABLE eoi_main");
+if ($result) {
+    $row = $result->fetch_assoc();
+    echo "<pre>Table structure: " . htmlspecialchars($row['Create Table']) . "</pre>";
+    $result->free();
+} else {
+    echo "Error checking table structure: " . $conn->error;
+}
+
 if (isset($skill_data)) {
     update_skills_table($conn, $skill_data);
 } else {
@@ -76,8 +93,9 @@ if (isset($skill_data)) {
 
 // Check if POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
+
     // Get user input
-    $job_ref_num = sanitize($_POST["job_reference_num"]);
+    $job_reference_num = sanitize($_POST["job_reference_num"]);
     $first_name = sanitize($_POST["first_name"]);
     $last_name = sanitize($_POST["last_name"]);
     $date_of_birth = sanitize($_POST["date_of_birth"]);
@@ -110,7 +128,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
 
         // Required field validation
     $required_fields = [
-        "job_reference_num" => $job_ref_num,
+        "job_reference_num" => $job_reference_num,
         "first_name" => $first_name,
         "last_name" => $last_name,
         "date_of_birth" => $date_of_birth,
@@ -125,13 +143,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     ];
 
     foreach ($required_fields as $field => $value) {
-        if (empty(trim($value))) {
+        if (empty($value)) {
             $required_errors[$field] = "This field is required";
         }
     }
+    
     foreach ($patterns as $field => $pattern) {
         $value = ${str_replace(' ', '_', $field)};
-        if (!empty(trim($value)) && !preg_match($pattern, $value)) {
+        if (!empty($value) && !preg_match($pattern, $value)) {
             $pattern_errors[$field] = "Invalid format for " . str_replace('_', ' ', $field);
         }
     }
@@ -144,33 +163,44 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     if (!empty($gender) && !in_array($gender, ['male', 'female', 'non-binary'])) {
         $pattern_errors['gender'] = "Please select a valid gender";
     }
-    
+
+    if (empty($other_skills)) {
+        $other_skills = null;
+    }
+
     if (empty($required_errors) && empty($pattern_errors)) { // if input meets validation criteria
-        
         $stmt_eoi_main = $conn->prepare("INSERT INTO eoi_main (
                 email, ref_num, first_name, last_name,
                 birth_date, gender, phone_num, other_skills
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-        $stmt_eoi_main->bind_param("ssssssis",
-            $email, $job_ref_num, $first_name, $last_name,
+
+        $stmt_eoi_main->bind_param("ssssssss",
+            $email, $job_reference_num, $first_name, $last_name,
             $date_of_birth, $gender, $phone_num, $other_skills);
+
         $result = $stmt_eoi_main->execute();
+
         if (!$result) {
-            echo "<p style='color:red;'>Error: " . mysqli_error($conn) . "</p>";
+            echo "<p style='color:red;'>Error: " . $stmt_eoi_main->error . "</p>";
         }
 
         $eoi_id = mysqli_insert_id($conn);
 
         foreach ($skills as $skill_id) {
-            $stmt_skill = $conn->prepare("INSERT INTO target_table (eoi_id, skill_id)
+            $stmt_skill = $conn->prepare("INSERT INTO eoi_skill_selection (eoi_id, skill_id)
             VALUES (?, ?)");
             $stmt_skill->bind_param("ii", $eoi_id, $skill_id);
             $result = $stmt_skill->execute();
             if (!$result) {
-            echo "<p style='color:red;'>Error: " . mysqli_error($conn) . "</p>";
+            echo "<p style='color:red;'>Error: " . $stmt_skill->error . "</p>";
             }
+            $stmt_skill->close();
         }
-        header("Location: index.php");
+        
+
+        $stmt_eoi_main->close();
+        
+        header("Location: eoi_success.php");
         exit;
     } else {
         // Validation failed - store errors and form data in session

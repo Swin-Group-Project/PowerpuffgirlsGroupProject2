@@ -12,10 +12,10 @@
         <title>Apply Now</title>
     </head>
     <body>
-        <div id="success_wrapper">
-            <p>
-                
-            </p>
+        <?php include "./includes/header.inc" ?>
+        <div class="about-section">
+            <p>Form submitted. <a href="index.php">Go to Home page</a></p>
         </div>
+        <?php include "./includes/footer.inc" ?>
     </body>
 </html

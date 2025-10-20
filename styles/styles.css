@@ -667,6 +667,11 @@ credit: Stephanie Eckles
 
 /* APPLY PAGE STYLES - END */
 
+#success_wrapper {
+    display: flex;
+    background: white;
+}
+
 /* ABOUT PAGE STYLES
 author: Lira Khisha
 date: Sep 29 - Oct 27, 2025
