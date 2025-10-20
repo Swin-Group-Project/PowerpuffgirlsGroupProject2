@@ -52,20 +52,20 @@
       <!-- Section with navigation tiles -->
       <section class="tiles" role="navigation" aria-label="Feature tiles">
         <!-- Home tile (links back to index) -->
-        <a class="tile tile-home hover-effect" href="index.html" aria-label="Go to Home page">
+        <a class="tile tile-home hover-effect" href="index.php" aria-label="Go to Home page">
           <p class="eyebrow">Welcome</p>
           <h3>Home</h3>
         </a>
 
         <!-- Jobs tile (links to jobs page) -->
-        <a class="tile tile-jobs hover-effect" href="jobs.html" aria-label="View open jobs">
+        <a class="tile tile-jobs hover-effect" href="jobs.php" aria-label="View open jobs">
           <p class="eyebrow">We’re hiring</p>
           <h3>Jobs</h3>
           <p class="tile-text">View open positions and requirements.</p>
         </a>
 
         <!-- Apply tile (links to apply page) -->
-        <a class="tile tile-apply hover-effect" href="apply.html" aria-label="Apply for a role">
+        <a class="tile tile-apply hover-effect" href="apply.php" aria-label="Apply for a role">
           <p class="eyebrow">Join us</p>
           <h3>Apply</h3>
           <p class="tile-text">Apply by submitting your form.</p>
@@ -73,7 +73,7 @@
         </a>
 
         <!-- About tile (links to about page) -->
-        <a class="tile tile-about hover-effect" href="about.html">
+        <a class="tile tile-about hover-effect" href="about.php">
           <p class="eyebrow">Discover us</p>
           <h3>About</h3>
           <p class="tile-text">Learn more about our team</p>

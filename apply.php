@@ -31,7 +31,7 @@ unset($_SESSION['form_data']);
         <title>Apply Now</title>
         
         <!-- Example of embedded CSS: Error styling -->
-        <style> 
+        <style>
             .error-message {
                 color: #d32f2f;
                 font-size: 0.5em; 
@@ -88,7 +88,7 @@ unset($_SESSION['form_data']);
                         <span id="job_ref_help" class="help_hint" role="tooltip">The 5 alphanumberic characters in the job reference code, e.g. REF-<span class="bold">SE842</span></span>
                     </div>
                         
-                    <p id="job_link">You can find your <a class="bold" href="jobs.html">job reference number and other job details here.</a></p>
+                    <p id="job_link">You can find your <a class="bold" href="jobs.php">job reference number and other job details here.</a></p>
                         
                     <div id="first_name_container" class="flex_item">
                         <label for="first_name">First Name: <span class="red_text">*</span></label>
