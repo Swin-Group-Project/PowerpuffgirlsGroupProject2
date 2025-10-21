@@ -94,7 +94,7 @@ INSERT INTO `about_contribution2` (`contribution_id2`, `member_id`, `contributio
 (9, 3, 'Cleaned up w3c validation errors and Addressed Part 1 feedback for jobs/apply page'),
 (10, 4, 'jobs.php: table and page'),
 (11, 4, 'manage.php w/Lira: handled user login table'),
-(12, 4, 'Cleaned up w3c validation errors and addressed Part 1 feedbackfor jobs/apply page'),
+(12, 4, 'Cleaned up w3c validation errors and addressed Part 1 feedbackfor jobs/apply page');
 
 -- --------------------------------------------------------
 
@@ -584,7 +584,7 @@ ALTER TABLE `about_contribution1`
 -- AUTO_INCREMENT for table `about_contribution2`
 --
 ALTER TABLE `about_contribution2`
-  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=18;
+  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `about_funfact`
