@@ -369,12 +369,15 @@ aside.job-page {
 }
 
 .job-detail-ordered-list {
-    margin-left: 20px;
+    margin-left: 50px;
 }
 
-.job-detail-list {
-    list-style-type: none;
-    margin-left: -20px;
+.bottom-margin {
+    margin-bottom: 1em;
+}
+
+.medium-padding {
+    padding: 1em;
 }
 
 /* APPLY PAGE STYLES - START

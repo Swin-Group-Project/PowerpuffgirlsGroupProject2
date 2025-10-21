@@ -13,61 +13,59 @@
 </head>
 <body>
     <?php include "./includes/header.inc" ?>
-        <div class="container_jobs"> 
+        <div class="container_jobs">
             <input class="jobpage" type="radio" name="joblist" id="job1"><!--Makes input so the webpage is interactive without Javascript-->
             <input class="jobpage" type="radio" name="joblist" id="job2"><!--same name so only 1 can be selected at a time-->
             <input class="jobpage" type="radio" name="joblist" id="job3">
             <input class="jobpage" type="radio" name="joblist" id="job4">   
-            <main class="job-detail" role="main">
-                <div class="detail" id="detail1" role="description">
-                    <heading>
-                            <h2>Software Engineer <span class="material-symbols-outlined">deployed_code</span></h2>
-                            <section class="company">
-                                <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
-                            </section>
-                            <section class="location">
-                                <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
-                            </section>
-                    <section class="salary">
-                        <p>A$90,000-110,000</p>
-                    </heading>
-                    </section>    
-                    <hr>
+            <main class="job-detail">
+                <!-- RYAN: Use DETAIL1 as a template for dynamically updating PHP element -->
+                <div class="detail medium-padding" id="detail1">
+                    <h2>Software Engineer <span class="material-symbols-outlined">deployed_code</span></h2>
+                        <p class="company"><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
+                        <p class="location"><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
+                        <p class="salary">A$90,000-110,000</p>
+                    <hr> <!-- draw this line in CSS instead -->
                     <article>
-                        <ul class="job-detail-list">
-                            <li><h3>What We're looking for:</h3></li>
-                                <ul class="job-detail-ordered-list">
-                                    <li>Solid experience with programming languages such as C++ or C#, and a strong understanding of object-oriented design principles. </li>
-                                    <li>Proven ability to debug and solve complex technical issues efficiently.</li>
-                                    <li>A strong interest in gameplay design and the ability to translate creative ideas into functional systems.</li>
+                        <section class="bottom-margin">
+                            <h3>What We're looking for:</h3>
+                            <ul >
+                                <li>Solid experience with programming languages such as C++ or C#, and a strong understanding of object-oriented design principles. </li>
+                                <li>Proven ability to debug and solve complex technical issues efficiently.</li>
+                                <li>A strong interest in gameplay design and the ability to translate creative ideas into functional systems.</li>
+                            </ul>
+                        </section>
+                        <section class="bottom-margin">
+                            <h3>What's Involved:</h3>
+                            <ol class="job-detail-ordered-list bottom-margin">
+                                <li><p><strong>Build Core Gameplay systems</strong></p></li>
+                                <ul>
+                                    <li>You'll design and implement the essential systems that power the game, from character controls to in-game mechanics. These systems form the foundation of the player’s experience and need to be robust, efficient, and scalable</li>
                                 </ul>
-
-                            <li><h3>What's Involved:</h3></li>
-                                <ol class="job-detail-ordered-list">
-                                    <li><p><h4>Build Core Gameplay systems</h4></p></li>
-                                    <ul>
-                                        <li>You’ll design and implement the essential systems that power the game, from character controls to in-game mechanics. These systems form the foundation of the player’s experience and need to be robust, efficient, and scalable</li>
-                                    </ul>
-                                    <li><p><h4>Collaborate with design and art teams</h4></p></li>
-                                    <ul>
-                                        <li>You’ll work closely with designers and artists to translate creative concepts into technical features. This collaboration ensures the game feels cohesive, fun, and visually polished.</li>
-                                    </ul>
-                                    <li><p><h4>Requires strong coding skills (C++/C#)</h4></p></li>
-                                    <ul>
-                                        <li>Success in this role requires expertise in languages such as C++ or C#, as well as the ability to write clean, maintainable code. Strong debugging and problem-solving skills are also critical.</li>
-                                    </ul>
-                                </ol>
-                            <li><h3>Why Join Us:</h3></li>
-                                <ul class="job-detail-ordered-list">
-                                    <li>Contribute directly to gameplay systems that shape the player experience</li>
-                                    <li>Collaborate with cross-disciplinary teams in a creative environment</li>
-                                    <li>Grow your engineering skills with challenging technical problems</li>
+                                <li><p><strong>Collaborate with design and art teams</strong></p></li>
+                                <ul>
+                                    <li>You'll work closely with designers and artists to translate creative concepts into technical features. This collaboration ensures the game feels cohesive, fun, and visually polished.</li>
                                 </ul>
-                        </ul>
+                                <li><p><strong>Requires strong coding skills (C++/C#)</strong></p></li>
+                                <ul>
+                                    <li>Success in this role requires expertise in languages such as C++ or C#, as well as the ability to write clean, maintainable code. Strong debugging and problem-solving skills are also critical.</li>
+                                </ul>
+                            </ol>
+                        </section>
+                        <section class="bottom-margin">
+                            <h3 >Why Join Us:</h3>
+                            <ul>
+                                <li>Contribute directly to gameplay systems that shape the player experience</li>
+                                <li>Collaborate with cross-disciplinary teams in a creative environment</li>
+                                <li>Grow your engineering skills with challenging technical problems</li>
+                            </ul>
+                        </section>
+                        
+                        
                     </article>
                 </div>
+                <!-- TO DO: Once detail1 is dynamic, remove detail2-4 -->
                 <div class="detail" id="detail2" role="description">
-                    <heading>
                             <h2>Graphics Engineer <span class="material-symbols-outlined">wall_art</span></h2>
                             <section class="company">
                                 <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
@@ -75,13 +73,12 @@
                             <section class="location">
                                     <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
                             </section>
-                    </heading>
                     <section class="salary">
                         <p>A$90,000-110,000</p>
                     </section>
                     <hr>
                     <article>
-                        <ul class="job-detail-list">    
+                        < class="job-detail-list">    
                             <li><h3>What We're looking for:</h3></li>
                                 <ul class="job-detail-ordered-list">
                                     <li>Strong knowledge of graphics APIs such as DirectX, Vulkan, or OpenGL, and experience writing shaders.</li>
@@ -90,7 +87,6 @@
                                     <li>Ability to analyze performance bottlenecks and optimize rendering for multiple platforms.</li>
                                     <li>Creativity and technical curiosity, with a passion for delivering breathtaking visual experiences.</li>
                                 </ul>
-
                             <li><h3>What's Involved:</h3></li>
                                 <ol class="job-detail-ordered-list">
                                     <li><p><h4>Create rendering and visual effects</h4></p></li>
@@ -112,11 +108,10 @@
                                     <li>Help define the visual direction of our games by collaborating directly with artists and designers.</li>
                                     <li>Gain hands-on experience with the latest graphics APIs, shader languages, and performance optimization techniques.</li>
                                 </ul>
-                        </ul>
+                        </>
                     </article>
                 </div>
                 <div class="detail" id="detail3" role="description">
-                    <heading>
                             <h2>Build Engineer <span class="material-symbols-outlined">construction</span></h2>
                             <section class="company">
                                 <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
@@ -124,7 +119,6 @@
                             <section class="location">
                                 <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
                             </section>
-                    </heading>
                     <section class="salary">
                         <p>A$100,000-130,000</p>
                     </section>
@@ -139,7 +133,6 @@
                                     <li>A solid understanding of version control systems like Git or Perforce.</li>
                                     <li>A detail-oriented mindset with a focus on stability, reliability, and scalability.</li>
                                 </ul>
-
                             <li><h3>What's Involved:</h3></li>
                                 <ol class="job-detail-ordered-list">
                                     <li><p><h4>Manage automated build pipelines</h4></p></li>
@@ -165,7 +158,6 @@
                     </article>
                 </div>
                 <div class="detail" id="detail4" role="description">
-                    <heading>
                             <h2>Network Engineer <span class="material-symbols-outlined">network_node</span></h2>
                             <section class="company">
                                 <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
@@ -173,7 +165,6 @@
                             <section class="location">
                                 <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
                             </section>
-                    </heading>
                     <section class="salary">
                         <p>A$105,000-125,000</p>
                     </section>
@@ -187,7 +178,6 @@
                                     <li>Ability to debug and optimize network performance, addressing latency, packet loss, and connectivity issues.</li>
                                     <li>Experience with security best practices for online games, including encryption and cheat prevention.</li>
                                 </ul>
-
                             <li><h3>What's Involved:</h3></li>
                                 <ol class="job-detail-ordered-list">
                                     <li><p><h4>Develop multiplayer features</h4></p></li>
@@ -213,119 +203,99 @@
                     </article> 
                 </div>
             </main>
-
-            <aside aria-role="scroll" class="job-page">
-                <label for="job1">
-                    <div id="job1" class="job-list hover-effect" tabindex = "0" role="button"><!--id so the page knows which input is selected when box is clicked-->
-                        <heading>
-                            <h2>Software Engineer <span class="material-symbols-outlined">deployed_code</span></h2>
-                            <section class="company">
-                                <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
-                            </section>
-                            <section class="location">
-                                <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
-                            </section>
-                        </heading>
-                        <section class="salary">
-                            <p>A$90,000-110,000</p>
+        <div class="job-page">
+            <!-- RYAN: Use job1 as a template for dynamically updating PHP element -->
+                <aside id="job1" class="job-list hover-effect" tabindex = "0" role="button"><!--id so the page knows which input is selected when box is clicked-->
+                        <h2>Software Engineer <span class="material-symbols-outlined">deployed_code</span></h2>
+                        <p class="company"><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
+                        <p class="location"><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
+                        <p class="salary">A$90,000-110,000</p>
+                        <h3>Job Summary</h3>
+                        <ul class="job-summary-list">
+                            <li>Build core gameplay systems</li>
+                            <li>Collaborate with design and art teams</li>
+                            <li>Requires strong coding skills (C++/C#)</li>
+                        </ul>
+                    <div class="job-footing ref-num"><em>REF-SE842</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
+                </aside>
+            <!-- RYAN: Once job1 is dynamic, delete job2-4 -->
+            <label for="job2">
+                <div id="job2" class="job-list">
+                        <h2>Graphics Engineer <span class="material-symbols-outlined">wall_art</span></h2>
+                        <section class="company">
+                            <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
                         </section>
-                        <section class="job-summary">
-                            <h3>Job Summary</h3>
-                            <ul class="job-summary-list">
-                                <li>Build core gameplay systems</li>
-                                <li>Collaborate with design and art teams</li>
-                                <li>Requires strong coding skills (C++/C#)</li>
-                            </ul>
+                        <section class="location">
+                            <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
                         </section>
-                        <footing class="job-footing">
-                            <div class="ref-num"><em>REF-SE842</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
-                        </footing>
-                    </div>
-                </label>
-                <label for="job2">
-                    <div id="job2" class="job-list">
-                        <heading>
-                            <h2>Graphics Engineer <span class="material-symbols-outlined">wall_art</span></h2>
-                            <section class="company">
-                                <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
-                            </section>
-                            <section class="location">
-                                <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
-                            </section>
-                        </heading>
-                        <section class="salary">
-                            <p>A$90,000-110,000</p>
-                        </section>
-                        <section class="job-summary">
-                            <h3>Job Summary</h3>
-                            <ul class="job-summary-list">
-                                <li>Create rendering and visual effects</li>
-                                <li>Optimize shaders and performance</li>
-                                <li>    </li>
-                            </ul>
-                        </section>
-                        <footing class="job-footing">
-                            <div class="ref-num"><em>REF-GE529</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
-                        </footing>
-                    </div>
-                </label>
-                <label for="job3">
-                    <div id="job3" class="job-list">
-                        <heading>
-                            <h2>Build Engineer <span class="material-symbols-outlined">construction</span></h2>
-                            <section class="company">
-                                <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
-                            </section>
-                            <section class="location">
-                                <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
-                            </section>
-                        </heading>
-                        <section class="salary">
-                            <p>A$100,000-130,000</p>
-                        </section>
-                        <section class="job-summary">
-                            <h3>Job Summary </h3>
-                            <ul class="job-summary-list">
-                                <li>Manage automated build pipelines</li>
-                                <li>Troubleshoot and streamline CI/CD</li>
-                                <li>Requires scripting and DevOps skills</li>
-                            </ul>
-                        </section>
-                        <footing class="job-footing">
-                            <div class="ref-num"><em>REF-BE317</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
-                        </footing>
-                    </div>
-                </label>
-                <label for="job4">
-                    <div id="job4" class="job-list">
-                        <heading>
-                            <h2>Network Engineer <span class="material-symbols-outlined">network_node</span></h2>
-                            <section class="company">
-                                <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
-                            </section>
-                            <section class="location">
-                                <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
-                            </section>
-                        </heading>
-                        <section class="salary">
-                            <p>A$105,000-125,000</p>
-                        </section>
-                        <section class="job-summary">
-                            <h3>Job Summary</h3>
-                            <ul class="job-summary-list">
-                                <li>Develop multiplayer features</li>
-                                <li>Ensure stable, low-latency connections</li>
-                                <li>Requires networking and server expertise</li>
-                            </ul>
-                        </section>
-                        <footing class="job-footing">
-                            <div class="ref-num"><em>REF-NE604</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
-                        </footing>
-                    </div>
-                </label>
+                    <section class="salary">
+                        <p>A$90,000-110,000</p>
+                    </section>
+                    <section class="job-summary">
+                        <h3>Job Summary</h3>
+                        <ul class="job-summary-list">
+                            <li>Create rendering and visual effects</li>
+                            <li>Optimize shaders and performance</li>
+                            <li>    </li>
+                        </ul>
+                    </section>
+                    <footing class="job-footing">
+                        <div class=" job-footing ref-num"><em>REF-GE529</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
+                    </footing>
                 </div>
-            </aside>
+            </label>
+            <label for="job3">
+                <div id="job3" class="job-list">
+                        <h2>Build Engineer <span class="material-symbols-outlined">construction</span></h2>
+                        <section class="company">
+                            <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
+                        </section>
+                        <section class="location">
+                            <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
+                        </section>
+                    <section class="salary">
+                        <p>A$100,000-130,000</p>
+                    </section>
+                    <section class="job-summary">
+                        <h3>Job Summary </h3>
+                        <ul class="job-summary-list">
+                            <li>Manage automated build pipelines</li>
+                            <li>Troubleshoot and streamline CI/CD</li>
+                            <li>Requires scripting and DevOps skills</li>
+                        </ul>
+                    </section>
+                    <footing class="job-footing">
+                        <div class="ref-num"><em>REF-BE317</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
+                    </footing>
+                </div>
+            </label>
+            <label for="job4">
+                <div id="job4" class="job-list">
+                        <h2>Network Engineer <span class="material-symbols-outlined">network_node</span></h2>
+                        <section class="company">
+                            <p><span id="domainicon" class="material-symbols-outlined">domain</span>Powerpuff Corp.</p>
+                        </section>
+                        <section class="location">
+                            <p><span id="locationicon" class="material-symbols-outlined">location_on</span>Melbourne VIC</p> <!--location symbol taken form google fonts-->
+                        </section>
+                    <section class="salary">
+                        <p>A$105,000-125,000</p>
+                    </section>
+                    <section class="job-summary">
+                        <h3>Job Summary</h3>
+                        <ul class="job-summary-list">
+                            <li>Develop multiplayer features</li>
+                            <li>Ensure stable, low-latency connections</li>
+                            <li>Requires networking and server expertise</li>
+                        </ul>
+                    </section>
+                    <footing class="job-footing">
+                        <div class="ref-num"><em>REF-NE604</em></div><div class="reporting-line"><em>Team Lead</em></div></em>
+                    </footing>
+                </div>
+            </label>
         </div>
-        <?php include "./includes/footer.inc" ?>
+    </div>
+    <?php include "./includes/footer.inc" ?>
 </body>
 </html> 
