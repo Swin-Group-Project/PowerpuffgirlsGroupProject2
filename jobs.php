@@ -27,7 +27,6 @@ function fetchTableData($conn, $tableName, $orderBy = "") {
 
 // Fetch all tables
 $tables = [
-    'jobs' => fetchTableData($conn, 'jobs'),
     'job_main' => fetchTableData($conn, 'job_main'),
     'job_appeal' => fetchTableData($conn, 'job_appeal', 'ref_num, appeal_id'),
     'job_company' => fetchTableData($conn, 'job_company'),
@@ -37,7 +36,35 @@ $tables = [
     'job_summary' => fetchTableData($conn, 'job_summary', 'ref_num, summary_id')
 ];
 
-
+// TEMPORARY!
+// Display fetched data
+foreach ($tables as $tableName => $tableData) {
+    echo "<h3>Table: " . htmlspecialchars($tableName) . "</h3>";
+    
+    if (!empty($tableData)) {
+        echo "<table border='1' style='border-collapse: collapse; width: 100%; margin-bottom: 20px;'>";
+        
+        // Table headers
+        echo "<tr style='background-color: #f2f2f2;'>";
+        foreach (array_keys($tableData[0]) as $column) {
+            echo "<th style='padding: 8px; text-align: left;'>" . htmlspecialchars($column) . "</th>";
+        }
+        echo "</tr>";
+        
+        // Table rows
+        foreach ($tableData as $row) {
+            echo "<tr>";
+            foreach ($row as $cell) {
+                echo "<td style='padding: 8px; border: 1px solid #ddd;'>" . htmlspecialchars($cell) . "</td>";
+            }
+            echo "</tr>";
+        }
+        
+        echo "</table>";
+    } else {
+        echo "<p>No data found in " . htmlspecialchars($tableName) . "</p>";
+    }
+}
 
 // Store data in session or use directly
 session_start();

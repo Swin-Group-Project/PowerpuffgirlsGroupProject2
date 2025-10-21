@@ -229,7 +229,7 @@ CREATE TABLE `eoi_location` (
 
 CREATE TABLE `eoi_main` (
   `eoi_id` int(11) NOT NULL,
-  `user_id` int(11) DEFAULT NULL
+  `user_id` int(11) DEFAULT NULL,
   `email` varchar(255) NOT NULL,
   `ref_num` varchar(9) NOT NULL,
   `first_name` varchar(50) NOT NULL,
@@ -254,15 +254,15 @@ CREATE TABLE `eoi_skill` (
 
 -- --------------------------------------------------------
 
-INSERT INTO eoi_skill ('skill_id', 'skill_name') VALUES
-('1, Project Management')
-('2, Database Management')
-('3, Front-End Development')
-('4, Back-End Development')
-('5, Lua')
-('6, Rust')
-('7, Unity')
-('8, Adobe Animate')
+INSERT INTO `eoi_skill` (`skill_id`, `skill_name`) VALUES
+(1, 'Project Management'),
+(2, 'Database Management'),
+(3, 'Front-End Development'),
+(4, 'Back-End Development'),
+(5, 'Lua'),
+(6, 'Rust'),
+(7, 'Unity'),
+(8, 'Adobe Animate');
 
 --
 -- Table structure for table `eoi_skill_selection`
@@ -595,21 +595,21 @@ ALTER TABLE `job_appeal`
 -- Indexes for table `job_company`
 --
 ALTER TABLE `job_company`
-  ADD PRIMARY KEY (`company_id`),
+  ADD KEY (`company_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
 -- Indexes for table `job_involvement`
 --
 ALTER TABLE `job_involvement`
-  ADD PRIMARY KEY (`involvement_id`),
+  ADD KEY (`involvement_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
 -- Indexes for table `job_location`
 --
 ALTER TABLE `job_location`
-  ADD PRIMARY KEY (`location_id`),
+  ADD KEY (`location_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
