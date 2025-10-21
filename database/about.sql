@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: localhost
--- Generation Time: Oct 17, 2025 at 07:12 AM
+-- Generation Time: Oct 21, 2025 at 06:39 AM
 -- Server version: 10.4.28-MariaDB
 -- PHP Version: 8.2.4
 
@@ -52,7 +52,6 @@ CREATE TABLE `about_contribution1` (
 
 INSERT INTO `about_contribution1` (`contribution1_id`, `member_id`, `contribution1_text`) VALUES
 (1, 1, 'Home page html + css'),
-(2, 1, 'Home background w/Ryan'),
 (3, 1, 'Footer html + css w/Lira'),
 (4, 2, 'About page html + css'),
 (5, 2, 'Company logo #1'),
@@ -88,19 +87,14 @@ INSERT INTO `about_contribution2` (`contribution_id2`, `member_id`, `contributio
 (2, 1, 'Addressed Part 1 feedback (index page)'),
 (3, 2, 'manage.php w/Aron: handled admin page'),
 (4, 2, 'about.php: table and page'),
-(5, 2, 'Reuse common UI with PHP includes w/Ryan'),
-(6, 2, 'Cleaned up w3c validation errors for about page'),
-(7, 2, 'Addressed Part 1 feedback (about page)'),
-(8, 3, 'settings.php'),
-(9, 3, 'eoi.php: table'),
-(10, 3, 'process_eoi.php: table and page'),
-(11, 3, 'Reuse common UI with PHP includes w/Lira'),
-(12, 3, 'Cleaned up w3c validation errors for jobs/apply page'),
-(13, 3, 'Addressed Part 1 feedback (apply page)'),
-(14, 4, 'jobs.php: table and page'),
-(15, 4, 'manage.php w/Lira: handled user login table'),
-(16, 4, 'Cleaned up w3c validation errors for jobs/apply page'),
-(17, 4, 'Addressed Part 1 feedback (jobs page)');
+(5, 2, 'Cleaned up w3c validation errors and addressed Part 1 feedback for about page'),
+(6, 3, 'settings.php'),
+(7, 3, 'eoi.php: table, process_eoi.php: table and page'),
+(8, 3, 'Reuse common UI with PHP include'),
+(9, 3, 'Cleaned up w3c validation errors and Addressed Part 1 feedback for jobs/apply page'),
+(10, 4, 'jobs.php: table and page'),
+(11, 4, 'manage.php w/Lira: handled user login table'),
+(12, 4, 'Cleaned up w3c validation errors and addressed Part 1 feedbackfor jobs/apply page'),
 
 -- --------------------------------------------------------
 
@@ -123,7 +117,7 @@ INSERT INTO `about_funfact` (`funfact_id`, `member_id`, `funfact_text`) VALUES
 (2, 1, 'Love Japanese food, especially sushi and ramen.'),
 (3, 1, 'The first time I visited a casino, I ran A$100 up to over A$1,000, then gave it all back the next day.'),
 (4, 2, 'Fell down the stairs and had to get a stitch near my eye.'),
-(5, 2, 'Had a serious fight with a 4 y/o because he broke my Rubik''s Cube when I was 11.'),
+(5, 2, 'Had a serious fight with a 4 y/o because he broke my Rubik\'s Cube when I was 11.'),
 (6, 2, 'Had to save my stupid bird at home without a vet because he nearly got tangled and hung himself in his toy.'),
 (7, 3, 'Broke his front tooth at age 7 while pretending to surf on a towel.'),
 (8, 3, 'Aspiring barista/latte artist.'),
@@ -191,24 +185,26 @@ CREATE TABLE `about_team` (
   `team_photo` varchar(255) NOT NULL,
   `team_name` varchar(50) NOT NULL,
   `class_day` varchar(50) NOT NULL,
-  `class_time` varchar(50) NOT NULL
+  `class_time` varchar(50) NOT NULL,
+  `lecturer` varchar(50) NOT NULL,
+  `lab_instructor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
 -- Dumping data for table `about_team`
 --
 
-INSERT INTO `about_team` (`team_id`, `meet_text`, `team_photo`, `team_name`, `class_day`, `class_time`) VALUES
-(1, "We are", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(2, "Powerpuff Corp!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(3, "A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we''re good. Together? We''re unstoppable!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(4, "Our team is growing, and we''re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER.", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(5, "Join us", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(6, "if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don''t always agree).", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(7, "We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(8, "Curious? Excited?? Think you''d enjoy being part of our team??? Check our ", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(9, "pages to see how you can hop on board!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM"),
-(10, "That''s a wrap! Hope to see you joining our quest!", "images/about/group_photo.jpg", "Powerpuff Girls", "Tuesday", "2:30 PM - 4:30 PM");
+INSERT INTO `about_team` (`team_id`, `meet_text`, `team_photo`, `team_name`, `class_day`, `class_time`, `lecturer`, `lab_instructor`) VALUES
+(1, 'We are', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(2, 'Powerpuff Corp!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(3, 'A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we\'re good. Together? We\'re unstoppable!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(4, 'Our team is growing, and we\'re excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER.', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(5, 'Join us', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(6, 'if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don\'t always agree).', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(7, 'We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(8, 'Curious? Excited?? Think you\'d enjoy being part of our team??? Check our ', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(9, 'pages to see how you can hop on board!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(10, 'That\'s a wrap! Hope to see you joining our quest!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)');
 
 -- --------------------------------------------------------
 
