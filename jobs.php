@@ -27,6 +27,7 @@
                         <p class="salary">A$90,000-110,000</p>
                     <hr> <!-- draw this line in CSS instead -->
                     <article>
+<<<<<<< HEAD
                         <section class="bottom-margin">
                             <h3>What We're looking for:</h3>
                             <ul >
@@ -41,6 +42,14 @@
                                 <li><p><strong>Build Core Gameplay systems</strong></p></li>
                                 <ul>
                                     <li>You'll design and implement the essential systems that power the game, from character controls to in-game mechanics. These systems form the foundation of the player’s experience and need to be robust, efficient, and scalable</li>
+=======
+                        <ul class="job-detail-list">
+                            <li><h3>What we're looking for:</h3></li>
+                                <ul class="job-detail-ordered-list">
+                                    <li>Solid experience with programming languages such as C++ or C#, and a strong understanding of object-oriented design principles. </li>
+                                    <li>Proven ability to debug and solve complex technical issues efficiently.</li>
+                                    <li>A strong interest in gameplay design and the ability to translate creative ideas into functional systems.</li>
+>>>>>>> f2970321942aa84aa888782fbc87b2a51e63754c
                                 </ul>
                                 <li><p><strong>Collaborate with design and art teams</strong></p></li>
                                 <ul>
