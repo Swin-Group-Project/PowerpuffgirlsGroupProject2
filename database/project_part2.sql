@@ -159,6 +159,16 @@ CREATE TABLE `eoi_skill` (
 
 -- --------------------------------------------------------
 
+INSERT INTO eoi_skill ('skill_id', 'skill_name') VALUES
+('1, Project Management')
+('2, Database Management')
+('3, Front-End Development')
+('4, Back-End Development')
+('5, Lua')
+('6, Rust')
+('7, Unity')
+('8, Adobe Animate')
+
 --
 -- Table structure for table `eoi_skill_selection`
 --
