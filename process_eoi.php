@@ -115,6 +115,21 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $required_errors = [];
     $pattern_errors = [];
 
+    // Required field validation
+    $required_fields = [
+        "job_reference_num" => $job_reference_num,
+        "first_name" => $first_name,
+        "last_name" => $last_name,
+        "date_of_birth" => $date_of_birth,
+        "gender" => $gender,
+        "street_address" => $street_address,
+        "suburb_town" => $suburb_town,
+        "state" => $state,
+        "postcode" => $postcode,
+        "email" => $email,
+        "phone_num" => $phone_num,
+        "skills" => $skills
+    ];
     foreach ($required_fields as $field => $value) { // take $required_fields array from skills_data.php
         if (empty($value)) {
             $required_errors[$field] = "This field is required";

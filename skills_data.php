@@ -28,19 +28,3 @@ $patterns = [
     "email" => "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/",
     "phone_num" => "/^[0-9]{8,12}$/"
 ];
-
-// Required field validation
-$required_fields = [
-    "job_reference_num" => $job_reference_num,
-    "first_name" => $first_name,
-    "last_name" => $last_name,
-    "date_of_birth" => $date_of_birth,
-    "gender" => $gender,
-    "street_address" => $street_address,
-    "suburb_town" => $suburb_town,
-    "state" => $state,
-    "postcode" => $postcode,
-    "email" => $email,
-    "phone_num" => $phone_num,
-    "skills" => $skills
-];
