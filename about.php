@@ -16,12 +16,14 @@ if (!$conn) {
           echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
         } else {
             // Queries
-            $sql = "SELECT team_id, meet_text, team_name, class_day, class_time, team_photo FROM about_team ORDER BY team_id";
+            $sql = "SELECT team_id, meet_text, team_name, class_day, class_time, lecturer, lab_instructor, team_photo FROM about_team ORDER BY team_id";
             $result = mysqli_query($conn, $sql);
             $meet_texts = [];
             $team_name = "";
             $class_day = "";
             $class_time = "";
+            $lecturer = "";
+            $lab_instructor = "";
             $team_photo = "";
             if ($result && mysqli_num_rows($result) > 0) {   //query error checking
             while ($row = mysqli_fetch_assoc($result)) {
@@ -30,6 +32,8 @@ if (!$conn) {
             $team_name = htmlspecialchars($row['team_name']);
             $class_day = htmlspecialchars($row['class_day']);
             $class_time = htmlspecialchars($row['class_time']);
+            $lecturer = htmlspecialchars($row['lecturer']);
+            $lab_instructor = htmlspecialchars($row['lab_instructor']);
             $team_photo = htmlspecialchars($row['team_photo']);}
             }
           }
@@ -110,7 +114,7 @@ mysqli_close($conn);
                 <p><?php echo $meet_texts[10]; ?><span class="material-symbols-outlined">partner_exchange</span></p> 
             </section>
             
-            <section id="group-section" class="about-section" aria-label="Group Information"><!--id and class are authored by ryan-->
+            <section id="group-section" class="about-section" aria-label="Academic Information"><!--id and class are authored by ryan-->
                 <h2>Academic Information <span class="material-symbols-outlined">school</span></h2>
                 <ul>
                     <li>Team: <?php echo $team_name; ?></li>
@@ -120,6 +124,8 @@ mysqli_close($conn);
                             <li>Time: <?php echo $class_time; ?></li>
                         </ul>
                     </li>
+                    <li>Lecturer: <?php echo $lecturer; ?></li>
+                    <li>Lab Instructor: <?php echo $lab_instructor; ?></li>
                 </ul>
             </section>
 
@@ -167,7 +173,7 @@ mysqli_close($conn);
                 <h2>Fun Facts <span class="material-symbols-outlined">interests</span></h2>
                 <table>
                     <caption>The Not-So-Serious Section</caption>
-                    <tr>
+                    <tr style="text-align: center;">
                         <th>Member</th>
                         <th>Contribution Project 1</th>
                         <th>Contribution Project 2</th>
@@ -178,7 +184,7 @@ mysqli_close($conn);
                     <?php foreach ($members as $id => $member): 
                                $member_id = (int)$id;?> <!--adjusts automatically if members are removed/added-->
                     <tr style="text-align: left;">
-                        <td><?php $full_name = $member['first_name'] . " " . $member['last_name']; echo $full_name;?></td>
+                        <td style="text-align: center;"><?php $full_name = $member['first_name'] . " " . $member['last_name']; echo $full_name;?></td>
                         <td><?php if (isset($contrib1[$member_id])) { echo "<ul><li>" . implode("</li><li>", $contrib1[$member_id]) . "</li></ul>";
                                 } else { echo "—"; } ?></td>
                         <td><?php if (isset($contrib2[$member_id])) { echo "<ul><li>" . implode("</li><li>", $contrib2[$member_id]) . "</li></ul>"; 
@@ -191,7 +197,7 @@ mysqli_close($conn);
             </section>
             
             <section class="about-section" aria-label="Our Team">
-            <h2 style="text-align: left;">Our Team <span class="material-symbols-outlined">groups_3</span></h2>
+            <h2>Our Team <span class="material-symbols-outlined">groups_3</span></h2>
                 <figure class="group-photo" >
                     <img src="<?php echo $team_photo; ?>" alt="powerpuff_corp_group_photo">
                     <figcaption>Powerpuff Corp</figcaption>
