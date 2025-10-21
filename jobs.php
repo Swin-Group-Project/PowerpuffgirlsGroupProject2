@@ -35,7 +35,7 @@
                     <hr>
                     <article>
                         <ul class="job-detail-list">
-                            <li><h3>What We're looking for:</h3></li>
+                            <li><h3>What we're looking for:</h3></li>
                                 <ul class="job-detail-ordered-list">
                                     <li>Solid experience with programming languages such as C++ or C#, and a strong understanding of object-oriented design principles. </li>
                                     <li>Proven ability to debug and solve complex technical issues efficiently.</li>
