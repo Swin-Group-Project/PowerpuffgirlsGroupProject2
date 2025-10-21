@@ -15,7 +15,7 @@
 $host = 'localhost';
 $user = 'root';
 $password = '';
-$dbname = 'your_database_name';
+$dbname = 'project_part2.sql';
 
 $conn = new mysqli($host, $user, $password, $dbname);
 
