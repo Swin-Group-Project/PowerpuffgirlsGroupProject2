@@ -1,3 +1,51 @@
+<?php
+
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+require_once "settings.php";
+$conn = mysqli_connect($host, $username, $password, $database);
+
+function fetchTableData($conn, $tableName, $orderBy = "") {
+    $data = [];
+    $sql = "SELECT * FROM $tableName";
+    if (!empty($orderBy)) {
+        $sql .= " ORDER BY $orderBy";
+    }
+    
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    } else {
+        echo "Query Failed: " . $sql;
+    }
+    return $data;
+}
+
+// Fetch all tables
+$tables = [
+    'jobs' => fetchTableData($conn, 'jobs'),
+    'job_main' => fetchTableData($conn, 'job_main'),
+    'job_appeal' => fetchTableData($conn, 'job_appeal', 'ref_num, appeal_id'),
+    'job_company' => fetchTableData($conn, 'job_company'),
+    'job_involvement' => fetchTableData($conn, 'job_involvement', 'ref_num, involvement_id'),
+    'job_location' => fetchTableData($conn, 'job_location'),
+    'job_requirement' => fetchTableData($conn, 'job_requirement', 'ref_num, requirement_id'),
+    'job_summary' => fetchTableData($conn, 'job_summary', 'ref_num, summary_id')
+];
+
+
+
+// Store data in session or use directly
+session_start();
+$_SESSION['job_data'] = $tables;
+
+$conn->close();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <link rel="stylesheet" type="text/css" href="styles/styles.css">
@@ -11,117 +59,39 @@
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" /> <!--google fonts icon-->
 </head>
-<?php
-$host = 'localhost';
-$user = 'root';
-$password = '';
-$dbname = 'project_part2.sql';
-
-$conn = new mysqli($host, $user, $password, $dbname);
-
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
-}
-?>
-<?php
-$sql = "
-SELECT jm.*, 
-       jc.company_name, jc.company_logo, 
-       jl.job_location, jl.location_logo
-FROM job_main jm
-JOIN job_company jc ON jm.company_id = jc.company_id AND jm.ref_num = jc.ref_num
-JOIN job_location jl ON jm.location_id = jl.location_id AND jm.ref_num = jl.ref_num
-ORDER BY jm.ref_num
-";
-
-$result = $conn->query($sql);
-$jobs = [];
-
-if ($result->num_rows > 0) {
-    while ($row = $result->fetch_assoc()) {
-        $ref = $row['ref_num'];
-
-        // Fetch summary
-        $summaryRes = $conn->query("SELECT job_summary FROM job_summary WHERE ref_num='$ref'");
-        $summary = [];
-        while ($s = $summaryRes->fetch_assoc()) {
-            $summary[] = $s['job_summary'];
-        }
-
-        // Fetch requirements
-        $reqRes = $conn->query("SELECT job_requirement FROM job_requirement WHERE ref_num='$ref'");
-        $requirements = [];
-        while ($r = $reqRes->fetch_assoc()) {
-            $requirements[] = $r['job_requirement'];
-        }
-
-        // Fetch involvement
-        $invRes = $conn->query("SELECT job_involvement FROM job_involvement WHERE ref_num='$ref'");
-        $involvement = [];
-        while ($i = $invRes->fetch_assoc()) {
-            $involvement[] = $i['job_involvement'];
-        }
-
-        // Fetch appeal
-        $appRes = $conn->query("SELECT job_appeal FROM job_appeal WHERE ref_num='$ref'");
-        $appeal = [];
-        while ($a = $appRes->fetch_assoc()) {
-            $appeal[] = $a['job_appeal'];
-        }
-
-        $jobs[] = [
-            'main' => $row,
-            'summary' => $summary,
-            'requirement' => $requirements,
-            'involvement' => $involvement,
-            'appeal' => $appeal
-        ];
-    }
-}
-?>
 <body>
     <?php include "./includes/header.inc" ?>
     <div class="container_jobs">
-    <?php foreach($jobs as $index => $job): ?>
-        <input class="jobpage" type="radio" name="joblist" id="job<?= $index+1 ?>" <?= $index===0 ? 'checked' : '' ?>>
-    <?php endforeach; ?>
+        <input class="jobpage" type="radio" name="joblist" id="job">
 
     <main class="job-detail">
-    <?php foreach($jobs as $index => $job): ?>
-        <div class="detail medium-padding" id="detail<?= $index+1 ?>">
-            <h2><?= $job['main']['job_name'] ?> <span class="material-symbols-outlined"><?= $job['main']['job_logo'] ?></span></h2>
-            <p class="company"><span class="material-symbols-outlined">domain</span><?= $job['main']['company_name'] ?></p>
-            <p class="location"><span class="material-symbols-outlined"><?= $job['main']['location_logo'] ?></span><?= $job['main']['job_location'] ?></p>
-            <p class="salary">A$<?= $job['main']['salary_min'] ?>-<?= $job['main']['salary_max'] ?></p>
+        <div class="detail medium-padding" id="detail">
+            <h2><span class="material-symbols-outlined"></span></h2>
+            <p class="company"><span class="material-symbols-outlined">domain</span></p>
+            <p class="location"><span class="material-symbols-outlined"></span></p>
+            <p class="salary"></p>
             <hr>
             <article>
                 <section class="bottom-margin">
                     <h3>What We're looking for:</h3>
                     <ul>
-                        <?php foreach($job['requirement'] as $req): ?>
-                            <li><?= $req ?></li>
-                        <?php endforeach; ?>
+                            <li></li>
                     </ul>
                 </section>
                 <section class="bottom-margin">
                     <h3>What's Involved:</h3>
                     <ol class="job-detail-ordered-list">
-                        <?php foreach($job['involvement'] as $inv): ?>
-                            <li><?= $inv ?></li>
-                        <?php endforeach; ?>
+                            <li></li>
                     </ol>
                 </section>
                 <section class="bottom-margin">
                     <h3>Why Join Us:</h3>
                     <ul>
-                        <?php foreach($job['appeal'] as $app): ?>
-                            <li><?= $app ?></li>
-                        <?php endforeach; ?>
+                            <li></li>
                     </ul>
                 </section>
             </article>
         </div>
-    <?php endforeach; ?>
     </main>
 </div>
                 <!-- TO DO: Once detail1 is dynamic, remove detail2-4 -->

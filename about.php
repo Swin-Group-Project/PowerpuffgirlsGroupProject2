@@ -5,7 +5,9 @@ Date: Sep 29 - Oct 27 2025
 -->
 
 <?php
+
 // Include settings for database connection 
+session_start();
 require_once("settings.php");
 
 //connection to the database
@@ -26,17 +28,17 @@ if (!$conn) {
             $lab_instructor = "";
             $team_photo = "";
             if ($result && mysqli_num_rows($result) > 0) {   //query error checking
-            while ($row = mysqli_fetch_assoc($result)) {
-            $meet_texts[$row['team_id']] = htmlspecialchars($row['meet_text']);
-            if ($team_name == "") {      // For team_name, class_day, class_time, take the first row only
-            $team_name = htmlspecialchars($row['team_name']);
-            $class_day = htmlspecialchars($row['class_day']);
-            $class_time = htmlspecialchars($row['class_time']);
-            $lecturer = htmlspecialchars($row['lecturer']);
-            $lab_instructor = htmlspecialchars($row['lab_instructor']);
-            $team_photo = htmlspecialchars($row['team_photo']);}
+                while ($row = mysqli_fetch_assoc($result)) {
+                $meet_texts[$row['team_id']] = htmlspecialchars($row['meet_text']);
+                if ($team_name == "") {      // For team_name, class_day, class_time, take the first row only
+                $team_name = htmlspecialchars($row['team_name']);
+                $class_day = htmlspecialchars($row['class_day']);
+                $class_time = htmlspecialchars($row['class_time']);
+                $lecturer = htmlspecialchars($row['lecturer']);
+                $lab_instructor = htmlspecialchars($row['lab_instructor']);
+                $team_photo = htmlspecialchars($row['team_photo']);}
+                }
             }
-          }
         }
             //Resources: MYSQL Join With Table Aliases https://www.geeksforgeeks.org/mysql/mysql-aliases/
             $sql_members = "SELECT m.member_id, m.first_name, m.last_name, m.student_id, q.quote_text, q.quote_translation FROM about_member m LEFT JOIN about_quote q ON m.member_id = q.member_id ORDER BY m.member_id";
