@@ -30,7 +30,7 @@ unset($_SESSION['form_data']);
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish a connection with google API -->
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=help" /> <!-- Load Google icons -->
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=help"> <!-- Load Google icons -->
         <title>Apply Now</title>
         
         <!-- Example of embedded CSS: Error styling
@@ -63,7 +63,7 @@ unset($_SESSION['form_data']);
     </head>
     <body>
         <?php include "./includes/header.inc" ?>
-        <main role="main">
+        <main>
             <div id="wrapper">
                 <h2 id="apply_heading">Apply Now!</h2>
                 <img id="powerpuff_rodents" src="images/apply/powerpuff-corp-logo.png" alt="Powerpuff girls with rodents photoshopped on each of their faces">
@@ -73,7 +73,7 @@ unset($_SESSION['form_data']);
                         Regex patterns sourced from Tutor Nick:
                         - https://arziel1992.github.io/input-pattern-tester/
                 -->
-                <form id="apply_form" role="form" aria-labelledby="apply_heading" action="process_eoi.php" method="post">
+                <form id="apply_form" aria-labelledby="apply_heading" action="process_eoi.php" method="post">
 
                     <div id="job_reference_num_container" class="flex_item">
                         <label for="job_reference_num">Job Ref No: <span class="red_text">*</span></label>
@@ -89,7 +89,7 @@ unset($_SESSION['form_data']);
                     
                     <!-- Hoverable tooltip for job reference number -->
                     <div class="flex_item help_container">
-                        <span class="material-symbols-outlined help-icon" aria-label="Show job reference number help" tabindex="0" aria-describedby="job_ref_help">help</span>
+                        <span class="material-symbols-outlined help-icon" tabindex="0" aria-describedby="job_ref_help">help</span>
                         <span id="job_ref_help" class="help_hint" role="tooltip">The 5 alphanumberic characters in the job reference code, e.g. REF-<span class="bold">SE842</span></span>
                     </div>
                     <p id="job_link">You can find your <a class="bold" href="jobs.php">job reference number and other job details here.</a></p>
@@ -132,11 +132,11 @@ unset($_SESSION['form_data']);
                     
                     <!-- Hoverable tooltip for dd/mm/yyyy format -->
                     <div class="flex_item help_container">
-                        <span class="material-symbols-outlined help-icon" aria-label="Show date of birth help" tabindex="0" aria-describedby="birth_date_help">help</span>
+                        <span class="material-symbols-outlined help-icon" tabindex="0" aria-describedby="birth_date_help">help</span>
                         <span id="birth_date_help" class="help_hint" role="tooltip">Please enter your DOB with the format: <span class="bold">dd/mm/yyyy</span></span>
                     </div>
                     
-                    <fieldset id="gender_fieldset" role="group" aria-labelledby="gender_legend" 
+                    <fieldset id="gender_fieldset" aria-labelledby="gender_legend" 
                             class="<?php echo isset($required_errors['gender']) || isset($pattern_errors['gender']) ? 'fieldset_error' : ''; ?>">
                         <legend id="gender_legend">Gender: <span class="red_text">*</span></legend>
 
@@ -243,7 +243,7 @@ unset($_SESSION['form_data']);
                         <p class="error_message"><?php echo $pattern_errors['phone_num']; ?></p>
                     <?php endif; ?>
                     
-                    <fieldset id="skills_fieldset" role="group" aria-labelledby="skills_legend"
+                    <fieldset id="skills_fieldset" aria-labelledby="skills_legend"
                         class="<?php echo isset($required_errors['skills']) ? 'fieldset_error' : ''; ?>">
                         <legend id="skills_legend">Skills: <span class="red_text">*</span></legend>
 
@@ -260,18 +260,19 @@ unset($_SESSION['form_data']);
                             </label>
                         <?php endforeach; ?>
                         
+                        <!-- TODO: other skills container dynamically appears depending on if checkbox is ticked -->
                         <label for="other" class="checkbox_container">
-                            <input id="other" value="other" name="skills[]" type="checkbox" controls="other_skills_container"
+                            <input id="other" value="other" name="skills[]" type="checkbox"
                                 <?php echo (in_array('other', $selected_skills)) ? 'checked' : ''; ?>>
                             Other skills...
-                            <div id="other_skills_container">
-                                <label for="other_skills">Enter other skills below: </label>
-                                <textarea id="other_skills" name="other_skills" rows="4" cols="60" 
-                                    placeholder="Link to your portfolio, list any other relevant skills here..."><?php 
-                                    echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; 
-                                    ?></textarea>
-                            </div>
                         </label>
+                        <div id="other_skills_container">
+                            <label for="other_skills">Enter other skills below: </label>
+                            <textarea id="other_skills" name="other_skills" rows="4" cols="60" 
+                                placeholder="Link to your portfolio, list any other relevant skills here..."><?php 
+                                echo isset($form_data['other_skills']) ? htmlspecialchars($form_data['other_skills']) : ''; 
+                                ?></textarea>
+                        </div>
                         
                         <?php if (isset($required_errors['skills'])): ?>
                             <span class="error_message"><?php echo $required_errors['skills']; ?></span>

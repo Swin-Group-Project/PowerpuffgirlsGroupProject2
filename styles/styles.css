@@ -493,7 +493,6 @@ last modified: 29/9/25
 }
 
 #other_skills_container {
-    display: none;
     margin: 0 2em;
     grid-column: 1 / -1;
 }
@@ -504,12 +503,6 @@ last modified: 29/9/25
 
 #other_skills_container textarea {
     font-size: 0.9em;
-}
-
-#other:checked+div,
-#other:checked+div>* {
-    display: block;
-    /* Show the textarea when the user checks "other skills" */
 }
 
 #apply_form,
