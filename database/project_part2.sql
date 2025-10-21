@@ -46,6 +46,27 @@ CREATE TABLE `about_contribution1` (
   `contribution1_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `about_contribution1`
+--
+
+INSERT INTO `about_contribution1` (`contribution1_id`, `member_id`, `contribution1_text`) VALUES
+(1, 1, 'Home page html + css'),
+(2, 1, 'Footer html + css w/Lira'),
+(3, 2, 'About page html + css'),
+(4, 2, 'Company logo #1'),
+(5, 2, 'Github folder management'),
+(6, 2, 'Footer html+css w/Wei-ting'),
+(7, 3, 'Apply page html + css'),
+(8, 3, 'Company logo #2'),
+(9, 3, 'Jira project management'),
+(10, 3, 'Header nav bar html+css w/Aron'),
+(11, 3, 'Created image and slogan for home page'),
+(12, 4, 'Jobs page html + css'),
+(13, 4, 'Company/Group name'),
+(14, 4, 'Background keyframe animation'),
+(15, 4, 'Header nav bar html+css w/Ryan');
+
 -- --------------------------------------------------------
 
 --
@@ -58,6 +79,24 @@ CREATE TABLE `about_contribution2` (
   `contribution2_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `about_contribution2`
+--
+
+INSERT INTO `about_contribution2` (`contribution_id2`, `member_id`, `contribution2_text`) VALUES
+(1, 1, 'Cleaned up w3c validation errors for home page'),
+(2, 1, 'Addressed Part 1 feedback (index page)'),
+(3, 2, '-'),
+(4, 2, 'about.php: table and page'),
+(5, 2, 'Cleaned up w3c validation errors and addressed Part 1 feedback for about page'),
+(6, 3, 'settings.php'),
+(7, 3, 'eoi.php: table, process_eoi.php: table and page'),
+(8, 3, 'Reuse common UI with PHP include'),
+(9, 3, 'Cleaned up w3c validation errors and Addressed Part 1 feedback for jobs/apply page'),
+(10, 4, 'jobs.php: table and page'),
+(11, 4, '-'),
+(12, 4, 'Cleaned up w3c validation errors and addressed Part 1 feedbackfor jobs/apply page');
+
 -- --------------------------------------------------------
 
 --
@@ -69,6 +108,24 @@ CREATE TABLE `about_funfact` (
   `member_id` int(11) NOT NULL,
   `funfact_text` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about_funfact`
+--
+
+INSERT INTO `about_funfact` (`funfact_id`, `member_id`, `funfact_text`) VALUES
+(1, 1, 'Head was once stung by a bee, and I had to go to the hospital.'),
+(2, 1, 'Love Japanese food, especially sushi and ramen.'),
+(3, 1, 'The first time I visited a casino, I ran A$100 up to over A$1,000, then gave it all back the next day.'),
+(4, 2, 'Fell down the stairs and had to get a stitch near my eye.'),
+(5, 2, 'Had a serious fight with a 4 y/o because he broke my Rubik''s Cube when I was 11.'),
+(6, 2, 'Had to save my stupid bird at home without a vet because he nearly got tangled and hung himself in his toy.'),
+(7, 3, 'Broke his front tooth at age 7 while pretending to surf on a towel.'),
+(8, 3, 'Aspiring barista/latte artist.'),
+(9, 3, 'Ran a half marathon in a banana costume.'),
+(10, 4, 'Ate mud as a kid.'),
+(11, 4, 'Dropped a deuce in my pants during preschool for 5 days in a row.'),
+(12, 4, 'Got lost once when i was a kid in Melbourne with no way of contacting anyone.');
 
 -- --------------------------------------------------------
 
@@ -84,6 +141,16 @@ CREATE TABLE `about_member` (
   `member_image` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `about_member`
+--
+
+INSERT INTO `about_member` (`member_id`, `first_name`, `last_name`, `student_id`, `member_image`) VALUES
+(1, 'Wei-ting', 'Chen', '105205347', 'images/about/venson.jpg'),
+(2, 'Lira', 'Khisha', '105960769', 'images/about/lira.jpg'),
+(3, 'Ryan', 'Tay', '106060754', 'images/about/ryan.jpg'),
+(4, 'Aron', 'Winjoto', '105556236', 'images/about/aron.jpg');
+
 -- --------------------------------------------------------
 
 --
@@ -97,6 +164,16 @@ CREATE TABLE `about_quote` (
   `quote_translation` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
+--
+-- Dumping data for table `about_quote`
+--
+
+INSERT INTO `about_quote` (`quote_id`, `member_id`, `quote_text`, `quote_translation`) VALUES
+(1, 1, '(最愛の詩) - 「古池や蛙飛びこむ水の音', 'An old pond— a frog jumps in, the sound of water.'),
+(2, 2, 'Se a vaca voar, apenas aplaude e aceita', 'If the cow flies, just clap and accept it.'),
+(3, 3, '你爱我，我爱你, 蜜雪冰城甜蜜蜜', 'I love you you love me MIXUE Ice cream and tea.'),
+(4, 4, '你叫我去这样干，他叫我去那样干。真是一群大混蛋', 'You tell me to do this, he told me to do that, you are all bastards.');
+
 -- --------------------------------------------------------
 
 --
@@ -109,8 +186,26 @@ CREATE TABLE `about_team` (
   `team_photo` varchar(255) NOT NULL,
   `team_name` varchar(50) NOT NULL,
   `class_day` varchar(50) NOT NULL,
-  `class_time` varchar(50) NOT NULL
+  `class_time` varchar(50) NOT NULL,
+  `lecturer` varchar(50) NOT NULL,
+  `lab_instructor` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
+
+--
+-- Dumping data for table `about_team`
+--
+
+INSERT INTO `about_team` (`team_id`, `meet_text`, `team_photo`, `team_name`, `class_day`, `class_time`, `lecturer`, `lab_instructor`) VALUES
+(1, 'We are', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(2, 'Powerpuff Corp!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(3, 'A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we are good. Together? We are unstoppable!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(4, 'Our team is growing, and we are excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER.', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(5, 'Join us', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(6, 'if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don''t always agree).', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(7, 'We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(8, 'Curious? Excited?? Think you''d enjoy being part of our team??? Check our ', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(9, 'pages to see how you can hop on board!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(10, 'That''s a wrap! Hope to see you joining our quest!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)');
 
 -- --------------------------------------------------------
 
@@ -559,37 +654,37 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `about_contribution1`
 --
 ALTER TABLE `about_contribution1`
-  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
 
 --
 -- AUTO_INCREMENT for table `about_contribution2`
 --
 ALTER TABLE `about_contribution2`
-  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `about_funfact`
 --
 ALTER TABLE `about_funfact`
-  MODIFY `funfact_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `funfact_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `about_member`
 --
 ALTER TABLE `about_member`
-  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `member_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `about_quote`
 --
 ALTER TABLE `about_quote`
-  MODIFY `quote_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `quote_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- AUTO_INCREMENT for table `about_team`
 --
 ALTER TABLE `about_team`
-  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `team_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
 
 --
 -- AUTO_INCREMENT for table `eoi_main`

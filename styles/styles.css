@@ -673,7 +673,7 @@ author: Lira Khisha
 date: Sep 29 - Oct 27, 2025
 */
 
-/*ABOUT-SECTION IS INCLUDED IN ALL SECTIONS*/
+/* ABOUT-SECTION */
 .about-section {
     margin: 70px;
     padding: 30px;
@@ -687,7 +687,7 @@ date: Sep 29 - Oct 27, 2025
 }
 
 
-/*NESTED LIST SETTINGS*/
+/*ACADEMIC INFO NESTED LIST SETTINGS*/
 ul {
     list-style-type: disc; /* normal bullets for main list */
     padding-left: 20px; /* indent main list */
@@ -789,7 +789,7 @@ ul ul {
     background-image: url("../images/about/aron.jpg");
 }
 
-/*FUN FACTS TABLE LAYOUT AND ALIGNMENT*/
+/*TABLE LAYOUT AND ALIGNMENT*/
 #fun-facts table {
     margin: 0 auto; /* centers the table */
     border-collapse: collapse;
@@ -1003,6 +1003,16 @@ footer a {
 }
 
 /*END OF FOOTER*/
+
+
+/* HR/LOGIN PAGE STYLES
+author: Lira Khisha
+date: Sep 29 - Oct 27, 2025
+*/
+
+/*END OF HR/LOGIN PAGE*/
+
+
 
 /* MEDIA QUERIES - START
 author: Ryan Tay, Aron Winjoto, Lira Khisha
