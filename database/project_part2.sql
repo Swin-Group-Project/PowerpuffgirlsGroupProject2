@@ -213,6 +213,24 @@ CREATE TABLE `job_appeal` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `job_appeal` (`appeal_id`, `ref_num`, `job_appeal`)
+VALUES
+(1, 'REF-SE842', 'Contribute directly to core gameplay systems.'),
+(2, 'REF-SE842', 'Collaborate with creative teams in a dynamic environment.'),
+(3, 'REF-SE842', 'Grow your engineering skills with challenging problems.'),
+
+(4, 'REF-GE529', 'Work on the cutting edge of rendering technology.'),
+(5, 'REF-GE529', 'Define the visual direction of our games.'),
+(6, 'REF-GE529', 'Gain hands-on experience with the latest graphics APIs.'),
+
+(7, 'REF-BE317', 'Maintain automated systems that ensure smooth development.'),
+(8, 'REF-BE317', 'Be the backbone of the studio’s technical pipeline.'),
+(9, 'REF-BE317', 'Play a key role in streamlining workflows.'),
+
+(10, 'REF-NE604', 'Develop the multiplayer backbone that connects players worldwide.'),
+(11, 'REF-NE604', 'Build matchmaking and online service systems.'),
+(12, 'REF-NE604', 'Join a team that values technical excellence and collaboration.');
+
 --
 -- Table structure for table `job_company`
 --
@@ -226,6 +244,13 @@ CREATE TABLE `job_company` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `job_company` (`company_id`, `ref_num`, `company_name`, `company_logo`)
+VALUES
+(1, 'REF-SE842', 'Powerpuff Corp.', 'domain'),
+(1, 'REF-GE529', 'Powerpuff Corp.', 'domain'),
+(1, 'REF-BE317', 'Powerpuff Corp.', 'domain'),
+(1, 'REF-NE604', 'Powerpuff Corp.', 'domain');
+
 --
 -- Table structure for table `job_involvement`
 --
@@ -237,6 +262,24 @@ CREATE TABLE `job_involvement` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+
+INSERT INTO `job_involvement` (`involvement_id`, `ref_num`, `job_involvement`)
+VALUES
+(1, 'REF-SE842', 'Build core gameplay systems and implement in-game mechanics.'),
+(2, 'REF-SE842', 'Collaborate with design and art teams to translate creative ideas into features.'),
+(3, 'REF-SE842', 'Requires strong coding and debugging skills in C++ or C#.'),
+
+(4, 'REF-GE529', 'Create rendering and visual effects systems for games.'),
+(5, 'REF-GE529', 'Optimize shaders and rendering performance across platforms.'),
+(6, 'REF-GE529', 'Requires knowledge of DirectX/Vulkan/OpenGL and linear algebra.'),
+
+(7, 'REF-BE317', 'Manage automated build pipelines to maintain stable builds.'),
+(8, 'REF-BE317', 'Troubleshoot and improve CI/CD efficiency.'),
+(9, 'REF-BE317', 'Requires strong scripting and DevOps skills.'),
+
+(10, 'REF-NE604', 'Develop multiplayer and networked gameplay systems.'),
+(11, 'REF-NE604', 'Ensure stable, low-latency connections for smooth play.'),
+(12, 'REF-NE604', 'Requires networking and server expertise.');
 
 --
 -- Table structure for table `job_location`
@@ -250,6 +293,13 @@ CREATE TABLE `job_location` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+
+INSERT INTO `job_location` (`location_id`, `ref_num`, `job_location`, `location_logo`)
+VALUES
+(1, 'REF-SE842', 'Melbourne VIC', 'location_on'),
+(1, 'REF-GE529', 'Melbourne VIC', 'location_on'),
+(1, 'REF-BE317', 'Melbourne VIC', 'location_on'),
+(1, 'REF-NE604', 'Melbourne VIC', 'location_on');
 
 --
 -- Table structure for table `job_main`
@@ -267,6 +317,13 @@ CREATE TABLE `job_main` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `job_main` (`ref_num`, `salary_min`, `salary_max`, `job_name`, `job_logo`, `location_id`, `company_id`)
+VALUES
+('REF-SE842', 90000, 110000, 'Software Engineer', 'deployed_code', 1, 1),
+('REF-GE529', 90000, 110000, 'Graphics Engineer', 'wall_art', 1, 1),
+('REF-BE317', 100000, 130000, 'Build Engineer', 'construction', 1, 1),
+('REF-NE604', 105000, 125000, 'Network Engineer', 'network_node', 1, 1);
+
 --
 -- Table structure for table `job_requirement`
 --
@@ -279,6 +336,24 @@ CREATE TABLE `job_requirement` (
 
 -- --------------------------------------------------------
 
+INSERT INTO `job_requirement` (`requirement_id`, `ref_num`, `job_requirement`)
+VALUES
+(1, 'REF-SE842', 'Solid experience with programming languages such as C++ or C#, and a strong understanding of object-oriented design principles.'),
+(2, 'REF-SE842', 'Proven ability to debug and solve complex technical issues efficiently.'),
+(3, 'REF-SE842', 'A strong interest in gameplay design and the ability to translate creative ideas into functional systems.'),
+
+(4, 'REF-GE529', 'Strong knowledge of graphics APIs such as DirectX, Vulkan, or OpenGL, and experience writing shaders.'),
+(5, 'REF-GE529', 'Solid understanding of rendering pipelines, lighting, post-processing, and visual effects.'),
+(6, 'REF-GE529', 'Strong mathematical foundation in linear algebra, geometry, and 3D transformations.'),
+
+(7, 'REF-BE317', 'Proficiency in scripting languages such as Python, Bash, or PowerShell, with the ability to automate complex tasks.'),
+(8, 'REF-BE317', 'Hands-on experience with CI/CD systems such as Jenkins, GitHub Actions, or TeamCity.'),
+(9, 'REF-BE317', 'Strong troubleshooting and diagnostic skills to quickly resolve build and deployment issues.'),
+
+(10, 'REF-NE604', 'Strong knowledge of networking protocols (TCP, UDP, WebSockets) and their use in real-time applications.'),
+(11, 'REF-NE604', 'Experience with server architecture, backend services, and scalable infrastructure.'),
+(12, 'REF-NE604', 'Ability to debug and optimize network performance, addressing latency, packet loss, and connectivity issues.');
+
 --
 -- Table structure for table `job_summary`
 --
@@ -290,6 +365,24 @@ CREATE TABLE `job_summary` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
+
+INSERT INTO `job_summary` (`summary_id`, `ref_num`, `job_summary`)
+VALUES
+(1, 'REF-SE842', 'Build core gameplay systems'),
+(2, 'REF-SE842', 'Collaborate with design and art teams'),
+(3, 'REF-SE842', 'Requires strong coding skills (C++/C#)'),
+
+(4, 'REF-GE529', 'Create rendering and visual effects'),
+(5, 'REF-GE529', 'Optimize shaders and performance'),
+
+(6, 'REF-BE317', 'Manage automated build pipelines'),
+(7, 'REF-BE317', 'Troubleshoot and streamline CI/CD'),
+(8, 'REF-BE317', 'Requires scripting and DevOps skills'),
+
+(9, 'REF-NE604', 'Develop multiplayer features'),
+(10, 'REF-NE604', 'Ensure stable, low-latency connections'),
+(11, 'REF-NE604', 'Requires networking and server expertise');
+
 
 --
 -- Table structure for table `users`
