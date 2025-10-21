@@ -1,9 +1,22 @@
 <!--
 File: Manage Dashboard 
-Author: 
-Date: Sep 29 - Oct 27 2025
-Description:
+Authors: Lira Khisha
+Date created: Sep 29 2025
+Last modified: Oct 21 2025
+Description: Landing page for administrator access users
 -->
+
+<?php
+// Turn on error reporting for debugging
+error_reporting(E_ALL);
+ini_set('display_errors', 1);
+
+session_start();
+require_once("settings.php");
+
+// TO DO: Get session variables
+?>
+
 
 <!DOCTYPE html>
 <html lang="en">
@@ -23,6 +36,7 @@ Description:
 
         <main>
             <h2>Manage Dashboard</h2>
+            
         </main>
 
         <?php include "./includes/footer.inc"; ?>

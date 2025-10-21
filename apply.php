@@ -4,7 +4,9 @@ Date created: 26/8/25
 Last modified: 20/9/25
 Author: Ryan Tay
 -->
-<?php require_once "settings.php" ?>
+<?php require_once "settings.php";
+require "skills_data.php";
+?>
 
 <?php
 session_start();

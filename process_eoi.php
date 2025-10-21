@@ -1,7 +1,7 @@
 <!-- 
 Title: Process EOI page
 Date created: 7/9/25
-Last modified: 20/9/25
+Last modified: 21/9/25
 Author: Ryan Tay
 -->
 
@@ -16,12 +16,13 @@ ini_set('display_errors', 1);
 // Connection to database "project_part2"
 session_start();
 require_once("settings.php");
-
+require("skills_data.php");
 $conn = mysqli_connect($host, $username, $password, $database);
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
+
 
 function sanitize($data) {
     $data = trim($data);
@@ -113,42 +114,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Validation
     $required_errors = [];
     $pattern_errors = [];
-    
-    $patterns = [
-        "job_reference_num" => "/^[a-zA-Z0-9]{5}$/",
-        "first_name" => "/^[a-zA-Z]{1,20}$/",
-        "last_name" => "/^[a-zA-Z]{1,20}$/",
-        "date_of_birth" => "/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/",
-        "street_address" => "/^.{1,40}$/",
-        "suburb_town" => "/^.{1,40}$/",
-        "postcode" => "/^\d{4}$/",
-        "email" => "/^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$/",
-        "phone_num" => "/^[0-9]{8,12}$/"
-    ];
 
-        // Required field validation
-    $required_fields = [
-        "job_reference_num" => $job_reference_num,
-        "first_name" => $first_name,
-        "last_name" => $last_name,
-        "date_of_birth" => $date_of_birth,
-        "gender" => $gender,
-        "street_address" => $street_address,
-        "suburb_town" => $suburb_town,
-        "state" => $state,
-        "postcode" => $postcode,
-        "email" => $email,
-        "phone_num" => $phone_num,
-        "skills" => $skills
-    ];
-
-    foreach ($required_fields as $field => $value) {
+    foreach ($required_fields as $field => $value) { // take $required_fields array from skills_data.php
         if (empty($value)) {
             $required_errors[$field] = "This field is required";
         }
     }
     
-    foreach ($patterns as $field => $pattern) {
+    foreach ($patterns as $field => $pattern) { // take $patterns array from skills_data.php
         $value = ${str_replace(' ', '_', $field)};
         if (!empty($value) && !preg_match($pattern, $value)) {
             $pattern_errors[$field] = "Invalid format for " . str_replace('_', ' ', $field);
