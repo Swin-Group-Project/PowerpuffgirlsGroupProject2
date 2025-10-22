@@ -75,16 +75,29 @@ $conn->close();
 
 <!DOCTYPE html>
 <html lang="en">
-<link rel="stylesheet" type="text/css" href="styles/styles.css">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">  <!--meta description to be filled later-->
     <title>Jobs page</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=domain,deployed_code,location_on" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish connection to API-->
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" /> <!--google fonts icon-->
+    <link rel="stylesheet" type="text/css" href="styles/styles.css">
+    <style>
+        main.job-detail {                                       
+            flex: 75%;
+            width: 75%;    /*makes the job details take up more space*/
+        }                /*originally designed for a two-column layout with sidebar (75% main + 25% aside)
+                            NOTE: If sidebar is permanently removed in future, update the following:
+                            flex: 75% to flex: 100%
+                            width: 75% to width: 100% */ 
+        .bottom-margin {     
+            margin-bottom: 1em;   /* Spacing utility: adds 1em gap below sections for readability */
+        }  
+    </style>
 </head>
 <body>
     <?php include "./includes/header.inc" ?>
@@ -94,15 +107,15 @@ $conn->close();
     <main class="job-detail">
         <div class="detail medium-padding" id="detail">
             <h2><span class="material-symbols-outlined"></span></h2>
-            <p class="company"><span class="material-symbols-outlined">domain</span></p>
-            <p class="location"><span class="material-symbols-outlined"></span></p>
-            <p class="salary"></p>
+            <p class="company" style="font-size: 20px;"><span class="material-symbols-outlined">domain</span></p>
+            <p class="location" style="font-size: 20px;"><span class="material-symbols-outlined"></span></p>
+            <p class="salary" style="background-color: rgb(211, 211, 211);"></p>
             <hr>
             <article>
                 <section class="bottom-margin">
                     <h3>What We're looking for:</h3>
                     <ul>
-                            <li></li>
+                        <li></li>
                     </ul>
                 </section>
                 <section class="bottom-margin">
@@ -114,7 +127,7 @@ $conn->close();
                 <section class="bottom-margin">
                     <h3>Why Join Us:</h3>
                     <ul>
-                            <li></li>
+                        <li></li>
                     </ul>
                 </section>
             </article>
