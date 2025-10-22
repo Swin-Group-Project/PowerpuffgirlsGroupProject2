@@ -204,162 +204,121 @@ created: 29.09.25
 last modified: 22.10.25
 */
 
-.job-list {
-    display: block;
-    /*makes it so that each job listing is on its own line*/
-    border: 0px solid rgb(23, 0, 167);
-    height: fit-content;
-    padding-top: -5px;
-    padding-left: 10px;
-    margin: 30px 10px;
-    border-radius: 15px;
-    /*makes it so that the corners are rounded*/
-    background-color: rgb(255, 255, 255);
-    text-align: left;
-    cursor: pointer;
-    box-shadow: 8px 8px 15px #000000, -4px -4px 7px #668899;
-    /*creates a shadow around the box*/
-    transition: all 0.5s ease
-        /*makes the transition smooth when hovering over the job listing*/
-}
+/* Container for sidebar + main content */
 
-input.jobpage {
-    display: none;
-    /*hide the radio buttons*/
-}
-
-.hover-effect:hover {
-    filter: brightness(0.9);
-    /*changes background color when hovering over the job listing*/
-    box-shadow: 4px 4px 6px #000000, -4px -4px 6px #668899;
-    /*changes the shadow when hovering over the job listing*/
-    transform: scale(1.05);
-    /*scales the job listing up when hovering over it*/
-    transition: all 0.5s ease;
-}
-
-.job-list:active {
-    transform: scale(1);
-    /*scales the job listing back to normal when clicking on it*/
-    transition: all 0.1s ease-out;
-    /*makes the transition smooth when clicking on the job listing*/
-}
-
-.detail {
-    color: rgb(0, 0, 0);
-    display: none;
-    /*hides the job details by default*/
-}
-
-#job1:checked~.job-detail #detail1,
-#job2:checked~.job-detail #detail2,
-#job3:checked~.job-detail #detail3,
-#job4:checked~.job-detail #detail4 {
-    display: block;
-    /*shows the job details when the corresponding radio button is checked*/
-}
-
-.job-detail {
-    margin-top: 30px;
-    margin-left: 10px;
-    margin-right: 10px;
-    padding: 10px;
-    border-radius: 15px;
-    /*makes it so that the corners are rounded*/
-    background-color: rgb(255, 255, 255);
-    box-shadow: 8px 8px 15px #000000, -4px -4px 7px #668899;
-    /*creates a shadow around the box*/
-    width: fit-content;
-    height: fit-content;
+.job-link {
+    color: black;
+    text-decoration: none;
 }
 
 .container_jobs {
+    color: black;
+    background-color: none  ;
     display: flex;
-    /*makes the container a flexbox*/
     flex-direction: row;
-    /*makes the job listings and job details side by side*/
+    gap: 1em; /* spacing between sidebar and main content */
+    margin: 20px;
 }
 
-aside.job-page {
-    flex-direction: column;
-    /*makes the job listings stack on top of each other*/
+/* Sidebar with job list */
+aside.detail {
     flex: 25%;
-    /*makes the job listings take up less space*/
-    float: right;
-    width: 25%;
-    margin: auto;
-    border-left-style: double;
-    border-left-color: grey;
+    max-width: 25%;
+    background-color: none;
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
     overflow-y: auto;
-    /*makes it so that the job listings can be scrolled through*/
-    height: 100vh;
-    /*makes it so that the job listings take up the full height of the viewport*/
+    height: 90vh;
+    padding: 10px;
+    border: none;
+    box-shadow: none;
+    padding: 0;
+
 }
 
-.company,
-.location {
-    margin-top: 5px;
-}       /*Removed redundant margin-top: -5px rules above that were being overridden 
-                                        .location {
-                                         margin-top: -5px;
-                                        }
-                                        .company {
-                                         margin-top: -5px;
-                                        }*/
- 
+/* Each job in the sidebar */
+.job-list {
+    width: 90%;
+    display: block;
+    padding: 10px;
+    margin: 10px;
 
-.location {
-    margin-bottom: 5px;
+    border-radius: 10px;
+    background-color: #f9f9f9;
+    cursor: pointer;
+    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    transition: all 0.3s ease;
 }
 
-
-#locationicon {
-    font-size: 20px;
+.job-list:hover {
+    filter: brightness(0.95);
+    transform: scale(1.02);
 }
 
-#domainicon {
-    font-size: 20px;
+/* Highlight active job */
+.job-list.active {
+    background-color: #e0e0ff;
+    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
 }
 
-.salary {
-    font-size: small;
-    width: fit-content;
-    padding-left: 5px;
-    padding-right: 5px;
-    padding-top: 2px;
-    padding-bottom: 2px;
-    border-radius: 3px;
-    transition: all 0.5s ease;
-    margin-bottom: 5px;
+/* Main content area */
+main.job-detail {
+    flex: 75%;
+    max-width: 75%;
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+    padding: 20px;
+    overflow-y: auto;
+    height: fit-content;
 }
 
-.job-footing {
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    font-size: small;
+/* Job details headings and sections */
+.job-detail h2 {
+    margin-top: 0;
+    margin-bottom: 0.5em;
 }
 
-.ref-num {
-    text-align: left;
+.job-detail section {
+    margin-bottom: 1.5em;
 }
 
-.reporting-line {
-    text-align: right;
-    margin-right: 10px;
-}
-
-.job-summary-list {
+/* Lists inside job details */
+.job-detail ul,
+.job-detail ol {
     margin-left: 20px;
 }
 
-.job-detail-ordered-list {
-    margin-left: 50px;
+/* Company and location styling */
+.company,
+.location {
+    margin-bottom: 5px;
 }
 
-.medium-padding {
-    padding: 1em;
+/* Salary display */
+.salary {
+    font-size: 0.9em;
+    background-color: #f0f0f0;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
 }
+
+
+
+/* Responsive: stack columns on small screens */
+@media (max-width: 900px) {
+    .container_jobs {
+        flex-direction: column;
+    }
+    aside.detail,
+    main.job-detail {
+        max-width: 100%;
+        flex: 100%;
+        height: auto;
+    }
+}   
 
 /* JOBS PAGE STYLES END */
 
