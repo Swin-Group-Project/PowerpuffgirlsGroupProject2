@@ -9,6 +9,6 @@
         <p class="footer-copy">&copy; 2025 Powerpuff Corp. All rights reserved.</p>
     </div>     
     <div class="footer-logo">
-        <img src="./images/powerpuffcorpfooterlogoblack.jpg" alt="Powerpuff Corp Logo">
+        <img src="images/powerpuffcorplogo.jpg" alt="Powerpuff Corp Logo">
     </div>
 </footer>  

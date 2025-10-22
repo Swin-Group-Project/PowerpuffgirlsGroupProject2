@@ -702,6 +702,7 @@ ul ul {
 .members {
     display: grid;
     grid-template-columns: repeat(2, 1fr); /* 2 columns */
+    justify-content: center;
     gap: 30px;            /*space between the profiles*/ 
     margin: 0 auto; /* center horizontally */
     padding: 0 30px;      /*distance from the sides*/
@@ -712,24 +713,31 @@ ul ul {
     margin-bottom: 20px; /*space between heading and the profiles*/
 }
 
+
+
 /*TEAM MEMBERS: PROFILES LAYOUT SETTINGS*/
 .member {
     position: relative;
     overflow: hidden;
-    background: #d5e6f3;
-    min-height: 250px;
+    background: linear-gradient(135deg, #1a3666, #4a88b3);
+    min-height: 200px;
     padding: 40px;
-    border-radius: 12px;
+    border-radius: 25px;
     text-align: center;
     transition: all 0.6s ease;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border: 1px solid #2a4bd4;
 }
 
+.member dt,
+.member dd {
+    color: #afa9a9; 
+}
+
 .student-id {
     float: right;
     font-weight: normal;
-    color: #333; /*to match with other text in profile section */
+    color: #afa9a9; /*to match with other text in profile section */
     font-size: 1.1em;
     background: none;
 }
@@ -841,6 +849,11 @@ ul ul {
     author: venson
     */
 /* Small tagline text under the brand */
+
+h3 {
+    color: white;
+}
+
 .tagline {
     margin: 6px 0 12px;
     color: #555;
@@ -900,10 +913,11 @@ ul ul {
 
 /* RYAN: Pixelized photos generated with pixelartvillage.com
 - photo credits: https://www.esb-business-school.de/en/the-esb/partner-universities/detailsite/swinburne-university-of-technology */
+/* Home image credits :  Artwork by Pixel Jeff. Image credit: @pixeljeff_design */
     .tile-home {
         grid-area: home;
-        background-image: url("../images/index/swinburne_pixel.png");
-        background-size: cover;
+        background-image: url("../images/index/home_bg_pixel_jeff.jpg"); 
+        background-size: contain;
         filter: grayscale(70%);
     }
 
@@ -917,7 +931,7 @@ ul ul {
     font-size: 12px;
     letter-spacing: .06em;
     text-transform: uppercase;
-    color: #3e3e3e;
+    color: #e5d4df;
     margin: 0 0 4px;
 }
 
@@ -933,6 +947,8 @@ ul ul {
 }
 
 /*END OF INDEX PAGE*/
+
+
 
 /*FOOTER BAR STYLES
 author: Lira Khisha + Wei-ting Chen
@@ -1251,6 +1267,9 @@ LIRA KHISHA
 Footer logo and Team members section layout are inspired from https://dribbble.com/
 Meet the Team description ideas are taken from ChatGPT as a guidance
 Pipe separators between footer links css learnt from ChatGPT
+Color palette extracted using ImageColorPicker https://imagecolorpicker.com/
+Home image credits :  Artwork by Pixel Jeff. Image credit: @pixeljeff_design
+
 
 VENSON
 */

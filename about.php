@@ -108,8 +108,8 @@ mysqli_close($conn);
         
         <main>
             <section id="meet-section" class="about-section" aria-label="Meet the Team"><!--id and class are authored by ryan-->
-            <h2 style="text-align: left;">Meet the Team <span class="material-symbols-outlined">star</span></h2>
-                <p><?php echo $meet_texts[1]; ?> <strong><em><?php echo $meet_texts[2]; ?></em></strong> <?php echo $meet_texts[3]; ?><span class="material-symbols-outlined">diamond_shine</span></p>
+            <h2>Meet the Team <span class="material-symbols-outlined">star</span></h2>
+                <p><?php echo $meet_texts[1]; ?> <strong><em><?php echo $meet_texts[2]; ?></em></strong> <?php echo $meet_texts[3]; ?></p>
                 <p><?php echo $meet_texts[4]; ?><strong> <?php echo $meet_texts[5]; ?></strong> <?php echo $meet_texts[6]; ?></p>
                 <p><?php echo $meet_texts[7]; ?></p> 
                 <p id="job_link"><?php echo $meet_texts[8]; ?><a href="jobs.php" target="_blank"><strong> Jobs</strong></a> and <a href="apply.php" target="_blank"><strong> Apply</strong></a> <?php echo $meet_texts[9]; ?></p>
@@ -134,52 +134,53 @@ mysqli_close($conn);
             <section id="members-section" class="about-section" aria-label="Team Members"><!--id and class are authored by ryan-->
                 <h2>Team Members <span class="material-symbols-outlined">person_play</span></h2>
                 <div class="members">
-                    <!--Resources: 1.Multidimensional Associative Array in PHP https://www.geeksforgeeks.org/php/multidimensional-associative-array-in-php/
-                                 2.Concatenation of two strings in PHP https://www.geeksforgeeks.org/php/concatenation-two-string-php/-->
-                        <div class="member" id="member1" role="group" aria-labelledby="member1-Venson">
-                            <span class="student-id"><?php echo $members[1]['student_id']; ?></span>
+                    <!--Resources: 
+                    1.Multidimensional Associative Array in PHP https://www.geeksforgeeks.org/php/multidimensional-associative-array-in-php/
+                    2.Concatenation of two strings in PHP https://www.geeksforgeeks.org/php/concatenation-two-string-php/-->
+                    <div class="member" id="member1" role="group" aria-labelledby="member1-Venson">
+                        <span class="student-id"><?php echo $members[1]['student_id']; ?></span>
                             <dl>
-                            <dt class="member_venson" id="member1-Venson"><?php $full_name = $members[1]['first_name'] . " " . $members[1]['last_name']; echo $full_name;?></dt>
+                                <dt class="member_venson" id="member1-Venson"><?php $full_name = $members[1]['first_name'] . " " . $members[1]['last_name']; echo $full_name;?></dt>
                                 <dd><q><?php echo $quotes[1]['quote_text']; ?></q>
                                 <br><?php echo $quotes[1]['quote_translation']; ?></dd>
                             </dl>
-                        </div>
-                        <div class="member" id="member2" role="group" aria-labelledby="member2-Lira">
-                            <span class="student-id"><?php echo $members[2]['student_id']; ?></span>
+                    </div>
+                    <div class="member" id="member2" role="group" aria-labelledby="member2-Lira">
+                        <span class="student-id"><?php echo $members[2]['student_id']; ?></span>
                             <dl>
                                 <dt class="member_lira" id="member2-Lira"><?php $full_name = $members[2]['first_name'] . " " . $members[2]['last_name']; echo $full_name;?></dt>
                                 <dd><q><?php echo $quotes[2]['quote_text']; ?></q>
                                 <br><?php echo $quotes[2]['quote_translation']; ?></dd>
                             </dl>
-                        </div>
-                        <div class="member" id="member3" role="group" aria-labelledby="member3-Ryan">
-                            <span class="student-id"><?php echo $members[3]['student_id']; ?></span>
+                    </div>
+                    <div class="member" id="member3" role="group" aria-labelledby="member3-Ryan">
+                        <span class="student-id"><?php echo $members[3]['student_id']; ?></span>
                             <dl>
                                 <dt class="member_ryan" id="member3-Ryan"><?php $full_name = $members[3]['first_name'] . " " . $members[3]['last_name']; echo $full_name;?></dt>
                                 <dd><q><?php echo $quotes[3]['quote_text']; ?></q>
                                 <br><?php echo $quotes[3]['quote_translation']; ?></dd>
                             </dl>
-                        </div>
-                        <div class="member" id="member4" role="group" aria-labelledby="member4-Aron"> 
-                            <span class="student-id"><?php echo $members[4]['student_id']; ?></span>
+                    </div>
+                    <div class="member" id="member4" role="group" aria-labelledby="member4-Aron"> 
+                        <span class="student-id"><?php echo $members[4]['student_id']; ?></span>
                             <dl>
                                 <dt class="member_aron" id="member4-Aron"><?php $full_name = $members[4]['first_name'] . " " . $members[4]['last_name']; echo $full_name;?></dt>
                                 <dd><q><?php echo $quotes[4]['quote_text']; ?></q>
                                 <br><?php echo $quotes[4]['quote_translation']; ?></dd>
                             </dl>
-                        </div>
+                    </div>
                 </div>
             </section>
             
             <section id="fun-facts" class="about-section" aria-label="Fun Facts"><!--id and class are authored by ryan-->
                 <h2>Fun Facts <span class="material-symbols-outlined">interests</span></h2>
                 <table>
-                    <caption>The Not-So-Serious Section</caption>
+                    <caption>The Serious and The Not-So-Serious Section</caption>
                     <tr style="text-align: center;">
                         <th>Member</th>
                         <th>Contribution Project 1</th>
                         <th>Contribution Project 2</th>
-                        <th>Fun fact</th>
+                        <th>Fun Facts</th>
                     </tr>
                    <!--Resources: foreach loop syntax adapted from https://www.geeksforgeeks.org/php/how-to-populate-dropdown-list-with-array-values-in-php/
                        Used implode() to generate nested <ul><li> lists for contributions and fun facts-->

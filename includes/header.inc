@@ -1,6 +1,6 @@
 <!-- Website header with logo and company name -->
 <header>
-    <img src="./images/powerpuffcorpfooterlogoblack.jpg" alt="Powerpuff Corp logo">
+    <img src="images/powerpuffcorplogo.jpg" alt="Powerpuff Corp logo">
     <?php include "nav.inc"; ?>
     <div id="title-slogan">
         <h1>Powerpuff Corp</h1>
