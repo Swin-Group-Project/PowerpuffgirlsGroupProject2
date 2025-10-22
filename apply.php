@@ -1,7 +1,7 @@
 <!-- 
-Title: About page
-Date created: 26/8/25
-Last modified: 20/9/25
+Title: Apply page
+Date created: 29/9/25
+Last modified: 22/10/25
 Author: Ryan Tay
 -->
 <?php
@@ -63,7 +63,7 @@ unset($_SESSION['form_data']);
     <body>
         <?php include "./includes/header.inc" ?>
         <main>
-            <div id="wrapper">
+            <div id="wrapper" style="background-color: rgba(0,0,0,0.4); box-shadow: 0 0 0.5em 0.6em rgba(255,255,255, 0.3); backdrop-filter: grayscale(20%);">
                 <h2 id="apply_heading">Apply Now!</h2>
                 <img id="powerpuff_rodents" src="images/apply/powerpuff-corp-logo.png" alt="Powerpuff girls with rodents photoshopped on each of their faces">
                 <p id="preamble">If you're serious about becoming an honourary Powerpuff Girl, <strong>fill out the form below</strong> and we will reach out to you soon!</p>
@@ -72,7 +72,7 @@ unset($_SESSION['form_data']);
                         Regex patterns sourced from Tutor Nick:
                         - https://arziel1992.github.io/input-pattern-tester/
                 -->
-                <form id="apply_form" aria-labelledby="apply_heading" action="process_eoi.php" method="post">
+                <form id="apply_form" aria-labelledby="apply_heading" action="process_eoi.php" method="post" style="background-color: var(--main-white);">
 
                     <div id="job_reference_num_container" class="flex_item">
                         <label for="job_reference_num">Job Ref No: <span class="red_text">*</span></label>

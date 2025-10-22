@@ -367,8 +367,8 @@ aside.job-page {
 
 /* APPLY PAGE STYLES - START
 author: Ryan Tay
-created: 7/9/25
-last modified: 29/9/25
+created: 29/9/25
+last modified: 22/10/25
 */
 
 #apply_heading {
@@ -392,20 +392,16 @@ last modified: 29/9/25
 }
 
 #wrapper {
-    background-color: rgba(0,0,0,0.4);
-    backdrop-filter: grayscale(20%);
     width: 90%;
     max-width: 900px;
     margin: 3em auto;
     /* Center the wrapper */
-    box-shadow: 0 0 0.5em 0.6em rgba(255,255,255, 0.3);
     color: var(--main-black);
     font-size: 1.1rem;
     font-weight: 500;
 }
 
 #apply_form {
-    background-color: var(--main-white);
     margin: 20px 0px;
     display: flex;
     flex-flow: row wrap;
