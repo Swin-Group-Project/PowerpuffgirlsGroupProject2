@@ -628,12 +628,12 @@ date: Sep 29 - Oct 27, 2025
 
 
 /*ACADEMIC INFO NESTED LIST SETTINGS*/
-ul {
+.about-section ul {
     list-style-type: disc; /* normal bullets for main list */
     padding-left: 20px; /* indent main list */
 }
 
-ul ul {
+.about-section ul ul {
     list-style-type: circle; /* different bullet for nested list */
     padding-left: 20px; /* indent nested list further */
 }
@@ -790,7 +790,8 @@ ul ul {
     */
 /* Small tagline text under the brand */
 
-h3 {
+.tile h3,
+#about h3 {
     color: white;
 }
 
@@ -848,6 +849,13 @@ h3 {
     color: inherit;
     background-color: #ffffff;
     box-shadow: 0 8px 20px rgba(17, 17, 2, 0.12);
+    transition: all 0.5s ease;
+}
+
+.tile-hover:hover {
+    filter: brightness(0.9);
+    box-shadow: 4px 4px 6px #000000, -4px -4px 6px #668899;
+    transform: scale(1.05);
     transition: all 0.5s ease;
 }
 
@@ -959,6 +967,7 @@ footer a {
 }
 
 /*END OF FOOTER*/
+
 
 
 /* HR/LOGIN PAGE STYLES
