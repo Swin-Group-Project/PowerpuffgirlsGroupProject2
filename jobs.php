@@ -25,7 +25,7 @@ function fetchTableData($conn, $tableName, $orderBy = "") {
     return $data;
 }
 
-// Fetch all tables
+// Fetch all tables (TO DO: merge into jobs table)
 $tables = [
     'job_main' => fetchTableData($conn, 'job_main'),
     'job_appeal' => fetchTableData($conn, 'job_appeal', 'ref_num, appeal_id'),
