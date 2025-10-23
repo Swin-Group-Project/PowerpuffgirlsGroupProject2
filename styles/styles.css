@@ -212,7 +212,7 @@ last modified: 22.10.25
 }
 
 .container_jobs {
-    color: rgb(0, 0, 0);
+    color: black;
     background-color: none  ;
     display: flex;
     flex-direction: row;
@@ -225,8 +225,11 @@ aside.detail {
     flex: 25%;
     max-width: 25%;
     background-color: none;
+    border-radius: 15px;
+    box-shadow: 4px 4px 10px rgba(0,0,0,0.2);
     overflow-y: auto;
-    height: fit-content;
+    height: 90vh;
+    padding: 10px;
     border: none;
     box-shadow: none;
     padding: 0;
@@ -276,20 +279,33 @@ main.job-detail {
     margin-bottom: 0.5em;
 }
 
-/* gives spacing between requirements and involvements sections */
 .job-detail section {
     margin-bottom: 1.5em;
 }
 
-/* moves list to the right slightly so it looks better */
+/* Lists inside job details */
 .job-detail ul,
 .job-detail ol {
     margin-left: 20px;
 }
 
-.summary-list {
-    margin-left: 20px;
+/* Company and location styling */
+.company,
+.location {
+    margin-bottom: 5px;
 }
+
+/* Salary display */
+.salary {
+    font-size: 0.9em;
+    background-color: #f0f0f0;
+    display: inline-block;
+    padding: 2px 5px;
+    border-radius: 3px;
+    margin-bottom: 10px;
+}
+
+
 
 /* Responsive: stack columns on small screens */
 @media (max-width: 900px) {
