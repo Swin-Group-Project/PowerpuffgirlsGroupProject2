@@ -1178,8 +1178,8 @@ credit: w3schools.com
 
     /*About page*/
     .group-photo img {
-    width: 100%; 
-    max-width: 700px;
+        width: 100%; 
+        max-width: 700px;
     }
     
     #fun-facts table,
@@ -1191,6 +1191,226 @@ credit: w3schools.com
     .about-section {
         margin: 20px;
         padding: 20px;
+    }
+}
+
+/* Mobile L 425px */
+@media only screen and (max-width: 425px) {
+    
+    /* Footer copyright fix */
+    footer {
+        height: auto;
+        min-height: 100px;
+        padding: 15px 10px;
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        order: 2;
+        margin-top: 10px;
+    }
+    
+    .footer-links {
+        order: 1;
+    }
+    
+    .footer-copy {
+        font-size: 10px;
+        line-height: 1.4;
+        margin-top: 5px;
+    }
+
+    /* About table fix */
+    #fun-facts table {
+        font-size: 0.8rem;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    #fun-facts th,
+    #fun-facts td {
+        padding: 6px 10px;
+        white-space: nowrap;
+    }
+
+    /* Apply skills/other skills fix */
+    #skills_fieldset {
+        width: 100%;
+        margin: 1em auto;
+        padding: 10px;
+    }
+    
+    #other_skills_container {
+        margin: 0;
+        width: 100%;
+    }
+    
+    #other_skills_container textarea {
+        width: 100%;
+        min-height: 80px;
+        font-size: 0.8rem;
+        padding: 8px;
+        box-sizing: border-box;
+    }
+    
+    .checkbox_container {
+        margin: 0.5em 0;
+        font-size: 0.9rem;
+    }
+
+}
+
+/* Mobile M 375px */
+@media only screen and (max-width: 375px) {
+    /* Header fix */
+    nav > ul > li > a {
+        font-size: 1.3em;
+        margin: 8px;
+    }
+    
+    /* Footer copyright fix */
+    footer {
+        height: auto;
+        min-height: 100px;
+        padding: 15px 8px;
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        order: 2;
+        margin-top: 10px;
+    }
+    
+    .footer-links {
+        order: 1;
+    }
+    
+    .footer-copy {
+        font-size: 9px;
+        line-height: 1.4;
+        margin-top: 5px;
+    }
+
+    /* About table fix */
+    #fun-facts table {
+        font-size: 0.75rem;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    #fun-facts th,
+    #fun-facts td {
+        padding: 5px 8px;
+        white-space: nowrap;
+    }
+    
+    /* Apply skills/other skills fit */
+    #other_skills_container {
+        margin: 0 0.5em;
+    }
+    
+    #other_skills_container textarea {
+        width: 100%;
+    }
+    
+    /* Apply page submit form fix */
+    #wrapper {
+        width: 95%;
+        padding: 15px;
+    }
+    
+    #button_container {
+        flex-direction: column;
+        gap: 10px;
+    }
+    
+    #button_container input {
+        width: 100%;
+        margin: 0;
+        font-size: 1rem;
+    }
+}
+
+/* Mobile S 320px */
+@media only screen and (max-width: 320px) {
+
+    /* Header fix */
+    nav > ul > li > a {
+        font-size: 1.1em;
+        margin: 5px;
+    }
+
+    /* Footer fix */
+    footer {
+        height: auto;
+        min-height: 100px;
+        padding: 15px 5px;
+        flex-direction: column;
+    }
+    
+    .footer-content {
+        order: 2;
+        margin-top: 10px;
+    }
+    
+    .footer-links {
+        order: 1;
+    }
+    
+    .footer-copy {
+        font-size: 8px;
+        line-height: 1.4;
+        margin-top: 5px;
+    }
+
+     /* About table fix */
+    #fun-facts table {
+        font-size: 0.7rem;
+        width: 100%;
+        display: block;
+        overflow-x: auto;
+    }
+    
+    #fun-facts th,
+    #fun-facts td {
+        padding: 4px 6px;
+        white-space: nowrap;
+    }
+    
+    /* Apply logo fix */
+    #powerpuff_rodents {
+        width: 250px;
+        height: 250px;
+    }
+    
+    /* Apply skills/other skills fit */
+    #skills_fieldset {
+        width: 100%;
+    }
+    
+    #other_skills_container textarea {
+        width: 100%;
+        min-height: 60px;
+    }
+    
+    /* Apply page submit form fix */
+    #wrapper {
+        width: 98%;
+        padding: 10px;
+    }
+    
+    #button_container {
+        flex-direction: column;
+        gap: 8px;
+    }
+    
+    #button_container input {
+        width: 100%;
+        margin: 0;
+        font-size: 0.9rem;
+        height: 2.8em;
     }
 }
 
