@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Oct 16, 2025 at 03:13 PM
+-- Generation Time: Oct 23, 2025 at 02:37 PM
 -- Server version: 10.4.32-MariaDB
 -- PHP Version: 8.2.12
 
@@ -118,7 +118,7 @@ INSERT INTO `about_funfact` (`funfact_id`, `member_id`, `funfact_text`) VALUES
 (2, 1, 'Love Japanese food, especially sushi and ramen.'),
 (3, 1, 'The first time I visited a casino, I ran A$100 up to over A$1,000, then gave it all back the next day.'),
 (4, 2, 'Fell down the stairs and had to get a stitch near my eye.'),
-(5, 2, 'Had a serious fight with a 4 y/o because he broke my Rubik''s Cube when I was 11.'),
+(5, 2, 'Had a serious fight with a 4 y/o because he broke my Rubik\'s Cube when I was 11.'),
 (6, 2, 'Had to save my stupid bird at home without a vet because he nearly got tangled and hung himself in his toy.'),
 (7, 3, 'Broke his front tooth at age 7 while pretending to surf on a towel.'),
 (8, 3, 'Aspiring barista/latte artist.'),
@@ -201,11 +201,11 @@ INSERT INTO `about_team` (`team_id`, `meet_text`, `team_photo`, `team_name`, `cl
 (3, 'A Melbourne-based team of four with big ideas and a love for creating memorable experiences. We are a game development company with a passion for crafting games and digital content that are engaging, inspiring, and full of imagination. With four dedicated members, we bring together different skills and ideas to design and develop. Though each of us focuses on different areas, together we create games and digital content that are fun, innovative, and inspiring. Alone we are good. Together? We are unstoppable!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
 (4, 'Our team is growing, and we are excited to welcome anyone who wants to code, design, or just bring bold ideas to the table. Got a weird idea? PERFECT. Think you can handle a brainstorming session that feels more like a jam session? Even BETTER.', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
 (5, 'Join us', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
-(6, 'if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don''t always agree).', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(6, 'if you like building games, sharing ideas, and maybe debating which game soundtrack is the best (spoiler: we don\'t always agree).', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
 (7, 'We thrive on creativity, curiosity, and a little bit of chaos. Every brainstorming session is a chance to test new ideas, break stuff (safely), and turn challenges into wins. We love experimenting, learning from each other, and turning challenges into opportunities to level up.', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
-(8, 'Curious? Excited?? Think you''d enjoy being part of our team??? Check our ', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
+(8, 'Curious? Excited?? Think you\'d enjoy being part of our team??? Check our ', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
 (9, 'pages to see how you can hop on board!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)'),
-(10, 'That''s a wrap! Hope to see you joining our quest!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)');
+(10, 'That\'s a wrap! Hope to see you joining our quest!', 'images/about/group_photo.jpg', 'Powerpuff Girls', 'Tuesday', '2:30 PM - 4:30 PM', 'Dr Atie Kia', 'Enrique Ketterer Ortiz (Nick)');
 
 -- --------------------------------------------------------
 
@@ -251,7 +251,9 @@ CREATE TABLE `eoi_skill` (
   `skill_name` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `eoi_skill`
+--
 
 INSERT INTO `eoi_skill` (`skill_id`, `skill_name`) VALUES
 (1, 'Project Management'),
@@ -262,6 +264,8 @@ INSERT INTO `eoi_skill` (`skill_id`, `skill_name`) VALUES
 (6, 'Rust'),
 (7, 'Unity'),
 (8, 'Adobe Animate');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `eoi_skill_selection`
@@ -315,25 +319,25 @@ CREATE TABLE `job_appeal` (
   `job_appeal` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `job_appeal`
+--
 
-INSERT INTO `job_appeal` (`appeal_id`, `ref_num`, `job_appeal`)
-VALUES
+INSERT INTO `job_appeal` (`appeal_id`, `ref_num`, `job_appeal`) VALUES
 (1, 'REF-SE842', 'Contribute directly to core gameplay systems.'),
 (2, 'REF-SE842', 'Collaborate with creative teams in a dynamic environment.'),
 (3, 'REF-SE842', 'Grow your engineering skills with challenging problems.'),
-
 (4, 'REF-GE529', 'Work on the cutting edge of rendering technology.'),
 (5, 'REF-GE529', 'Define the visual direction of our games.'),
 (6, 'REF-GE529', 'Gain hands-on experience with the latest graphics APIs.'),
-
 (7, 'REF-BE317', 'Maintain automated systems that ensure smooth development.'),
 (8, 'REF-BE317', 'Be the backbone of the studio’s technical pipeline.'),
 (9, 'REF-BE317', 'Play a key role in streamlining workflows.'),
-
 (10, 'REF-NE604', 'Develop the multiplayer backbone that connects players worldwide.'),
 (11, 'REF-NE604', 'Build matchmaking and online service systems.'),
 (12, 'REF-NE604', 'Join a team that values technical excellence and collaboration.');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `job_company`
@@ -346,14 +350,17 @@ CREATE TABLE `job_company` (
   `company_logo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `job_company`
+--
 
-INSERT INTO `job_company` (`company_id`, `ref_num`, `company_name`, `company_logo`)
-VALUES
-(1, 'REF-SE842', 'Powerpuff Corp.', 'domain'),
-(1, 'REF-GE529', 'Powerpuff Corp.', 'domain'),
+INSERT INTO `job_company` (`company_id`, `ref_num`, `company_name`, `company_logo`) VALUES
 (1, 'REF-BE317', 'Powerpuff Corp.', 'domain'),
-(1, 'REF-NE604', 'Powerpuff Corp.', 'domain');
+(1, 'REF-GE529', 'Powerpuff Corp.', 'domain'),
+(1, 'REF-NE604', 'Powerpuff Corp.', 'domain'),
+(1, 'REF-SE842', 'Powerpuff Corp.', 'domain');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `job_involvement`
@@ -365,25 +372,25 @@ CREATE TABLE `job_involvement` (
   `job_involvement` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `job_involvement`
+--
 
-INSERT INTO `job_involvement` (`involvement_id`, `ref_num`, `job_involvement`)
-VALUES
+INSERT INTO `job_involvement` (`involvement_id`, `ref_num`, `job_involvement`) VALUES
 (1, 'REF-SE842', 'Build core gameplay systems and implement in-game mechanics.'),
 (2, 'REF-SE842', 'Collaborate with design and art teams to translate creative ideas into features.'),
 (3, 'REF-SE842', 'Requires strong coding and debugging skills in C++ or C#.'),
-
 (4, 'REF-GE529', 'Create rendering and visual effects systems for games.'),
 (5, 'REF-GE529', 'Optimize shaders and rendering performance across platforms.'),
 (6, 'REF-GE529', 'Requires knowledge of DirectX/Vulkan/OpenGL and linear algebra.'),
-
 (7, 'REF-BE317', 'Manage automated build pipelines to maintain stable builds.'),
 (8, 'REF-BE317', 'Troubleshoot and improve CI/CD efficiency.'),
 (9, 'REF-BE317', 'Requires strong scripting and DevOps skills.'),
-
 (10, 'REF-NE604', 'Develop multiplayer and networked gameplay systems.'),
 (11, 'REF-NE604', 'Ensure stable, low-latency connections for smooth play.'),
 (12, 'REF-NE604', 'Requires networking and server expertise.');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `job_location`
@@ -396,14 +403,17 @@ CREATE TABLE `job_location` (
   `location_logo` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `job_location`
+--
 
-INSERT INTO `job_location` (`location_id`, `ref_num`, `job_location`, `location_logo`)
-VALUES
-(1, 'REF-SE842', 'Melbourne VIC', 'location_on'),
-(1, 'REF-GE529', 'Melbourne VIC', 'location_on'),
+INSERT INTO `job_location` (`location_id`, `ref_num`, `job_location`, `location_logo`) VALUES
 (1, 'REF-BE317', 'Melbourne VIC', 'location_on'),
-(1, 'REF-NE604', 'Melbourne VIC', 'location_on');
+(1, 'REF-GE529', 'Melbourne VIC', 'location_on'),
+(1, 'REF-NE604', 'Melbourne VIC', 'location_on'),
+(1, 'REF-SE842', 'Melbourne VIC', 'location_on');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `job_main`
@@ -420,14 +430,17 @@ CREATE TABLE `job_main` (
   `reporting_line` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `job_main`
+--
 
-INSERT INTO `job_main` (`ref_num`, `salary_min`, `salary_max`, `job_name`, `job_logo`, `location_id`, `company_id`, `reporting_line`)
-VALUES
-('REF-SE842', 90000, 110000, 'Software Engineer', 'deployed_code', 1, 1, 'CTO'),
-('REF-GE529', 90000, 110000, 'Graphics Engineer', 'wall_art', 1, 1, 'Graphics Director'),
-('REF-BE317', 100000, 130000, 'Build Engineer', 'construction', 1, 1, 'DevOps Manager'),
-('REF-NE604', 105000, 125000, 'Network Engineer', 'network_node', 1, 1, 'Network Lead');
+INSERT INTO `job_main` (`ref_num`, `salary_min`, `salary_max`, `job_name`, `job_logo`, `location_id`, `company_id`, `reporting_line`) VALUES
+('REF-BE317', '100000', '130000', 'Build Engineer', 'construction', 1, 1, 'DevOps Manager'),
+('REF-GE529', '90000', '110000', 'Graphics Engineer', 'wall_art', 1, 1, 'Graphics Director'),
+('REF-NE604', '105000', '125000', 'Network Engineer', 'network_node', 1, 1, 'Network Lead'),
+('REF-SE842', '90000', '110000', 'Software Engineer', 'deployed_code', 1, 1, 'CTO');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `job_requirement`
@@ -439,25 +452,25 @@ CREATE TABLE `job_requirement` (
   `job_requirement` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `job_requirement`
+--
 
-INSERT INTO `job_requirement` (`requirement_id`, `ref_num`, `job_requirement`)
-VALUES
+INSERT INTO `job_requirement` (`requirement_id`, `ref_num`, `job_requirement`) VALUES
 (1, 'REF-SE842', 'Solid experience with programming languages such as C++ or C#, and a strong understanding of object-oriented design principles.'),
 (2, 'REF-SE842', 'Proven ability to debug and solve complex technical issues efficiently.'),
 (3, 'REF-SE842', 'A strong interest in gameplay design and the ability to translate creative ideas into functional systems.'),
-
 (4, 'REF-GE529', 'Strong knowledge of graphics APIs such as DirectX, Vulkan, or OpenGL, and experience writing shaders.'),
 (5, 'REF-GE529', 'Solid understanding of rendering pipelines, lighting, post-processing, and visual effects.'),
 (6, 'REF-GE529', 'Strong mathematical foundation in linear algebra, geometry, and 3D transformations.'),
-
 (7, 'REF-BE317', 'Proficiency in scripting languages such as Python, Bash, or PowerShell, with the ability to automate complex tasks.'),
 (8, 'REF-BE317', 'Hands-on experience with CI/CD systems such as Jenkins, GitHub Actions, or TeamCity.'),
 (9, 'REF-BE317', 'Strong troubleshooting and diagnostic skills to quickly resolve build and deployment issues.'),
-
 (10, 'REF-NE604', 'Strong knowledge of networking protocols (TCP, UDP, WebSockets) and their use in real-time applications.'),
 (11, 'REF-NE604', 'Experience with server architecture, backend services, and scalable infrastructure.'),
 (12, 'REF-NE604', 'Ability to debug and optimize network performance, addressing latency, packet loss, and connectivity issues.');
+
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `job_summary`
@@ -469,26 +482,25 @@ CREATE TABLE `job_summary` (
   `job_summary` text NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
--- --------------------------------------------------------
+--
+-- Dumping data for table `job_summary`
+--
 
-INSERT INTO `job_summary` (`summary_id`, `ref_num`, `job_summary`)
-VALUES
+INSERT INTO `job_summary` (`summary_id`, `ref_num`, `job_summary`) VALUES
 (1, 'REF-SE842', 'Build core gameplay systems'),
 (2, 'REF-SE842', 'Collaborate with design and art teams'),
 (3, 'REF-SE842', 'Requires strong coding skills (C++/C#)'),
-
 (4, 'REF-GE529', 'Create rendering and visual effects'),
 (5, 'REF-GE529', 'Optimize shaders and performance'),
 (6, 'REF-GE529', 'Requires knowledge of graphics APIs'),
-
 (7, 'REF-BE317', 'Maintain automated build pipelines'),
 (8, 'REF-BE317', 'Troubleshoot and improve CI/CD'),
 (9, 'REF-BE317', 'Requires strong scripting skills'),
-
 (10, 'REF-NE604', 'Develop multiplayer systems'),
 (11, 'REF-NE604', 'Ensure stable, low-latency connections'),
 (12, 'REF-NE604', 'Requires networking expertise');
 
+-- --------------------------------------------------------
 
 --
 -- Table structure for table `users`
@@ -561,9 +573,9 @@ ALTER TABLE `eoi_location`
 -- Indexes for table `eoi_main`
 --
 ALTER TABLE `eoi_main`
-ADD PRIMARY KEY (`eoi_id`),
-ADD UNIQUE KEY `email` (`email`),
-ADD KEY `ref_num` (`ref_num`);
+  ADD PRIMARY KEY (`eoi_id`),
+  ADD UNIQUE KEY `email` (`email`),
+  ADD KEY `ref_num` (`ref_num`);
 
 --
 -- Indexes for table `eoi_skill`
@@ -595,7 +607,8 @@ ALTER TABLE `job_appeal`
 -- Indexes for table `job_company`
 --
 ALTER TABLE `job_company`
-  ADD KEY (`company_id`),
+  ADD PRIMARY KEY (`company_id`,`ref_num`),
+  ADD KEY `company_id` (`company_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
@@ -609,7 +622,8 @@ ALTER TABLE `job_involvement`
 -- Indexes for table `job_location`
 --
 ALTER TABLE `job_location`
-  ADD KEY (`location_id`),
+  ADD PRIMARY KEY (`location_id`,`ref_num`),
+  ADD KEY `location_id` (`location_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
@@ -696,43 +710,43 @@ ALTER TABLE `eoi_main`
 -- AUTO_INCREMENT for table `eoi_skill`
 --
 ALTER TABLE `eoi_skill`
-  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `skill_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `job_appeal`
 --
 ALTER TABLE `job_appeal`
-  MODIFY `appeal_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `appeal_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `job_company`
 --
 ALTER TABLE `job_company`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `job_involvement`
 --
 ALTER TABLE `job_involvement`
-  MODIFY `involvement_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `involvement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `job_location`
 --
 ALTER TABLE `job_location`
-  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `location_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- AUTO_INCREMENT for table `job_requirement`
 --
 ALTER TABLE `job_requirement`
-  MODIFY `requirement_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `requirement_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `job_summary`
 --
 ALTER TABLE `job_summary`
-  MODIFY `summary_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `summary_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `users`
