@@ -975,6 +975,114 @@ author: Lira Khisha
 date: Sep 29 - Oct 27, 2025
 */
 
+/*Login*/
+input[type="text"],
+input[type="password"] {
+    width: 300px;
+    height: 40px;
+    font-size: 16px;
+    padding: 5px 10px;
+}
+
+.login-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: calc(100vh - 160px); /* prevents touching header/footer */
+    padding: 40px 0;
+    filter: drop-shadow(0 0 40px rgba(59, 117, 157, 0.4));
+}
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-logo {
+    width: 120px;
+    height: 120px;
+    margin-bottom: 10px;
+}
+
+.login-title {
+    margin: 0;
+    font-size: 28px;
+    color: white;
+}
+
+.login-subtitle {
+    margin: 5px 0 0 0;
+    font-size: 14px;
+    color: #ccc;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 12px 14px;
+    border: 1px solid #333;
+    border-radius: 8px;
+    background-color: #121223;
+    color: #fff;
+    font-size: 14px;
+    outline: none;
+    transition: border 0.3s, box-shadow 0.3s;
+}
+
+.form-group input:focus {
+    border-color: #4b7cff;
+    box-shadow: 0 0 0 2px rgba(75,124,255,0.3);
+}
+
+.login-button {
+    width: 100%;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    background: linear-gradient(135deg, #3a1c3e, #8c4755);
+    color: #fff;
+    font-size: 16px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.login-button:hover {
+    background: linear-gradient(135deg, #2a142d, #6d3843);
+    box-shadow: 0 4px 12px rgba(140, 71, 85, 0.4);
+}
+
+.error-message {
+    color: red;
+    text-align: center;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px;
+}       
+
+
+
+/*Manage*/
+
+
+
+
+
+
+
+
+
+
 /*END OF HR/LOGIN PAGE*/
 
 
