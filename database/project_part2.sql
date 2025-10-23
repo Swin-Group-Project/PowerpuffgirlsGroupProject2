@@ -1151,17 +1151,18 @@ CREATE TABLE `job_main` (
   `job_name` varchar(50) NOT NULL,
   `job_logo` varchar(50) NOT NULL,
   `location_id` int(11) NOT NULL,
-  `company_id` int(11) NOT NULL
+  `company_id` int(11) NOT NULL,
+  `reporting_line` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 -- --------------------------------------------------------
 
-INSERT INTO `job_main` (`ref_num`, `salary_min`, `salary_max`, `job_name`, `job_logo`, `location_id`, `company_id`)
+INSERT INTO `job_main` (`ref_num`, `salary_min`, `salary_max`, `job_name`, `job_logo`, `location_id`, `company_id`, `reporting_line`)
 VALUES
-('REF-SE842', 90000, 110000, 'Software Engineer', 'deployed_code', 1, 1),
-('REF-GE529', 90000, 110000, 'Graphics Engineer', 'wall_art', 1, 1),
-('REF-BE317', 100000, 130000, 'Build Engineer', 'construction', 1, 1),
-('REF-NE604', 105000, 125000, 'Network Engineer', 'network_node', 1, 1);
+('REF-SE842', 90000, 110000, 'Software Engineer', 'deployed_code', 1, 1, 'CTO'),
+('REF-GE529', 90000, 110000, 'Graphics Engineer', 'wall_art', 1, 1, 'Graphics Director'),
+('REF-BE317', 100000, 130000, 'Build Engineer', 'construction', 1, 1, 'DevOps Manager'),
+('REF-NE604', 105000, 125000, 'Network Engineer', 'network_node', 1, 1, 'Network Lead');
 
 --
 -- Table structure for table `job_requirement`
@@ -1213,14 +1214,15 @@ VALUES
 
 (4, 'REF-GE529', 'Create rendering and visual effects'),
 (5, 'REF-GE529', 'Optimize shaders and performance'),
+(6, 'REF-GE529', 'Requires knowledge of graphics APIs'),
 
-(6, 'REF-BE317', 'Manage automated build pipelines'),
-(7, 'REF-BE317', 'Troubleshoot and streamline CI/CD'),
-(8, 'REF-BE317', 'Requires scripting and DevOps skills'),
+(7, 'REF-BE317', 'Maintain automated build pipelines'),
+(8, 'REF-BE317', 'Troubleshoot and improve CI/CD'),
+(9, 'REF-BE317', 'Requires strong scripting skills'),
 
-(9, 'REF-NE604', 'Develop multiplayer features'),
-(10, 'REF-NE604', 'Ensure stable, low-latency connections'),
-(11, 'REF-NE604', 'Requires networking and server expertise');
+(10, 'REF-NE604', 'Develop multiplayer systems'),
+(11, 'REF-NE604', 'Ensure stable, low-latency connections'),
+(12, 'REF-NE604', 'Requires networking expertise');
 
 
 --
@@ -1231,7 +1233,7 @@ CREATE TABLE `users` (
   `user_id` int(11) NOT NULL,
   `username` varchar(255) NOT NULL,
   `user_password` varchar(255) NOT NULL,
-  `admin` tinyint(1) NOT NULL
+  `role` varchar(10) NOT NULL DEFAULT 'user'
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
@@ -1328,21 +1330,21 @@ ALTER TABLE `job_appeal`
 -- Indexes for table `job_company`
 --
 ALTER TABLE `job_company`
-  ADD KEY (`company_id`),
+  ADD PRIMARY KEY (`company_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
 -- Indexes for table `job_involvement`
 --
 ALTER TABLE `job_involvement`
-  ADD KEY (`involvement_id`),
+  ADD PRIMARY KEY (`involvement_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
 -- Indexes for table `job_location`
 --
 ALTER TABLE `job_location`
-  ADD KEY (`location_id`),
+  ADD PRIMARY KEY (`location_id`),
   ADD KEY `ref_num` (`ref_num`);
 
 --
