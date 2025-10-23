@@ -14,6 +14,8 @@ ini_set('display_errors', 1);
 <?php
 
 // Connection to database "project_part2"
+session_start();
+require_once "settings.php";
 require("skills_data.php");
 $conn = mysqli_connect($host, $username, $password, $database);
 
@@ -30,7 +32,6 @@ function sanitize($data) {
 
 // Check if POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
-
     // Get user input
     $job_reference_num = sanitize($_POST["job_reference_num"]);
     $first_name = sanitize($_POST["first_name"]);
@@ -66,6 +67,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "phone_num" => $phone_num,
         "skills" => $skills
     ];
+
     foreach ($required_fields as $field => $value) { // take $required_fields array from skills_data.php
         if (empty($value)) {
             $required_errors[$field] = "This field is required";
@@ -93,10 +95,13 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     }
 
     if (empty($required_errors) && empty($pattern_errors)) { // if input meets validation criteria
+        
         $stmt_eoi_main = $conn->prepare("INSERT INTO eoi_main (
                 email, ref_num, first_name, last_name,
                 birth_date, gender, phone_num, other_skills
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
+
+            
 
         $stmt_eoi_main->bind_param("ssssssss",
             $email, $job_reference_num, $first_name, $last_name,
@@ -109,6 +114,19 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         }
 
         $eoi_id = mysqli_insert_id($conn);
+
+        $stmt_eoi_location = $conn->prepare("INSERT INTO eoi_location (
+                eoi_id, street_address, suburb_town, state, postcode
+            ) VALUES (?, ?, ?, ?, ?)");
+
+        $stmt_eoi_location->bind_param("isssi",
+            $eoi_id, $street_address, $suburb_town, $state, $postcode);
+
+        $result = $stmt_eoi_location->execute();
+
+        if (!$result) {
+            echo "<p style='color:red;'>Error: " . $stmt_eoi_main->error . "</p>";
+        }
 
         foreach ($skills as $skill_id) {
             $stmt_skill = $conn->prepare("INSERT INTO eoi_skill_selection (eoi_id, skill_id)

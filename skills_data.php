@@ -13,7 +13,9 @@ ini_set('display_errors', 1);
 
 $conn = mysqli_connect($host, $username, $password, $database);
 
-
+if (!$conn) {
+    die("Database connection failed: " . mysqli_connect_error());
+}
 
 $skills_data = [
     1 => "Project Management",

@@ -14,6 +14,29 @@ ini_set('display_errors', 1);
 session_start();
 require_once("settings.php");
 
+function fetchTableData($conn, $tableName, $orderBy = "") {
+    $data = [];
+    $sql = "SELECT * FROM $tableName";
+    if (!empty($orderBy)) {
+        $sql .= " ORDER BY $orderBy";
+    }
+    
+    $result = $conn->query($sql);
+    
+    if ($result->num_rows > 0) {
+        while($row = $result->fetch_assoc()) {
+            $data[] = $row;
+        }
+    } else {
+        echo "Query Failed: " . $sql;
+    }
+    return $data;
+}
+
+$tables = [
+    ''
+]
+
 // TO DO: Get session variables
 ?>
 
