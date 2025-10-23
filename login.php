@@ -25,17 +25,24 @@ session_start();
                 #051225 0%,     
                 #1c4159 50%,   
                 #351c38 100%   );
-            padding: 30px 50px;
-            border-radius: 12px;
-            box-shadow: 
-                0 8px 24px rgba(0,0,0,0.6),
-                0 0 30px rgba(28, 65, 89, 0.6),   
-                0 0 60px rgba(53, 28, 56, 0.4);    
-            width: 700px;
-            min-height: 500px;
-            height: auto;
-            position: relative; 
-            z-index: 1; }
+                padding: 30px 50px;
+                border-radius: 12px;
+                box-shadow: 
+                    0 8px 24px rgba(0,0,0,0.6),
+                    0 0 30px rgba(28, 65, 89, 0.6),   
+                    0 0 60px rgba(53, 28, 56, 0.4);    
+                width: 700px;
+                min-height: 500px;
+                height: auto;
+                position: relative; 
+                z-index: 1; }
+            .large-icon {
+                font-size: 64px;
+                width: 64px;
+                height: 64px;
+                color: #ccc;
+            }
+            
         </style>
     </head>
     <body>
@@ -45,7 +52,7 @@ session_start();
             <div class="login-container">
                 <div class="login-box">
                     <div class="login-header">
-                        <img src="" alt="" class="login-logo">
+                        <span class="material-symbols-outlined large-icon">person_shield</span>
                         <h2 class="login-title">Login</h2>
                         <p class="login-subtitle">Enter your username and password to login.</p>
                     </div>
