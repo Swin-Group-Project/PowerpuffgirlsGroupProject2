@@ -33,7 +33,7 @@ function sanitize($data) {
 // Check if POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
     // Get user input
-    $job_reference_num = sanitize($_POST["job_reference_num"]);
+    $job_reference_num = "REF-" . sanitize($_POST["job_reference_num"]);
     $first_name = sanitize($_POST["first_name"]);
     $last_name = sanitize($_POST["last_name"]);
     $date_of_birth = sanitize($_POST["date_of_birth"]);
@@ -100,8 +100,6 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
                 email, ref_num, first_name, last_name,
                 birth_date, gender, phone_num, other_skills
             ) VALUES (?, ?, ?, ?, ?, ?, ?, ?)");
-
-            
 
         $stmt_eoi_main->bind_param("ssssssss",
             $email, $job_reference_num, $first_name, $last_name,

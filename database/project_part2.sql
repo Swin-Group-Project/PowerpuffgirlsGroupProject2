@@ -215,8 +215,8 @@ INSERT INTO `about_team` (`team_id`, `meet_text`, `team_photo`, `team_name`, `cl
 
 CREATE TABLE `eoi_location` (
   `eoi_id` int(11) NOT NULL,
-  `address` varchar(50) NOT NULL,
-  `suburb` varchar(50) NOT NULL,
+  `street_address` varchar(50) NOT NULL,
+  `suburb_town` varchar(50) NOT NULL,
   `state` varchar(50) NOT NULL,
   `postcode` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;

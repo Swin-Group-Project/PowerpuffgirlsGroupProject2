@@ -29,7 +29,7 @@ $skills_data = [
 ];
 
 $patterns = [
-    "job_reference_num" => "/^[a-zA-Z0-9]{5}$/",
+    "job_reference_num" => "/^REF-[a-zA-Z0-9]{5}$/",
     "first_name" => "/^[a-zA-Z]{1,20}$/",
     "last_name" => "/^[a-zA-Z]{1,20}$/",
     "date_of_birth" => "/^(0[1-9]|[12][0-9]|3[01])\/(0[1-9]|1[012])\/\d{4}$/",
