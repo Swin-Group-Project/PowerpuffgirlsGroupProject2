@@ -67,7 +67,8 @@ $conn->close();
     <style>
         .text-bigger-size {
         color: black;
-        font-size: 1.5em; 
+        font-size: 1.5em;
+        font-weight: 400;
         }
 
         .text {
@@ -91,23 +92,23 @@ $conn->close();
         ?>
         <h2><?= htmlspecialchars($selectedJob['job_name']) ?></h2>
 
-            <p class='text-bigger-size'>
+            <h3 class='text-bigger-size'>
                 <?= htmlspecialchars($company['company_name'] ?? '') ?>
                 <?php if (!empty($company['company_logo'])): ?>
                     <span class="material-symbols-outlined"><?= htmlspecialchars($company['company_logo']) ?></span>
                 <?php endif; ?>
-            </p>
+            </h3>
 
-            <p class='text-bigger-size'>
+            <h3 class='text-bigger-size'>
                 <?= htmlspecialchars($location['job_location'] ?? '') ?>
                 <?php if (!empty($location['location_logo'])): ?>
                     <span class="material-symbols-outlined"><?= htmlspecialchars($location['location_logo']) ?></span>
                 <?php endif; ?>
-            </p>
+            </h3>
 
             <p class="salary">AUD <?= htmlspecialchars($selectedJob['salary_min']) ?> – <?= htmlspecialchars($selectedJob['salary_max']) ?></p>
-            <p class='text'><strong>Ref:</strong> <?= htmlspecialchars($selectedJob['ref_num']) ?> </p>
-            <p class='text'><strong>Reporting Line:</strong> <?= htmlspecialchars($selectedJob['reporting_line']) ?> </p>
+            <p class='text'><h3>Ref:</h3> <?= htmlspecialchars($selectedJob['ref_num']) ?> </p>
+            <p class='text'><h3>Reporting Line:</h3> <?= htmlspecialchars($selectedJob['reporting_line']) ?> </p>
         <hr>
         <section>
                 <h3 class='text'>Requirements:</h3>
@@ -122,7 +123,7 @@ $conn->close();
                 <ol>
                     <?php foreach ($invs as $index => $i): ?>
                         <li>
-                            <strong><?= htmlspecialchars($i['job_involvement']) ?></strong>
+                            <h3><?= htmlspecialchars($i['job_involvement']) ?></h3>
 
                             <?php if (isset($reqs[$index])): ?>
                                 <ul>
@@ -159,22 +160,22 @@ $conn->close();
             ?>
                 <div class ="job-list <?= $isActive ?>">
                     <a class="job-link" href="?job=<?= urlencode($job['ref_num']) ?>">
-                        <p style='font-size: 2em;'><strong><?= htmlspecialchars($job['job_name']) ?></strong></p>
-                        <p class='text-bigger-size'>
+                        <h3 style='font-size: 2em;'><?= htmlspecialchars($job['job_name']) ?></h3>
+                        <h4 class='text-bigger-size'>
                             <?= htmlspecialchars($company['company_name'] ?? '') ?>
                             <?php if (!empty($company['company_logo'])): ?>
                                 <span class="material-symbols-outlined"><?= htmlspecialchars($company['company_logo']) ?></span>
                             <?php endif; ?>
-                        </p>
-                        <p class='text-bigger-size'>
+                        </h4>
+                        <h4 class='text-bigger-size'>
                             <?= htmlspecialchars($location['job_location'] ?? '') ?>
                             <?php if (!empty($location['location_logo'])): ?>
                                 <span class="material-symbols-outlined"><?= htmlspecialchars($location['location_logo']) ?></span>
                             <?php endif; ?>
-                        </p>
-                        <p class='text'><strong>Ref:</strong> <?= htmlspecialchars($job['ref_num']) ?> </p>
-                        <p class='text'><strong>Reporting Line:</strong> <?= htmlspecialchars($job['reporting_line']) ?> </p>
-                        <strong class='text'> Job Summary: </strong>
+                        </h4>
+                        <p class='text'><h3>Ref:</h3> <?= htmlspecialchars($job['ref_num']) ?> </p>
+                        <p class='text'><h3>Reporting Line:</h3> <?= htmlspecialchars($job['reporting_line']) ?> </p>
+                        <h3 class='text'> Job Summary: </h3>
                         <?php if ($summaries): ?>
                             <ul class="summary-list">
                                 <?php foreach ($summaries as $s): ?>

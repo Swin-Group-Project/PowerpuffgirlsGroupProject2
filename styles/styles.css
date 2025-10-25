@@ -198,6 +198,10 @@ description: jobs.html, apply.html
 
 }
 
+.small-text {
+    font-size: 19px !important;
+}
+
 /* JOB PAGE STYLES
 author: Aron Winjoto
 created: 29.09.25

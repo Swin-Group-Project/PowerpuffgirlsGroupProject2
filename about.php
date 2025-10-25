@@ -113,7 +113,7 @@ mysqli_close($conn);
                 <p><?php echo $meet_texts[4]; ?><strong> <?php echo $meet_texts[5]; ?></strong> <?php echo $meet_texts[6]; ?></p>
                 <p><?php echo $meet_texts[7]; ?></p> 
                 <p id="job_link"><?php echo $meet_texts[8]; ?><a href="jobs.php" target="_blank"><strong> Jobs</strong></a> and <a href="apply.php" target="_blank"><strong> Apply</strong></a> <?php echo $meet_texts[9]; ?></p>
-                <p><?php echo $meet_texts[10]; ?><span class="material-symbols-outlined">partner_exchange</span></p> 
+                <p><?php echo $meet_texts[10]; ?><span class="small-text material-symbols-outlined">partner_exchange</span></p> 
             </section>
             
             <section id="group-section" class="about-section" aria-label="Academic Information"><!--id and class are authored by ryan-->
