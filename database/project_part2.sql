@@ -502,6 +502,13 @@ CREATE TABLE `users` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_general_ci;
 
 --
+-- Dumping data for table `users`
+--
+
+INSERT INTO `users` (`user_id`, `username`, `user_password`, `role`) VALUES
+(1, 'Admin', '$2y$10$xQESgQIdSk2XU6NGQkZQg.12GodneSQl/lJgbSOPxYhyho72xKk6K', 'admin'),
+(2, 'manager1', '$2y$10$Bhj2pdAQjrPZ2ReQB7ruQezJ0uqMaHwFhToK40/712w/3XUk1wllm', 'admin');
+--
 -- Indexes for dumped tables
 --
 
@@ -738,7 +745,7 @@ ALTER TABLE `job_summary`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
 
 --
 -- Constraints for dumped tables

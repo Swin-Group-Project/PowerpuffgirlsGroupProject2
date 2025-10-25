@@ -1,7 +1,7 @@
 <!--
 File: Login
 Date created: Sep 29 2025
-Last modified: Oct 23 2025
+Last modified: Oct 25 2025
 -->
 <?php
 session_start();
@@ -58,7 +58,7 @@ session_start();
                     </div>
                     <?php
                         if (isset($_SESSION['error'])) { 
-                            echo "<div class='error-message'>" . $_SESSION['error'] . "</div>";  
+                            echo "<div class='error-message'>" . htmlspecialchars($_SESSION['error']) . "</div>";  
                             unset($_SESSION['error']); }
                     ?>
                     <form action="process_login.php" method="POST" class="login-form">
@@ -68,7 +68,7 @@ session_start();
                         </div>
                         <div class="form-group">
                             <label for="password" class="password" style="color: white;">Password:</label>
-                            <input type="password" id="password" name="password" placeholder="Enter your password" required >
+                            <input type="password" id="password" name="password" autocomplete="off" placeholder="Enter your password" required >  <!--autocomplete="off" Prevents browsers from saving or auto-filling passwords.-->
                         </div>
                         <button type="submit" name="login" class="login-button">Login</button>
                     </form>
@@ -80,4 +80,3 @@ session_start();
     </body>
 </html>
 
-<!--no link to header/footer/nav bar for now--> 
