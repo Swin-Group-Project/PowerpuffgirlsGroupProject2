@@ -506,8 +506,8 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `user_password`, `role`) VALUES
-(1, 'Admin', 'Admin', 'admin');
-
+(1, 'Admin', '$2y$10$xQESgQIdSk2XU6NGQkZQg.12GodneSQl/lJgbSOPxYhyho72xKk6K', 'admin'),
+(2, 'manager1', '$2y$10$Bhj2pdAQjrPZ2ReQB7ruQezJ0uqMaHwFhToK40/712w/3XUk1wllm', 'admin');
 --
 -- Indexes for dumped tables
 --
