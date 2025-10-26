@@ -12,8 +12,29 @@ error_reporting(E_ALL);
 ini_set('display_errors', 1);
 
 session_start();
+
+//This ensures only users with role = admin can access the Manage Dashboard.If someone tries typing manage.php in the URL, they'll get redirected to login.php
+if (!isset($_SESSION['user']) || $_SESSION['role'] !== 'admin') { 
+    header("Location: login.php");
+    exit();
+}
+
+//Automatically logs out inactive users after 15 minutes.
+if (isset($_SESSION['LAST_ACTIVITY']) && (time() - $_SESSION['LAST_ACTIVITY'] > 900)) {
+    session_unset();
+    session_destroy();
+    header("Location: login.php");
+    exit();
+}
+$_SESSION['LAST_ACTIVITY'] = time();  //Keeps user logged in as long as they're active and not inactive for 15+ minutes
+
+
 require_once("settings.php");
 $conn = mysqli_connect($host, $username, $password, $database);
+if (!$conn) {
+    error_log("Database connection failed: " . mysqli_connect_error());   // Log the error privately instead of exposing sensitive details to users
+    die("Sorry, something went wrong. Please try again later.");    // Show a generic error message to avoid leaking server/database details
+}
 
 function fetchTableData($conn, $tableName, $orderBy = "") {
     $data = [];
