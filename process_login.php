@@ -1,3 +1,10 @@
+<!--
+File: Process Login
+Date created: Sep 29 2025
+Last modified: Oct 27 2025
+Description: Login authentication handler for secure access to the admin dashboard
+-->
+
 <?php
 session_start();
 require_once("settings.php");

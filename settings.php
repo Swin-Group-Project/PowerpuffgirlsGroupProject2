@@ -9,5 +9,5 @@ Allows for connection to the database -->
     $username = "root";
     $password = ""; // Assessment requirement: Do not set a password
     $database = "project_part2";
-
+?>
 
