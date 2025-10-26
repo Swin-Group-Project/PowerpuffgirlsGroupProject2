@@ -198,9 +198,6 @@ description: jobs.html, apply.html
 
 }
 
-.small-text {
-    font-size: 19px !important;
-}
 
 /* JOB PAGE STYLES
 author: Aron Winjoto
@@ -848,7 +845,7 @@ date: Sep 29 - Oct 27, 2025
 
 /* RYAN: Pixelized photos generated with pixelartvillage.com
 - photo credits: https://www.esb-business-school.de/en/the-esb/partner-universities/detailsite/swinburne-university-of-technology */
-/* Home image credits :  Artwork by Pixel Jeff. Image credit: @pixeljeff_design */
+/* Home image credits :  Artwork by Pixel Jeff: @pixeljeff_design. Image credit:  https://www.instagram.com/p/DGNggYlRrE3/ */
     .tile-home {
         grid-area: home;
         background-image: url("../images/index/home_bg_pixel_jeff.jpg"); 
@@ -980,23 +977,27 @@ input[type="password"] {
     filter: drop-shadow(0 0 40px rgba(59, 117, 157, 0.4));
 }
 
+/*Icon, login and enter msg*/
 .login-header {
     text-align: center;
     margin-bottom: 30px;
 }
 
+/*login-title: Login*/
 .login-title {
     margin: 0;
     font-size: 28px;
     color: white;
 }
 
+/*login-subtitle: Enter your username and pass..*/
 .login-subtitle {
     margin: 5px 0 0 0;
     font-size: 14px;
     color: #ccc;
 }
 
+/*Username: , Password: */
 .form-group {
     margin-bottom: 20px;
 }
@@ -1024,6 +1025,7 @@ input[type="password"] {
     box-shadow: 0 0 0 2px rgba(75,124,255,0.3);
 }
 
+/*Login button settings*/
 .login-button {
     width: 100%;
     padding: 12px;
@@ -1041,6 +1043,7 @@ input[type="password"] {
     box-shadow: 0 4px 12px rgba(140, 71, 85, 0.4);
 }
 
+/*Error msg*/
 .error-message {
     color: red;
     text-align: center;
@@ -1638,12 +1641,14 @@ RYAN TAY
     - https://arziel1992.github.io/input-pattern-tester/
 
 LIRA KHISHA
-Footer logo and Team members section layout are inspired from https://dribbble.com/
-Meet the Team description ideas are taken from ChatGPT as a guidance
-Pipe separators between footer links css learnt from ChatGPT
-Color palette extracted using ImageColorPicker https://imagecolorpicker.com/
-Home image credits :  Artwork by Pixel Jeff. Image credit: @pixeljeff_design
-
+-Footer logo and Team members section layout are inspired from https://dribbble.com/
+-Meet the Team description ideas are taken from ChatGPT as a guidance
+-Pipe separators between footer links css learnt from ChatGPT
+-Color palette extracted using ImageColorPicker https://imagecolorpicker.com/
+-Home image credits :  Artwork by Pixel Jeff: @pixeljeff_design. Image credit:  https://www.instagram.com/p/DGNggYlRrE3/?utm_source=ig_web_copy_link&igsh=MzRlODBiNWFlZA==
+-Learnt: 1.Multidimensional Associative Array in PHP https://www.geeksforgeeks.org/php/multidimensional-associative-array-in-php/
+         2.Concatenation of two strings in PHP https://www.geeksforgeeks.org/php/concatenation-two-string-php/-->
+         3.foreach loop syntax adapted from https://www.geeksforgeeks.org/php/how-to-populate-dropdown-list-with-array-values-in-php/
 
 VENSON
 */

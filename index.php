@@ -73,7 +73,7 @@
         </a>
 
         <!-- About tile (links to about page) -->
-        <a class="tile tile-about tile-hover" href="about.php">
+        <a class="tile tile-about tile-hover" href="about.php" aria-label="Learn more about us">
           <p class="eyebrow">Discover us</p>
           <h3>About</h3>
           <p class="tile-text" style="color: #e5d4df;">Learn more about our team</p>

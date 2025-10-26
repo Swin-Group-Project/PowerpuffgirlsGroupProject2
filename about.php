@@ -5,15 +5,11 @@ Date: Sep 29 - Oct 27 2025
 -->
 
 <?php
-
-// Include settings for database connection 
 session_start();
 require_once("settings.php");
 
-//connection to the database
 $conn = mysqli_connect($host, $username, $password, $database);
 
-// Check connection
 if (!$conn) {
           echo "<p>Database connection failed: " . mysqli_connect_error() . "</p>";
         } else {
@@ -95,7 +91,8 @@ mysqli_close($conn);
                                         0 0 20px rgba(0, 150, 255, 0.6),
                                         0 0 40px rgba(0, 100, 255, 0.4),
                                         0 0 80px rgba(0, 50, 255, 0.2);
-                            transition: all 0.9s ease;}
+                            transition: all 0.9s ease;
+                            background-color: #ebeaeaff;}
             .about-section:hover { box-shadow: 0 0 20px rgba(0, 200, 255, 1),
                                                0 0 40px rgba(0, 150, 255, 0.8),
                                                0 0 80px rgba(0, 100, 255, 0.6),
@@ -113,7 +110,7 @@ mysqli_close($conn);
                 <p><?php echo $meet_texts[4]; ?><strong> <?php echo $meet_texts[5]; ?></strong> <?php echo $meet_texts[6]; ?></p>
                 <p><?php echo $meet_texts[7]; ?></p> 
                 <p id="job_link"><?php echo $meet_texts[8]; ?><a href="jobs.php" target="_blank"><strong> Jobs</strong></a> and <a href="apply.php" target="_blank"><strong> Apply</strong></a> <?php echo $meet_texts[9]; ?></p>
-                <p><?php echo $meet_texts[10]; ?><span class="small-text material-symbols-outlined">partner_exchange</span></p> 
+                <p><?php echo $meet_texts[10]; ?></p> 
             </section>
             
             <section id="group-section" class="about-section" aria-label="Academic Information"><!--id and class are authored by ryan-->
@@ -173,13 +170,13 @@ mysqli_close($conn);
             </section>
             
             <section id="fun-facts" class="about-section" aria-label="Fun Facts"><!--id and class are authored by ryan-->
-                <h2>Fun Facts <span class="material-symbols-outlined">interests</span></h2>
+                <h2>Team Insights <span class="material-symbols-outlined">interests</span></h2>
                 <table>
-                    <caption>The Serious and The Not-So-Serious Section</caption>
+                    <caption>Our works and a few things you probably didn&apos;t know about us.</caption>
                     <tr style="text-align: center;">
                         <th>Member</th>
-                        <th>Contribution Project 1</th>
-                        <th>Contribution Project 2</th>
+                        <th>Contribution to Project 1</th>
+                        <th>Contribution to Project 2</th>
                         <th>Fun Facts</th>
                     </tr>
                    <!--Resources: foreach loop syntax adapted from https://www.geeksforgeeks.org/php/how-to-populate-dropdown-list-with-array-values-in-php/
