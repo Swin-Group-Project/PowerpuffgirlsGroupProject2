@@ -1,5 +1,5 @@
 <footer>
-    <div class="footer-content"> 
+    <div class="footer-content" role="contentinfo"> 
         <ul class="footer-links">
             <li><a href="https://student-team-ikdwg2wc.atlassian.net/jira/software/projects/POW/boards/34?atlOrigin=eyJpIjoiN2E5OTliZmQ1MWRlNGYyZWIxYWMzYTU4N2FiZTQ4MTEiLCJwIjoiaiJ9" target="_blank">Jira board</a></li>
             <li><a href="https://github.com/Swin-Group-Project/PowerpuffgirlsGroupProject1.git" target="_blank">GitHub repository 1</a></li>

@@ -508,7 +508,9 @@ CREATE TABLE `users` (
 
 INSERT INTO `users` (`user_id`, `username`, `user_password`, `role`) VALUES
 (1, 'Admin', '$2y$10$xQESgQIdSk2XU6NGQkZQg.12GodneSQl/lJgbSOPxYhyho72xKk6K', 'admin'),
-(2, 'manager1', '$2y$10$Bhj2pdAQjrPZ2ReQB7ruQezJ0uqMaHwFhToK40/712w/3XUk1wllm', 'admin');
+(2, 'manager1', '$2y$10$Bhj2pdAQjrPZ2ReQB7ruQezJ0uqMaHwFhToK40/712w/3XUk1wllm', 'admin'),
+(3, 'user1', '$2y$10$ikMLOyETr.EU0zgddNtH4ee5FGgbKankzw6nQGbawpvh7HjDLAgUW', 'user'),
+(4, 'random', '$2y$10$UuTYLKlSyDgm4HKu0cDwceWSyoPaU.LhOVcHHPTfPLwhNu6iPsbxS', 'outsider');
 --
 -- Indexes for dumped tables
 --
@@ -746,7 +748,7 @@ ALTER TABLE `job_summary`
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `user_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Constraints for dumped tables
