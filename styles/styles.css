@@ -1126,12 +1126,12 @@ input[type="password"] {
 }
 /*Buttons: Search, Update Status */
 .btn-primary {
-    background: linear-gradient(135deg, #142c55ff, #185d8fff, #142c55ff );   /*!! lira to do: change the colours later to tone with delete button gradient !! */
+    background: linear-gradient(135deg, #0c2a4e, #1a75d2, #0c2a4e );  
     color: #fff;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #122547ff, #176399ff, #122547ff );
+    background: linear-gradient(135deg, #122547ff, rgb(22, 107, 168), #122547ff );
     transform: translateY(-4px);
     transition: all 0.9s ease;
 }
@@ -1361,6 +1361,39 @@ credit: w3schools.com
         font-size: 0.9rem;
     }
 
+    /*HR*/
+    main#manage-dashboard {
+        margin: 60px 20px !important;
+        padding: 30px 25px !important;
+    }
+
+    .dashboard-form {
+        gap: 12px;
+    }
+    
+    .input-text, 
+    .input-select {
+        padding: 8px 10px;
+        font-size: 0.95em;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.95em;
+        width: 100%;
+    }
+    
+    .dashboard-form label {
+        font-size: 1em;
+        margin-bottom: 4px;
+    }
+    
+    .dashboard-form br {
+        display: none;
+    }
+    
 }
 
 /* Mobile M 375px */
@@ -1432,6 +1465,39 @@ credit: w3schools.com
         width: 100%;
         margin: 0;
         font-size: 1rem;
+    }
+
+    /*HR*/
+    main#manage-dashboard {
+        margin: 50px 15px !important;
+        padding: 25px 20px !important;
+    }
+    
+    .dashboard-form {
+        gap: 10px;
+    }
+    
+    .input-text, 
+    .input-select {
+        padding: 7px 9px;
+        font-size: 0.9em;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    .btn {
+        padding: 7px 14px;
+        font-size: 0.9em;
+        width: 100%;
+    }
+    
+    .dashboard-form label {
+        font-size: 0.95em;
+        margin-bottom: 3px;
+    }
+    
+    .dashboard-form br {
+        display: none;
     }
 }
 
@@ -1513,6 +1579,49 @@ credit: w3schools.com
         margin: 0;
         font-size: 0.9rem;
         height: 2.8em;
+    }
+
+    /*HR*/
+    main#manage-dashboard {
+        margin: 40px 10px !important;
+        padding: 20px 15px !important;
+    }
+
+    .page-title {
+        font-size: 1.5em !important;
+    }
+    
+    .section-title {
+        font-size: 1.1em !important;
+    }
+
+    .dashboard-form {
+        gap: 8px;
+    }
+
+    .input-text, 
+    .input-select {
+        padding: 6px 8px;
+        font-size: 0.85em;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+}
+
+/*Laptop 1024px*/
+@media only screen and (max-width: 1024px) {
+    main#manage-dashboard {
+        margin: 100px 40px !important;
+        padding: 60px 80px !important;
+    }
+}
+
+/*Tablet 768px*/
+@media only screen and (max-width: 768px) {
+    main#manage-dashboard {
+        margin: 80px 30px !important;
+        padding: 40px 50px !important;
     }
 }
 

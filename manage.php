@@ -160,7 +160,7 @@ if ($result) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">        <!-- !! DESCRIPTION  !!-->
+        <meta name="description" content="Administrator dashboard for managing Expressions of Interest (EOI) records, including viewing, updating, and deleting applicant data."> 
         <title>Manage EOI Records</title>
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish a connection with google API -->
@@ -195,7 +195,7 @@ if ($result) {
                 box-shadow: 0 0 0 2px rgba(75, 124, 255, 0.3);
             }
 
-            .dashboard-section {   /*!! TEAM TO DO: KEEP/REMOVE THIS WHICHEVER SUITS THE PAGE BETTER. NOTE: IF REMOVED, REMOVE CLASS "dashboard-section FROM line 182, 202, 261, 272. IF KEPT MOVE TO EXTERNAL CSS!!*/
+            .dashboard-section {   /*!! TEAM TO DO: KEEP/REMOVE THIS WHICHEVER SUITS THE PAGE BETTER. NOTE: IF REMOVED, REMOVE CLASS "dashboard-section FROM line 217, 237, 296, 307. IF KEPT MOVE TO EXTERNAL CSS!!*/
                 margin-bottom: 10px;       /* spacing between sections */
                 padding: 40px 30px;             
                 border-radius: 8px;       
