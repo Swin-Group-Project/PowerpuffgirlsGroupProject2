@@ -125,45 +125,84 @@ if ($result) {
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta name="description" content="">
+        <meta name="description" content="">        <!-- !! DESCRIPTION  !!-->
         <title>Manage EOI Records</title>
-        <!-- <link rel="stylesheet" type="text/css" href="styles/styles.css"> -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish a connection with google API -->
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"> <!-- Load Google icons -->
+        <link rel="stylesheet" type="text/css" href="styles/styles.css">
+        <style>
+            body {
+            background-color: #020b16;         /* !! lira to do: CAN BE REMOVED LATEr IF DEBUGGING TEXT DOESNT CAUSE CONTRAST ERRor !!*/
+            color: #fff; 
+            font-family: 'Barlow', sans-serif;
+            }
+            main#manage-dashboard {
+            max-width: 1100px;
+            max-height: max-content;
+            margin: 100px auto;
+            padding: 80px 120px;
+            background: linear-gradient(135deg,      /* !! lira to do: COLOURS TO BE CHANGED/UPDATED BEFORE DEADLINE !! */
+                        #051225 0%,     
+                        #1c4159 50%,   
+                        #351c38 100%   );
+            box-shadow:
+            0 0 6px rgba(0, 200, 255, 0.3),
+            0 0 15px rgba(217, 227, 234, 0.2),
+            0 0 30px rgba(184, 194, 209, 0.15),
+            0 0 60px rgba(0, 50, 255, 0.1);
+            transform: translateY(-10px) scale(1.01);
+            border-radius: 12px; }
+            #manage-dashboard input:focus {
+                outline: none;
+                border-color: #4b7cff;
+                box-shadow: 0 0 0 2px rgba(75, 124, 255, 0.3);
+            }
+
+            .dashboard-section {   /*!! TEAM TO DO: KEEP/REMOVE THIS WHICHEVER SUITS THE PAGE BETTER. NOTE: IF REMOVED, REMOVE CLASS "dashboard-section FROM line 182, 202, 261, 272. IF KEPT MOVE TO EXTERNAL CSS!!*/
+                margin-bottom: 10px;       /* spacing between sections */
+                padding: 40px 30px;             
+                border-radius: 8px;       
+                background-color: rgba(255, 255, 255, 0.05); 
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3),
+                    0 8px 20px rgba(0, 0, 0, 0.15),
+                    0 12px 40px rgba(0, 0, 0, 0.1);
+                width: 100%;
+                box-sizing: border-box; 
+            }
+        </style>
     </head>
     <body>
         <?php include "./includes/header.inc"; ?>
 
-        <main>
-            <h2>Manage Dashboard</h2>
+        <main id="manage-dashboard" role="main" aria-label="Administrator EOI Management Dashboard">
+            <h2 class="page-title" style="color: #fffdfde7;">Manage Dashboard</h2>
             <!-- Section 1: List EOIs -->
-            <section>
-                <h2>List EOIs</h2>
-                <form method="GET" action="">
-                    <label for="list_by">List by:</label>
-                    <select id="list_by" name="list_by">
+            <section class="dashboard-section" role="region" aria-labelledby="list-eois-title"> 
+                <h2 id="list-eois-title" class="section-title">List EOIs</h2>
+                <form class="dashboard-form" method="GET" action="" role="form" aria-label="Search EOIs">
+                    <label for="list_by" class="label-title">List by:</label>
+                    <select id="list_by" name="list_by" class="input-select">
                         <option value="all">List All</option>
                         <option value="job_reference">Job Reference</option>
                         <option value="first_name">First Name</option>
                         <option value="last_name">Last Name</option>
                         <option value="first_and_last_name">First and Last Name</option>
                     </select>
-                    <br><br>
-
-                    <label for="query_value">Search Value:</label>
-                    <input type="text" id="query_value" name="query_value">
-                    <br><br>
-
-                    <button type="submit">Search</button>
+                    <label for="query_value" class="label-title">Search Value:</label>
+                    <input type="text" id="query_value" name="query_value" class="input-text">
+                    <br>
+                    <button type="submit" class="btn btn-primary" aria-label="Search EOIs">Search</button>
                 </form>
             </section>
+            <br><br>
 
             <!-- Display Combined EOI Table -->
-            <section>
-                <h2>EOI Records</h2>
-                <table border="1">
+            <section class="dashboard-section"  role="region" aria-labelledby="eoi-records-title">
+                <h2 id="eoi-records-title" class="section-title">EOI Records</h2>
+                <div class="table-wrapper">
+                <table class="records-table" role="table" aria-label="EOI Records">   <!-- !! ryan to do: table border="1" is obsolete in html. remove comment after validation !!  -->
                     <tr>
                         <!-- Main Table Headers -->
                         <th><a href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'm.eoi_id'])); ?>">EOI ID</a></th>
@@ -215,35 +254,35 @@ if ($result) {
                     </tr>
                     <?php endforeach; ?>
                 </table>
+                </div>    
             </section>
-                    
+             <br><br>       
             <!-- Section 2: Delete EOIs by Job Reference -->
-            <section>
-                <h2>Delete EOIs by Job Reference</h2>
-                <form method="POST" action="" onsubmit="return confirm('Are you sure you want to delete all EOIs with this job reference? This action cannot be undone.')">
-                    <label for="delete_job_reference">Job Reference:</label>
-                    <input type="text" id="delete_job_reference" name="delete_job_reference" required>
-                    <button type="submit">Delete EOIs</button>
+            <section class="dashboard-section" role="region" aria-labelledby="delete-eois-title">       
+                <h2 class="section-title" id="delete-eois-title">Delete EOIs by Job Reference</h2>
+                <form class="dashboard-form" method="POST" action="" onsubmit="return confirm('Are you sure you want to delete all EOIs with this job reference? This action cannot be undone.')" role="form" aria-label="Delete EOIs">
+                    <label for="delete_job_reference" class="label-title">Job Reference:</label>
+                    <input type="text" id="delete_job_reference" name="delete_job_reference" class="input-text" required>
+                    <br>
+                    <button type="submit" class="btn btn-danger"  aria-label="Delete EOIs">Delete EOIs</button>
                 </form>
             </section>
-                    
+            <br><br>        
             <!-- Section 3: Change EOI Status -->
-            <section>
-                <h2>Change EOI Status</h2>
-                <form method="POST" action="">
-                    <label for="update_eoi_id">EOI ID:</label>
-                    <input type="number" id="update_eoi_id" name="update_eoi_id" required>
-                    <br><br>
+            <section class="dashboard-section" role="region" aria-labelledby="change-eoi-status-title">
+                <h2 class="section-title" id="change-eoi-status-title">Change EOI Status</h2>
+                <form class="dashboard-form" method="POST" action="" role="form" aria-label="Update EOI Status">
+                    <label for="update_eoi_id" class="label-title">EOI ID:</label>
+                    <input type="number" id="update_eoi_id" name="update_eoi_id" class="input-text" required>
                     
-                    <label for="update_status">New Status:</label>
-                    <select id="update_status" name="update_status" required>
+                    <label for="update_status" class="label-title">New Status:</label>
+                    <select id="update_status" name="update_status" class="input-select" required>
                         <option value="New">New</option>
                         <option value="Current">Current</option>
                         <option value="Final">Final</option>
                     </select>
-                    <br><br>
-                            
-                    <button type="submit">Update Status</button>
+                    <br>      
+                    <button type="submit" class="btn btn-primary" aria-label="Update EOI Status">Update Status</button>
                 </form>
             </section>
         </main>
