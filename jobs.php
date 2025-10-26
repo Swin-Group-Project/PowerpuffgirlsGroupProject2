@@ -58,21 +58,21 @@ $conn->close();
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">  <!--meta description to be filled later-->
     <title>Jobs page</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=domain,deployed_code,location_on" />
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200&icon_names=domain,deployed_code,location_on" >
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin> <!-- Establish connection to API-->
     <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined" /> <!-- Load Google icons -->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"> <!-- Load Google icons -->
     <link rel="stylesheet" type="text/css" href="styles/styles.css">
     <style>
         .text-bigger-size {
-        color: black;
+        color: white;
         font-size: 1.5em;
         font-weight: 400;
         }
 
         .text {
-            color: black;
+            color: white;
             font-size: 1em;
         }
     </style>
@@ -107,8 +107,8 @@ $conn->close();
             </h3>
 
             <p class="salary">AUD <?= htmlspecialchars($selectedJob['salary_min']) ?> – <?= htmlspecialchars($selectedJob['salary_max']) ?></p>
-            <p class='text'><h3>Ref:</h3> <?= htmlspecialchars($selectedJob['ref_num']) ?> </p>
-            <p class='text'><h3>Reporting Line:</h3> <?= htmlspecialchars($selectedJob['reporting_line']) ?> </p>
+            <h3>Ref:</h3> <p class='text'><?= htmlspecialchars($selectedJob['ref_num']) ?> </p>
+            <h3>Reporting Line:</h3> <p class='text'><?= htmlspecialchars($selectedJob['reporting_line']) ?> </p>
         <hr>
         <section>
                 <h3 class='text'>Requirements:</h3>
@@ -173,8 +173,8 @@ $conn->close();
                                 <span class="material-symbols-outlined"><?= htmlspecialchars($location['location_logo']) ?></span>
                             <?php endif; ?>
                         </h4>
-                        <p class='text'><h3>Ref:</h3> <?= htmlspecialchars($job['ref_num']) ?> </p>
-                        <p class='text'><h3>Reporting Line:</h3> <?= htmlspecialchars($job['reporting_line']) ?> </p>
+                        <h3 class='text'>Ref:</h3> <p><?= htmlspecialchars($job['ref_num']) ?>
+                        <h3 class='text'>Reporting Line:</h3> <p><?= htmlspecialchars($job['reporting_line']) ?> </p>
                         <h3 class='text'> Job Summary: </h3>
                         <?php if ($summaries): ?>
                             <ul class="summary-list">

@@ -211,12 +211,12 @@ last modified: 22.10.25
 /* Container for sidebar + main content */
 
 .job-link {
-    color: black;
+    color: rgb(255, 255, 255);
     text-decoration: none;
 }
 
 .container_jobs {
-    color: rgb(0, 0, 0);
+    color: rgb(255, 255, 255);
     background-color: none  ;
     display: flex;
     flex-direction: row;
@@ -245,9 +245,9 @@ aside.detail {
     margin: 10px;
 
     border-radius: 10px;
-    background-color: #f9f9f9;
+    background: linear-gradient(135deg, #3a1c3e, #025b24);
     cursor: pointer;
-    box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
+    box-shadow: 8px 8px 15px #000000, -4px -4px 7px #84c8ea;
     transition: all 0.3s ease;
 }
 
@@ -258,17 +258,19 @@ aside.detail {
 
 /* Highlight active job */
 .job-list.active {
-    background-color: #e0e0ff;
-    box-shadow: 3px 3px 8px rgba(0,0,0,0.3);
+    background: linear-gradient(135deg, #3a1c3e, #025b24);
+    box-shadow: 0 0 10px 3px #24f35e, 8px 8px 15px #000000, -4px -4px 7px #84c8ea
+    
+
 }
 
 /* Main content area */
 main.job-detail {
     flex: 75%;
     max-width: 75%;
-    background-color: white;
+    background: linear-gradient(135deg, #3a1c3e, #8c4755);
     border-radius: 15px;
-    box-shadow: 4px 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 8px 8px 15px #000000, -4px -4px 7px #84c8ea;
     padding: 20px;
     overflow-y: auto;
     height: fit-content;

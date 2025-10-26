@@ -13,7 +13,7 @@
     </head>
     <body>
         <?php include "./includes/header.inc" ?>
-        <div class="about-section">
+        <div class="about-section" aria-labelledby="application-success-heading">
             <p>Form submitted. <a href="index.php">Go to Home page</a></p>
         </div>
         <?php include "./includes/footer.inc" ?>

@@ -36,7 +36,7 @@
   <?php include "./includes/header.inc" ?>
 
     <!-- Main content container -->
-    <main id="main" role="main" class="container" tabindex="-1">
+    <main id="main" class="container" tabindex="-1">
 
 
       <section id="about" class="about" aria-labelledby="about-heading">
@@ -46,7 +46,7 @@
           We build the engine, rendering and tools that help artists and designers
           ship great gameplay—faster and safer.
         </p>
-        </h2>
+        
       </section>
 
       <!-- Section with navigation tiles -->
