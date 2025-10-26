@@ -51,21 +51,20 @@ CREATE TABLE `about_contribution1` (
 --
 
 INSERT INTO `about_contribution1` (`contribution1_id`, `member_id`, `contribution1_text`) VALUES
-(1, 1, 'Home page html + css'),
-(2, 1, 'Footer html + css w/Lira'),
-(3, 2, 'About page html + css'),
+(1, 1, 'Home page: html + css'),
+(2, 1, 'Footer: html + css w/Lira'),
+(3, 2, 'About page: html + css, media queries, ARIA for accessibility'),
 (4, 2, 'Company logo #1'),
 (5, 2, 'Github folder management'),
-(6, 2, 'Footer html+css w/Wei-ting'),
-(7, 3, 'Apply page html + css'),
-(8, 3, 'Company logo #2'),
+(6, 2, 'Footer: html+css w/Wei-ting'),
+(7, 3, 'Apply page: html + css, media queries, ARIA for accessibility'),
+(8, 3, 'Company logo #2, home image and company slogan'),
 (9, 3, 'Jira project management'),
-(10, 3, 'Header nav bar html+css w/Aron'),
-(11, 3, 'Created image and slogan for home page'),
-(12, 4, 'Jobs page html + css'),
-(13, 4, 'Company/Group name'),
-(14, 4, 'Background keyframe animation'),
-(15, 4, 'Header nav bar html+css w/Ryan');
+(10, 3, 'Header nav bar: html+css w/Aron'),
+(11, 4, 'Jobs page: html + css, media queries,  ARIA for accessibility'),
+(12, 4, 'Company/Group name'),
+(13, 4, 'Background keyframe animation'),
+(14, 4, 'Header nav bar: html+css w/Ryan');
 
 -- --------------------------------------------------------
 
@@ -86,16 +85,18 @@ CREATE TABLE `about_contribution2` (
 INSERT INTO `about_contribution2` (`contribution_id2`, `member_id`, `contribution2_text`) VALUES
 (1, 1, 'Cleaned up w3c validation errors for home page'),
 (2, 1, 'Addressed Part 1 feedback (index page)'),
-(3, 2, '-'),
-(4, 2, 'about.php: table and page'),
-(5, 2, 'Cleaned up w3c validation errors and addressed Part 1 feedback for about page'),
-(6, 3, 'settings.php'),
-(7, 3, 'eoi.php: table, process_eoi.php: table and page'),
-(8, 3, 'Reuse common UI with PHP include'),
-(9, 3, 'Cleaned up w3c validation errors and Addressed Part 1 feedback for jobs/apply page'),
-(10, 4, 'jobs.php: table and page'),
-(11, 4, '-'),
-(12, 4, 'Cleaned up w3c validation errors and addressed Part 1 feedbackfor jobs/apply page');
+(3, 2, 'about.php: table and page'),
+(4, 2, 'login.php: html+css+user table, manage.php: css'),
+(5, 2, 'w3c validation for about page'),
+(6, 2, 'new media queries for much smaller screens'),
+(7, 3, 'eoi.php: table, process_eoi.php, apply.php: page'),
+(8, 3, 'manage.php: table and page'),
+(9, 3, 'Reuse common UI with PHP include, settings.php'),
+(10, 3, 'w3c validation for jobs/apply page'),
+(11, 4, 'jobs.php: table and page'),
+(12, 4, 'Database table normalization to 3NF'),
+(13, 4, 'w3c validation for jobs/apply page'),
+(14, 4, 'new media queries for much smaller screens');
 
 -- --------------------------------------------------------
 
@@ -661,13 +662,13 @@ ALTER TABLE `about`
 -- AUTO_INCREMENT for table `about_contribution1`
 --
 ALTER TABLE `about_contribution1`
-  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=16;
+  MODIFY `contribution1_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `about_contribution2`
 --
 ALTER TABLE `about_contribution2`
-  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `contribution_id2` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=15;
 
 --
 -- AUTO_INCREMENT for table `about_funfact`
