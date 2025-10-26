@@ -28,11 +28,14 @@ The system demonstrates how HTML, CSS, PHP, and MySQL can be combined to build a
 
 
 # Technologies Used
-*Category*	*Tools / Languages*
-Frontend	HTML5, CSS3
-Backend	    PHP (tested on XAMPP)
-Database	MySQL (via phpMyAdmin)
-Server	    Apache (XAMPP)
+
+| Category | Tools / Languages |
+|----------|------------------|
+| Frontend | HTML5, CSS3 |
+| Backend  | PHP (tested on XAMPP) |
+| Database | MySQL (via phpMyAdmin) |
+| Server   | Apache (XAMPP) |
+
 
 
 # Setup & Installation
