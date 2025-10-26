@@ -69,17 +69,29 @@ $tables = [
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Delete EOIs by job reference
     if (isset($_POST['delete_job_reference']) && !empty($_POST['delete_job_reference'])) {
-        $job_ref = mysqli_real_escape_string($conn, $_POST['delete_job_reference']);
-        $delete_sql = "DELETE FROM eoi_main WHERE ref_num = '$job_ref'";
-        mysqli_query($conn, $delete_sql);
+        //$job_ref = mysqli_real_escape_string($conn, $_POST['delete_job_reference']); 
+        //$delete_sql = "DELETE FROM eoi_main WHERE ref_num = '$job_ref'";
+        //mysqli_query($conn, $delete_sql);     REPLACED WITH LINE 77-80 TO PREVENT SQL INJECTION. REMOVE LINE 72-74 IF DONE
+
+        //SQL statement to prevent SQL injection attacks
+        $stmt = $conn->prepare("DELETE FROM eoi_main WHERE ref_num = ?");
+        $stmt->bind_param("s", $_POST['delete_job_reference']);     //one ? for 's' or string, as ref_num is stored as varchar/text in db
+        $stmt->execute();
+        $stmt->close();
     }
     
     // Update EOI status
     if (isset($_POST['update_eoi_id']) && isset($_POST['update_status'])) {
-        $eoi_id = (int)$_POST['update_eoi_id'];
-        $status = mysqli_real_escape_string($conn, $_POST['update_status']);
-        $update_sql = "UPDATE eoi_main SET status = '$status' WHERE eoi_id = $eoi_id";
-        mysqli_query($conn, $update_sql);
+        //$eoi_id = (int)$_POST['update_eoi_id'];
+        //$status = mysqli_real_escape_string($conn, $_POST['update_status']);
+        //$update_sql = "UPDATE eoi_main SET status = '$status' WHERE eoi_id = $eoi_id";
+        //mysqli_query($conn, $update_sql);  REPLACED WITH LINE 91-94 TO PREVENT SQL INJECTION. REMOVE LINE 85-88 IF DONE
+
+        //SQL statement to prevent SQL injection attacks
+        $stmt = $conn->prepare("UPDATE eoi_main SET status = ? WHERE eoi_id = ?");
+        $stmt->bind_param("si", $_POST['update_status'], $_POST['update_eoi_id']);   //two ?? for 'si'; 's' as status is stored as enum(mysql treats as string) and 'i' as eoi_id is stored as an interger 
+        $stmt->execute();
+        $stmt->close();
     }
 }
 
@@ -128,8 +140,10 @@ if (!empty($where_clauses)) {
 
 $query .= " GROUP BY m.eoi_id";
 
-// Handle sorting
-$sort_field = isset($_GET['sort']) ? mysqli_real_escape_string($conn, $_GET['sort']) : 'm.eoi_id';
+// Handle sorting: list of safe column names users can sort by. it'll prevent hackers from injecting dangerous SQL in the URL
+//$sort_field = isset($_GET['sort']) ? mysqli_real_escape_string($conn, $_GET['sort']) : 'm.eoi_id'; REPLACED WITH LINE 145-146 . Remove 144 if done
+$allowed_sorts = ['m.eoi_id', 'm.email', 'm.ref_num', 'm.first_name', 'm.last_name', 'm.birth_date', 'm.gender', 'm.phone_num', 'm.other_skills', 'l.street_address', 'l.suburb_town', 'l.state', 'l.postcode', 'm.status'];
+$sort_field = (isset($_GET['sort']) && in_array($_GET['sort'], $allowed_sorts)) ? $_GET['sort'] : 'm.eoi_id'; //check if requested sort column is in the allowed list. if not, use default m.eoi_id
 $query .= " ORDER BY $sort_field";
 
 $result = mysqli_query($conn, $query);
