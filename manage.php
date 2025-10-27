@@ -72,6 +72,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
 }
 
 // Build query based on list by selection
+// NOTE: GenAI was used to assist with this query
 $query = "SELECT 
             m.*, 
             l.street_address, 
@@ -123,6 +124,7 @@ if (isset($_GET['list_by']) && isset($_GET['query_value']) && !empty($_GET['quer
             // Must match both first and last name
             $names = explode(' ', $query_value, 2);
             if (count($names) >= 2) {
+                // Sanitize both names, extra layer of protection against SQL injection
                 $first_name = mysqli_real_escape_string($conn, $names[0]);
                 $last_name = mysqli_real_escape_string($conn, $names[1]);
                 $where_clauses[] = "m.first_name LIKE '%$first_name%' AND m.last_name LIKE '%$last_name%'";
@@ -229,6 +231,8 @@ if ($result) {
                 <table class="records-table" role="table" aria-label="EOI Records">
                     <tr>
                         <!-- Main Table Headers -->
+                        <!-- http_build_query() formats key value pairs
+                        array_merge used to re-index from the original array -->
                         <th><a href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'm.eoi_id'])); ?>">EOI ID</a></th>
                         <th><a href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'm.email'])); ?>">Email</a></th>
                         <th><a href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'm.ref_num'])); ?>">Job Reference</a></th>
