@@ -10,8 +10,17 @@ ini_set('display_errors', 1);
 
 session_start();
 require_once "settings.php";
-require "skills_data.php";
+$conn = mysqli_connect($host, $username, $password, $database);
+if (!$conn) {
+    error_log("Database connection failed: " . mysqli_connect_error());   // Log the error privately instead of exposing sensitive details to users
+    die("Sorry, something went wrong. Please try again later.");    // Show a generic error message to avoid leaking server/database details
+}
+include 'functions.php';
 
+$skills_data = fetchTableData($conn, 'eoi_skill', 'skill_id');
+// If the server detects any validation errors
+//W e still want to save the latest user's errors to repopulate the form
+// and simulate the functionality lost from client-side validation by providing feedback to the user.
 $required_errors = $_SESSION['required_errors'] ?? [];
 $pattern_errors = $_SESSION['pattern_errors'] ?? [];
 $form_data = $_SESSION['form_data'] ?? [];
@@ -65,7 +74,7 @@ unset($_SESSION['form_data']);
     <body>
         <?php include "./includes/header.inc" ?>
         <main>
-            <div id="wrapper" style="background-color: rgba(0,0,0,0.4); box-shadow: 0 0 0.5em 0.6em rgba(255,255,255, 0.3); backdrop-filter: grayscale(20%);">
+            <div id="wrapper" style="background-color: rgba(0,0,0,0.4); box-shadow: 0 0 0.5em 0.6em rgba(255,255,255, 0.3); backdrop-filter: grayscale(20%);"> <!-- example of inline CSS -->
                 <h2 id="apply_heading">Apply Now!</h2>
                 <img id="powerpuff_rodents" src="images/apply/powerpuff-corp-logo.png" alt="Powerpuff girls with rodents photoshopped on each of their faces">
                 <p id="preamble">If you're serious about becoming an honourary Powerpuff Girl, <strong>fill out the form below</strong> and we will reach out to you soon!</p>
@@ -244,26 +253,29 @@ unset($_SESSION['form_data']);
                         <p class="error_message"><?php echo $pattern_errors['phone_num']; ?></p>
                     <?php endif; ?>
                     
+                    <!-- These will dynamically appear depending on -->
                     <fieldset id="skills_fieldset" aria-labelledby="skills_legend"
                         class="<?php echo isset($required_errors['skills']) ? 'fieldset_error' : ''; ?>">
                         <legend id="skills_legend">Skills: <span class="red_text">*</span></legend>
 
                         <?php
                         $selected_skills = isset($form_data['skills']) ? $form_data['skills'] : [];
-                        foreach ($skills_data as $value => $label): ?>
-                            <label for="skill_<?php echo $value; ?>" class="checkbox_container">
-                                <input id="skill_<?php echo $value; ?>" 
-                                    value="<?php echo $value; ?>" 
+                        // Each skill is saved in an associative array skill_id => skill_name
+                        // Loop through each record ($skill) and print the skill name
+                        // This section is intentionally designed to be dynamic for future-proofing; new desired skillsets
+                        foreach ($skills_data as $skill): ?>
+                            <label for="skill_<?php echo $skill['skill_id']; ?>" class="checkbox_container">
+                                <input id="skill_<?php echo $skill['skill_id']; ?>" 
+                                    value="<?php echo $skill['skill_id']; ?>" 
                                     name="skills[]" 
                                     type="checkbox"
-                                <?php echo (in_array($value, $selected_skills)) ? 'checked' : ''; ?>>
-                                <?php echo htmlspecialchars($label); ?>
+                                    <?php echo (in_array($skill['skill_id'], $selected_skills)) ? 'checked' : ''; ?>>
+                                <?php echo htmlspecialchars($skill['skill_name']); ?>
                             </label>
                         <?php endforeach; ?>
                         
-                        <!-- TODO: other skills container dynamically appears depending on if checkbox is ticked -->
                         <label for="other" class="checkbox_container">
-                            <input id="other" value="other" name="skills[]" type="checkbox"
+                            <input id="other" value="other" name="other_skills_checkbox" type="checkbox"
                                 <?php echo (in_array('other', $selected_skills)) ? 'checked' : ''; ?>>
                             Other skills...
                         </label>

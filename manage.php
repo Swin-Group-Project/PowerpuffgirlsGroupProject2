@@ -36,24 +36,7 @@ if (!$conn) {
     die("Sorry, something went wrong. Please try again later.");    // Show a generic error message to avoid leaking server/database details
 }
 
-function fetchTableData($conn, $tableName, $orderBy = "") {
-    $data = [];
-    $sql = "SELECT * FROM $tableName";
-    if (!empty($orderBy)) {
-        $sql .= " ORDER BY $orderBy";
-    }
-    
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $data[] = $row;
-        }
-    } else {
-        echo "Query Failed: " . $sql;
-    }
-    return $data;
-}
+include 'functions.php';
 
 $main_query = 'eoi_id';
 $other_query = 'eoi_id';
@@ -69,27 +52,20 @@ $tables = [
 if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     // Delete EOIs by job reference
     if (isset($_POST['delete_job_reference']) && !empty($_POST['delete_job_reference'])) {
-        //$job_ref = mysqli_real_escape_string($conn, $_POST['delete_job_reference']); 
-        //$delete_sql = "DELETE FROM eoi_main WHERE ref_num = '$job_ref'";
-        //mysqli_query($conn, $delete_sql);     REPLACED WITH LINE 77-80 TO PREVENT SQL INJECTION. REMOVE LINE 72-74 IF DONE
 
         //SQL statement to prevent SQL injection attacks
         $stmt = $conn->prepare("DELETE FROM eoi_main WHERE ref_num = ?");
-        $stmt->bind_param("s", $_POST['delete_job_reference']);     //one ? for 's' or string, as ref_num is stored as varchar/text in db
+        $stmt->bind_param("s", $_POST['delete_job_reference']); //one ? for 's' or string, as ref_num is stored as varchar/text in db
         $stmt->execute();
         $stmt->close();
     }
     
     // Update EOI status
     if (isset($_POST['update_eoi_id']) && isset($_POST['update_status'])) {
-        //$eoi_id = (int)$_POST['update_eoi_id'];
-        //$status = mysqli_real_escape_string($conn, $_POST['update_status']);
-        //$update_sql = "UPDATE eoi_main SET status = '$status' WHERE eoi_id = $eoi_id";
-        //mysqli_query($conn, $update_sql);  REPLACED WITH LINE 91-94 TO PREVENT SQL INJECTION. REMOVE LINE 85-88 IF DONE
 
         //SQL statement to prevent SQL injection attacks
         $stmt = $conn->prepare("UPDATE eoi_main SET status = ? WHERE eoi_id = ?");
-        $stmt->bind_param("si", $_POST['update_status'], $_POST['update_eoi_id']);   //two ?? for 'si'; 's' as status is stored as enum(mysql treats as string) and 'i' as eoi_id is stored as an interger 
+        $stmt->bind_param("si", $_POST['update_status'], $_POST['update_eoi_id']);   //two ?? for 'si'; 's' as status is stored as enum(mysql treats as string) and 'i' as eoi_id is stored as an integer 
         $stmt->execute();
         $stmt->close();
     }
@@ -114,6 +90,26 @@ if (isset($_GET['list_by']) && isset($_GET['query_value']) && !empty($_GET['quer
     $query_value = mysqli_real_escape_string($conn, $_GET['query_value']);
     
     switch ($_GET['list_by']) {
+        case 'all':
+            // Search for any field containing input string
+            $where_clauses[] = "(
+                m.eoi_id LIKE '%$query_value%' OR
+                m.ref_num LIKE '%$query_value%' OR
+                m.first_name LIKE '%$query_value%' OR
+                m.last_name LIKE '%$query_value%' OR
+                m.email LIKE '%$query_value%' OR
+                m.birth_date LIKE '%$query_value%' OR
+                m.gender LIKE '%$query_value%' OR
+                m.other_skills LIKE '%$query_value%' OR
+                m.status LIKE '%$query_value%' OR
+                m.phone_num LIKE '%$query_value%' OR
+                l.street_address LIKE '%$query_value%' OR
+                l.suburb_town LIKE '%$query_value%' OR
+                l.state LIKE '%$query_value%' OR
+                l.postcode LIKE '%$query_value%' OR
+                s.skill_name LIKE '%$query_value%'
+            )";
+            break;
         case 'job_reference':
             $where_clauses[] = "m.ref_num LIKE '%$query_value%'";
             break;
@@ -124,6 +120,7 @@ if (isset($_GET['list_by']) && isset($_GET['query_value']) && !empty($_GET['quer
             $where_clauses[] = "m.last_name LIKE '%$query_value%'";
             break;
         case 'first_and_last_name':
+            // Must match both first and last name
             $names = explode(' ', $query_value, 2);
             if (count($names) >= 2) {
                 $first_name = mysqli_real_escape_string($conn, $names[0]);
@@ -140,8 +137,7 @@ if (!empty($where_clauses)) {
 
 $query .= " GROUP BY m.eoi_id";
 
-// Handle sorting: list of safe column names users can sort by. it'll prevent hackers from injecting dangerous SQL in the URL
-//$sort_field = isset($_GET['sort']) ? mysqli_real_escape_string($conn, $_GET['sort']) : 'm.eoi_id'; REPLACED WITH LINE 145-146 . Remove 144 if done
+// Handle sorting(lira): list of safe column names users can sort by. it'll prevent hackers from injecting dangerous SQL in the URL
 $allowed_sorts = ['m.eoi_id', 'm.email', 'm.ref_num', 'm.first_name', 'm.last_name', 'm.birth_date', 'm.gender', 'm.phone_num', 'm.other_skills', 'l.street_address', 'l.suburb_town', 'l.state', 'l.postcode', 'm.status'];
 $sort_field = (isset($_GET['sort']) && in_array($_GET['sort'], $allowed_sorts)) ? $_GET['sort'] : 'm.eoi_id'; //check if requested sort column is in the allowed list. if not, use default m.eoi_id
 $query .= " ORDER BY $sort_field";
@@ -169,7 +165,7 @@ if ($result) {
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <style>
             body {
-            background-color: #020b16;   
+            background-color: #020b16;
             color: #fff; 
             font-family: 'Barlow', sans-serif;
             }
@@ -230,7 +226,7 @@ if ($result) {
             <section class="dashboard-section"  role="region" aria-labelledby="eoi-records-title">
                 <h2 id="eoi-records-title" class="section-title">EOI Records</h2>
                 <div class="table-wrapper">
-                <table class="records-table" role="table" aria-label="EOI Records">   <!-- !! ryan to do: table border="1" is obsolete in html. remove comment after validation !!  -->
+                <table class="records-table" role="table" aria-label="EOI Records">
                     <tr>
                         <!-- Main Table Headers -->
                         <th><a href="?<?php echo http_build_query(array_merge($_GET, ['sort' => 'm.eoi_id'])); ?>">EOI ID</a></th>
@@ -266,7 +262,8 @@ if ($result) {
                         <td><?php echo htmlspecialchars($row['birth_date']); ?></td>
                         <td><?php echo htmlspecialchars($row['gender']); ?></td>
                         <td><?php echo htmlspecialchars($row['phone_num']); ?></td>
-                        <td><?php echo htmlspecialchars($row['other_skills']); ?></td>
+                        <!-- Other skills are not a required field -->
+                        <td><?php echo $row['other_skills'] ? htmlspecialchars($row['other_skills']) : 'N/A'; ?></td>
 
 
                         <!-- Location Table Data -->
@@ -284,10 +281,11 @@ if ($result) {
                 </table>
                 </div>    
             </section>
-             <br><br>       
+            <br><br>       
             <!-- Section 2: Delete EOIs by Job Reference -->
             <section class="dashboard-section" role="region" aria-labelledby="delete-eois-title">       
                 <h2 class="section-title" id="delete-eois-title">Delete EOIs by Job Reference</h2>
+                    <!-- Confirmation for best practice, avoids accidentally deleting a record -->
                 <form class="dashboard-form" method="POST" action="" onsubmit="return confirm('Are you sure you want to delete all EOIs with this job reference? This action cannot be undone.')" role="form" aria-label="Delete EOIs">
                     <label for="delete_job_reference" class="label-title">Job Reference:</label>
                     <input type="text" id="delete_job_reference" name="delete_job_reference" class="input-text" required>

@@ -6,25 +6,7 @@ ini_set('display_errors', 1);
 require_once "settings.php";
 $conn = mysqli_connect($host, $username, $password, $database);
 
-function fetchTableData($conn, $tableName, $orderBy = "") {
-    $data = [];
-    $sql = "SELECT * FROM $tableName";
-    if (!empty($orderBy)) {
-        $sql .= " ORDER BY $orderBy";
-    }
-    
-    $result = $conn->query($sql);
-    
-    if ($result->num_rows > 0) {
-        while($row = $result->fetch_assoc()) {
-            $data[] = $row;
-        }
-    } else {
-        echo "Query Failed: " . $sql;
-    }
-    return $data;
-}
-
+include 'functions.php';
 // Fetch all tables (TO DO: merge into jobs table)
 $tables = [
     'job_main' => fetchTableData($conn, 'job_main'),

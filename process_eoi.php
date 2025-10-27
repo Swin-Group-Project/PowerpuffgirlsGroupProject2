@@ -16,19 +16,14 @@ ini_set('display_errors', 1);
 // Connection to database "project_part2"
 session_start();
 require_once "settings.php";
-require("skills_data.php");
+require("eoi_patterns.php");
 $conn = mysqli_connect($host, $username, $password, $database);
 
 if (!$conn) {
     die("Database connection failed: " . mysqli_connect_error());
 }
 
-function sanitize($data) {
-    $data = trim($data);
-    $data = stripslashes($data);
-    $data = htmlspecialchars($data);
-    return $data;
-}
+include 'functions.php';
 
 // Check if POST
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
@@ -53,6 +48,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
     $pattern_errors = [];
 
     // Required field validation
+    // An empty array means all fields have been filled out
     $required_fields = [
         "job_reference_num" => $job_reference_num,
         "first_name" => $first_name,
@@ -68,18 +64,22 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         "skills" => $skills
     ];
 
-    foreach ($required_fields as $field => $value) { // take $required_fields array from skills_data.php
+    // Pattern errors
+    // RegEx patterns are saved in a separate eoi_patterns.php file for modularisations
+    foreach ($required_fields as $field => $value) { // take $required_fields array from eoi_patterns.php
         if (empty($value)) {
             $required_errors[$field] = "This field is required";
         }
     }
     
-    foreach ($patterns as $field => $pattern) { // take $patterns array from skills_data.php
+    foreach ($patterns as $field => $pattern) { // take $patterns array from eoi_patterns.php
         $value = ${str_replace(' ', '_', $field)};
         if (!empty($value) && !preg_match($pattern, $value)) {
             $pattern_errors[$field] = "Invalid format for " . str_replace('_', ' ', $field);
         }
     }
+
+    // Covering exceptional cases not handled by regex in eoi_patterns.php module
     if (!isset($_POST["skills"]) || empty($_POST["skills"])) {
         $required_errors['skills'] = "At least one skill must be selected";
     }
@@ -90,12 +90,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") {
         $pattern_errors['gender'] = "Please select a valid gender";
     }
 
-    if (empty($other_skills)) {
+    if (empty($other_skills) || $_POST['other_skills_checkbox'] !== 'other') {
         $other_skills = null;
     }
 
     if (empty($required_errors) && empty($pattern_errors)) { // if input meets validation criteria
         
+        // Use of mysqli prepared statements to prevent SQL injection
+        // mysqli as the chosen method of database interaction for its simplicity, versatility (can be object-oriented/structured) and compatibility with pure MySQL
         $stmt_eoi_main = $conn->prepare("INSERT INTO eoi_main (
                 email, ref_num, first_name, last_name,
                 birth_date, gender, phone_num, other_skills
