@@ -294,18 +294,58 @@ main.job-detail {
     margin-left: 20px;
 }
 
-/* Responsive: stack columns on small screens */
 @media (max-width: 900px) {
     .container_jobs {
         flex-direction: column;
+        gap: 1em;
     }
+
     aside.detail,
     main.job-detail {
         max-width: 100%;
         flex: 100%;
-        height: auto;
     }
-}   
+
+    aside.detail {
+        order: 2; /* Sidebar below details (optional) */
+    }
+
+    main.job-detail {
+        order: 1;
+    }
+}
+
+@media (max-width: 600px) {
+    .container_jobs {
+        margin: 10px;
+        background: none;
+    }
+
+    .job-list {
+        width: 100%;
+        margin: 8px 0;
+        background: none;
+    }
+
+    .job-list h3 {
+        font-size: 1.4em;
+    }
+
+    .text-bigger-size {
+        font-size: 1.1em;
+    }
+
+    main.job-detail {
+        padding: 15px;
+        font-size: 0.95em;
+        background: none;
+    }
+
+    .summary-list {
+        margin-left: 10px;
+        background: none;
+    }
+}
 
 /* JOBS PAGE STYLES END */
 
