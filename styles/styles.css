@@ -1060,6 +1060,27 @@ input[type="password"] {
 
 /*Manage*/
 
+/*Welcome msg for the admin*/
+.welcome-message {
+    margin-bottom: 30px;       /* Gap between welcome message and first section */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.welcome-message h2 {
+    margin: 0 0 10px 0;
+    color: #ffffffc9;
+    text-shadow: #1c4159;
+    font-size: 1.5em;
+}
+
+.welcome-message p {
+    margin: 0;
+    color: #ccc;
+    font-size: 1em;
+}
+
 /*Forms: List, Delete, Change status */
 .dashboard-form {
     display: flex;
@@ -1071,6 +1092,23 @@ input[type="password"] {
 .dashboard-form label {
     font-weight: 600;
     margin-bottom: 5px;
+}
+
+.dashboard-section {
+    margin-bottom: 20px;
+    padding: 40px 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-section:hover {
+transform: scale(1.02);
+box-shadow: 0 0 35px rgba(0, 200, 255, 0.4);
 }
 
 /*page-title:Manage Dashboard */

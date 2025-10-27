@@ -26,13 +26,13 @@ session_start();
                 background: linear-gradient(135deg, 
                    #051225 0%,     
                    #1c4159 50%,   
-                   #351c38 100%   );
+                   #191428ff 100% );
                 padding: 30px 50px;
                 border-radius: 12px;
-                box-shadow: 
-                    0 8px 24px rgba(0,0,0,0.6),
-                    0 0 30px rgba(28, 65, 89, 0.6),   
-                    0 0 60px rgba(53, 28, 56, 0.4);    
+                box-shadow:
+                    0 0 18px rgba(0, 200, 255, 0.25),
+                    0 0 35px rgba(0, 150, 255, 0.15),
+                    inset 0 0 10px rgba(255, 255, 255, 0.03);
                 width: 700px;
                 min-height: 500px;
                 height: auto;

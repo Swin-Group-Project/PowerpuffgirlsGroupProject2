@@ -178,10 +178,10 @@ if ($result) {
             max-height: max-content;
             margin: 100px auto;
             padding: 80px 120px;
-            background: linear-gradient(135deg,      /* !! lira to do: COLOURS TO BE CHANGED/UPDATED BEFORE DEADLINE !! */
+            background: linear-gradient(135deg,    
                         #051225 0%,     
                         #1c4159 50%,   
-                        #351c38 100%   );
+                        #191428ff 100%);     
             box-shadow:
             0 0 6px rgba(0, 200, 255, 0.3),
             0 0 15px rgba(217, 227, 234, 0.2),
@@ -195,17 +195,6 @@ if ($result) {
                 box-shadow: 0 0 0 2px rgba(75, 124, 255, 0.3);
             }
 
-            .dashboard-section {   /*!! TEAM TO DO: KEEP/REMOVE THIS WHICHEVER SUITS THE PAGE BETTER. NOTE: IF REMOVED, REMOVE CLASS "dashboard-section FROM line 217, 237, 296, 307. IF KEPT MOVE TO EXTERNAL CSS!!*/
-                margin-bottom: 10px;       /* spacing between sections */
-                padding: 40px 30px;             
-                border-radius: 8px;       
-                background-color: rgba(255, 255, 255, 0.05); 
-                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3),
-                    0 8px 20px rgba(0, 0, 0, 0.15),
-                    0 12px 40px rgba(0, 0, 0, 0.1);
-                width: 100%;
-                box-sizing: border-box; 
-            }
         </style>
     </head>
     <body>
@@ -213,6 +202,10 @@ if ($result) {
 
         <main id="manage-dashboard" role="main" aria-label="Administrator EOI Management Dashboard">
             <h2 class="page-title" style="color: #fffdfde7;">Manage Dashboard</h2>
+            <div class="welcome-message">
+                <h2>Welcome, <?php echo htmlspecialchars($_SESSION['user']); ?>!</h2> <!-- shows logged in username to create a more personal greeting for the user -->
+                <p>Manage applications, update statuses, and oversee all EOI records from this dashboard.</p>
+            </div>
             <!-- Section 1: List EOIs -->
             <section class="dashboard-section" role="region" aria-labelledby="list-eois-title"> 
                 <h2 id="list-eois-title" class="section-title">List EOIs</h2>
