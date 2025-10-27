@@ -198,16 +198,16 @@ if ($result) {
     <body>
         <?php include "./includes/header.inc"; ?>
 
-        <main id="manage-dashboard" role="main" aria-label="Administrator EOI Management Dashboard">
+        <main id="manage-dashboard" aria-label="Administrator EOI Management Dashboard">
             <h2 class="page-title" style="color: #fffdfde7;">Manage Dashboard</h2>
             <div class="welcome-message">
                 <h2>Welcome, <?php echo htmlspecialchars($_SESSION['user']); ?>!</h2> <!-- shows logged in username to create a more personal greeting for the user -->
                 <p>Manage applications, update statuses, and oversee all EOI records from this dashboard.</p>
             </div>
             <!-- Section 1: List EOIs -->
-            <section class="dashboard-section" role="region" aria-labelledby="list-eois-title"> 
+            <section class="dashboard-section" aria-labelledby="list-eois-title"> 
                 <h2 id="list-eois-title" class="section-title">List EOIs</h2>
-                <form class="dashboard-form" method="GET" action="" role="form" aria-label="Search EOIs">
+                <form class="dashboard-form" method="GET" action="manage.php" aria-label="Search EOIs">
                     <label for="list_by" class="label-title">List by:</label>
                     <select id="list_by" name="list_by" class="input-select">
                         <option value="all">List All</option>
@@ -225,10 +225,10 @@ if ($result) {
             <br><br>
 
             <!-- Display Combined EOI Table -->
-            <section class="dashboard-section"  role="region" aria-labelledby="eoi-records-title">
+            <section class="dashboard-section" aria-labelledby="eoi-records-title">
                 <h2 id="eoi-records-title" class="section-title">EOI Records</h2>
                 <div class="table-wrapper">
-                <table class="records-table" role="table" aria-label="EOI Records">
+                <table class="records-table" aria-label="EOI Records">
                     <tr>
                         <!-- Main Table Headers -->
                         <!-- http_build_query() formats key value pairs
@@ -287,10 +287,10 @@ if ($result) {
             </section>
             <br><br>       
             <!-- Section 2: Delete EOIs by Job Reference -->
-            <section class="dashboard-section" role="region" aria-labelledby="delete-eois-title">       
+            <section class="dashboard-section" aria-labelledby="delete-eois-title">       
                 <h2 class="section-title" id="delete-eois-title">Delete EOIs by Job Reference</h2>
                     <!-- Confirmation for best practice, avoids accidentally deleting a record -->
-                <form class="dashboard-form" method="POST" action="" onsubmit="return confirm('Are you sure you want to delete all EOIs with this job reference? This action cannot be undone.')" role="form" aria-label="Delete EOIs">
+                <form class="dashboard-form" method="POST" action="manage.php" onsubmit="return confirm('Are you sure you want to delete all EOIs with this job reference? This action cannot be undone.')" aria-label="Delete EOIs">
                     <label for="delete_job_reference" class="label-title">Job Reference:</label>
                     <input type="text" id="delete_job_reference" name="delete_job_reference" class="input-text" required>
                     <br>
@@ -299,15 +299,15 @@ if ($result) {
             </section>
             <br><br>        
             <!-- Section 3: Change EOI Status -->
-            <section class="dashboard-section" role="region" aria-labelledby="change-eoi-status-title">
+            <section class="dashboard-section" aria-labelledby="change-eoi-status-title">
                 <h2 class="section-title" id="change-eoi-status-title">Change EOI Status</h2>
-                <form class="dashboard-form" method="POST" action="" role="form" aria-label="Update EOI Status">
+                <form class="dashboard-form" method="POST" action="manage.php" aria-label="Update EOI Status">
                     <label for="update_eoi_id" class="label-title">EOI ID:</label>
-                    <input type="number" id="update_eoi_id" name="update_eoi_id" class="input-text" required>
+                    <input type="number" id="update_eoi_id" name="update_eoi_id" class="input-text">
                     
                     <label for="update_status" class="label-title">New Status:</label>
-                    <select id="update_status" name="update_status" class="input-select" required>
-                        <option value="New">New</option>
+                    <select id="update_status" name="update_status" class="input-select">
+                        <option value="New" selected>New</option>
                         <option value="Current">Current</option>
                         <option value="Final">Final</option>
                     </select>
