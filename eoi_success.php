@@ -13,8 +13,12 @@
     </head>
     <body>
         <?php include "./includes/header.inc" ?>
-        <div class="about-section" aria-labelledby="application-success-heading">
-            <p>Form submitted. <a href="index.php">Go to Home page</a></p>
+        <div class="full_height">
+            <h2 id="application_success_heading">Application Complete</h2>
+            <div class="eoi_success" aria-labelledby="application_success_heading">
+                <p>Form submitted successfully!</p>
+                <p>Thank you for applying with us, we should reach out to you within 7 business days. <a href="index.php">Go to Home page</a></p>
+            </div>
         </div>
         <?php include "./includes/footer.inc" ?>
     </body>

@@ -1071,6 +1071,7 @@ input[type="password"] {
 }
 
 /*Login button settings*/
+
 .login-button {
     width: 100%;
     padding: 12px;
@@ -1099,7 +1100,47 @@ input[type="password"] {
     margin-bottom: 10px;
 }       
 
+/* EOI success */
 
+.full_height {
+    height: calc(100vh - 160px); /* prevents touching header/footer */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+}
+
+.full_height h2 {
+    
+    text-align: center;
+    margin: 20px;
+}
+
+.eoi_success {
+    background: linear-gradient(135deg, 
+            #051225 0%,     
+            #1c4159 50%,   
+            #191428ff 100% );
+    height: 250px;
+    width: 500px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-evenly;
+    padding: 2em;
+    text-align: center;
+    border-radius: 15px;
+}
+
+.full_height a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.full_height a:hover {
+    text-decoration: underline;
+}
 
 /*Manage*/
 
