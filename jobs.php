@@ -66,6 +66,7 @@ $conn->close();
     <main class="job-detail">
         <?php if ($selectedJob):
             $ref = $selectedJob['ref_num'];
+            //Credit to ChatGPT for teaching me this array_filter technique
             $company = current(array_filter($tables['job_company'], fn($c) => $c['ref_num'] === $ref));
             $location = current(array_filter($tables['job_location'], fn($l) => $l['ref_num'] === $ref));
             $reqs = array_filter($tables['job_requirement'], fn($r) => $r['ref_num'] === $ref);
@@ -135,7 +136,6 @@ $conn->close();
     <aside class="detail">
             <?php foreach ($tables['job_main'] as $job): 
                 $isActive = ($job['ref_num'] === $selectedRef) ? 'active' : ''; 
-                //Credit to ChatGPT for teaching me this array_filter technique
                 $summaries = array_filter($tables['job_summary'], fn($s) => $s['ref_num'] === $job['ref_num']);
                 $company = current(array_filter($tables['job_company'], fn($c) => $c['ref_num'] === $job['ref_num']));
                 $location = current(array_filter($tables['job_location'], fn($l) => $l['ref_num'] === $job['ref_num']));
