@@ -19,10 +19,11 @@ $tables = [
 ];
 
 // Determine selected job ref from query string
-$selectedRef = $_GET['job'] ?? null;
+$selectedRef = $_GET['job'] ?? null; //if the left side exists and is not null, use it; otherwise, use the right side//
 
 $selectedRef = $_GET['job'] ?? $tables['job_main'][0]['ref_num'] ?? null;
-$selectedJob = current(array_filter($tables['job_main'], fn($job) => $job['ref_num'] === $selectedRef));
+$selectedJob = current(array_filter($tables['job_main'], fn($job) => $job['ref_num'] === $selectedRef)); //makes the first job the default if none selected//
+//array_filter returns an array of jobs matching the ref, current() gets the first element of that array//
 
 // Store data in session or use directly
 session_start();
@@ -141,8 +142,8 @@ $conn->close();
                 $location = current(array_filter($tables['job_location'], fn($l) => $l['ref_num'] === $job['ref_num']));
             ?>
                 <div class ="job-list <?= $isActive ?>">
-                    <a class="job-link" href="?job=<?= urlencode($job['ref_num']) ?>">
-                        <h3 style='font-size: 2em;'><?= htmlspecialchars($job['job_name']) ?></h3>
+                    <a class="job-link" href="?job=<?= urlencode($job['ref_num']) ?>"> <!-- Encode ref_num for URL safety -->
+                        <h3 style='font-size: 2em;'><?= htmlspecialchars($job['job_name']) ?></h3> <!-- security aspects-->
                         <h4 class='text-bigger-size'>
                             <?= htmlspecialchars($company['company_name'] ?? '') ?>
                             <?php if (!empty($company['company_logo'])): ?>
