@@ -1,5 +1,5 @@
 <!-- Website header with logo and company name -->
-<header>
+<header role="banner">
     <img src="images/powerpuffcorplogo.jpg" alt="Powerpuff Corp logo">
     <?php include "nav.inc"; ?>
     <div id="title-slogan">

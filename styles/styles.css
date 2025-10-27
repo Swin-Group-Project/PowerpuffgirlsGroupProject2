@@ -205,7 +205,7 @@ created: 29.09.25
 last modified: 22.10.25
 */
 
-/* Container for sidebar + main content */
+/*container for sidebar and main content*/
 
 .job-link {
     color: rgb(255, 255, 255);
@@ -214,10 +214,10 @@ last modified: 22.10.25
 
 .container_jobs {
     color: rgb(255, 255, 255);
-    background-color: none  ;
+    background-color: transparent;
     display: flex;
     flex-direction: row;
-    gap: 1em; /* spacing between sidebar and main content */
+    gap: 1em; /*spacing between sidebar and main content */
     margin: 20px;
 }
 
@@ -225,7 +225,7 @@ last modified: 22.10.25
 aside.detail {
     flex: 25%;
     max-width: 25%;
-    background-color: none;
+    background-color: transparent;
     overflow-y: auto;
     height: fit-content;
     border: none;
@@ -253,7 +253,7 @@ aside.detail {
     transform: scale(1.02);
 }
 
-/* Highlight active job */
+/* highlights the active job */
 .job-list.active {
     background: linear-gradient(135deg, #3a1c3e, #025b24);
     box-shadow: 0 0 10px 3px #24f35e, 8px 8px 15px #000000, -4px -4px 7px #84c8ea
@@ -307,7 +307,7 @@ main.job-detail {
     }
 
     aside.detail {
-        order: 2; /* Sidebar below details (optional) */
+        order: 2; 
     }
 
     main.job-detail {
@@ -318,6 +318,11 @@ main.job-detail {
 @media (max-width: 600px) {
     .container_jobs {
         margin: 10px;
+        background: none;
+    }
+
+    aside.detail { /*there was a weird glitch where the sidebar had a white background on mobile this fixes it*/
+        padding: 0;
         background: none;
     }
 
@@ -338,12 +343,10 @@ main.job-detail {
     main.job-detail {
         padding: 15px;
         font-size: 0.95em;
-        background: none;
     }
 
     .summary-list {
-        margin-left: 10px;
-        background: none;
+        margin-left: 10px;  
     }
 }
 
