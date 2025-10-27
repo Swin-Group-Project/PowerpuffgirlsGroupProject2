@@ -410,7 +410,7 @@ last modified: 22/10/25
 
 .help-icon:hover~span {
     visibility: visible;
-    opacity: 100;
+    opacity: 1.0;
 }
 
 .help_hint {
@@ -566,7 +566,6 @@ credit: Stephanie Eckles
 
 .checkbox_container input[type="checkbox"],
 .radio_container input[type="radio"] {
-    -webkit-appearance: none;
     /* supports Chrome, Safari, Opera */
     appearance: none;
     /* supports Mozilla Firefox */
