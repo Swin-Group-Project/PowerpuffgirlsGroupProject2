@@ -1218,8 +1218,14 @@ background: linear-gradient(135deg, #630c10ff, #a1151eff, #630c10ff);
     text-decoration: underline; /* underline appears if hovered */
 }
 
+.records-table tr {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
+}
+
 .records-table tr:hover {
-    background-color: #f1f7ff;
+    background-color: rgba(74, 144, 226, 0.3); /* Blue tint instead of white */
+    color: #fff; /* Ensure text stays white */
 }
 
 
@@ -1798,7 +1804,7 @@ LIRA KHISHA
 -Learnt: 1.Multidimensional Associative Array in PHP https://www.geeksforgeeks.org/php/multidimensional-associative-array-in-php/
          2.Concatenation of two strings in PHP https://www.geeksforgeeks.org/php/concatenation-two-string-php/-->
          3.foreach loop syntax adapted from https://www.geeksforgeeks.org/php/how-to-populate-dropdown-list-with-array-values-in-php/
-
+-Home Page layout inspired from: https://cdn.dribbble.com/userupload/4150194/file/original-34c2c6a7f43bd94a993265e192f72314.jpg?resize=752x&vertical=center
 VENSON
 */
 

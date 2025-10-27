@@ -169,7 +169,7 @@ if ($result) {
         <link rel="stylesheet" type="text/css" href="styles/styles.css">
         <style>
             body {
-            background-color: #020b16;         /* !! lira to do: CAN BE REMOVED LATEr IF DEBUGGING TEXT DOESNT CAUSE CONTRAST ERRor !!*/
+            background-color: #020b16;   
             color: #fff; 
             font-family: 'Barlow', sans-serif;
             }
