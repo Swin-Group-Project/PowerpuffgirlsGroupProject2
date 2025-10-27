@@ -169,7 +169,7 @@ mysqli_close($conn);
                 </div>
             </section>
             
-            <section id="fun-facts" class="about-section" aria-label="Fun Facts"><!--id and class are authored by ryan-->
+            <section id="fun-facts" class="about-section" aria-label="Our works and fun facts"><!--id and class are authored by ryan-->
                 <h2>Team Insights <span class="material-symbols-outlined">interests</span></h2>
                 <table>
                     <caption>Our works and a few things you probably didn&apos;t know about us.</caption>

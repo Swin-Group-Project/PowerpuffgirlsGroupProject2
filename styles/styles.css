@@ -1100,6 +1100,27 @@ input[type="password"] {
 
 /*Manage*/
 
+/*Welcome msg for the admin*/
+.welcome-message {
+    margin-bottom: 30px;       /* Gap between welcome message and first section */
+    padding: 20px;
+    border-radius: 8px;
+    text-align: center;
+}
+
+.welcome-message h2 {
+    margin: 0 0 10px 0;
+    color: #ffffffc9;
+    text-shadow: #1c4159;
+    font-size: 1.5em;
+}
+
+.welcome-message p {
+    margin: 0;
+    color: #ccc;
+    font-size: 1em;
+}
+
 /*Forms: List, Delete, Change status */
 .dashboard-form {
     display: flex;
@@ -1111,6 +1132,23 @@ input[type="password"] {
 .dashboard-form label {
     font-weight: 600;
     margin-bottom: 5px;
+}
+
+.dashboard-section {
+    margin-bottom: 20px;
+    padding: 40px 30px;
+    border-radius: 15px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 0 25px rgba(0, 200, 255, 0.3);
+    color: #fff;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.dashboard-section:hover {
+transform: scale(1.02);
+box-shadow: 0 0 35px rgba(0, 200, 255, 0.4);
 }
 
 /*page-title:Manage Dashboard */
@@ -1166,12 +1204,12 @@ input[type="password"] {
 }
 /*Buttons: Search, Update Status */
 .btn-primary {
-    background: linear-gradient(135deg, #142c55ff, #185d8fff, #142c55ff );   /*!! lira to do: change the colours later to tone with delete button gradient !! */
+    background: linear-gradient(135deg, #0c2a4e, #1a75d2, #0c2a4e );  
     color: #fff;
 }
 
 .btn-primary:hover {
-    background: linear-gradient(135deg, #122547ff, #176399ff, #122547ff );
+    background: linear-gradient(135deg, #122547ff, rgb(22, 107, 168), #122547ff );
     transform: translateY(-4px);
     transition: all 0.9s ease;
 }
@@ -1220,8 +1258,14 @@ background: linear-gradient(135deg, #630c10ff, #a1151eff, #630c10ff);
     text-decoration: underline; /* underline appears if hovered */
 }
 
+.records-table tr {
+    background-color: rgba(255, 255, 255, 0.05);
+    transition: background-color 0.3s ease;
+}
+
 .records-table tr:hover {
-    background-color: #f1f7ff;
+    background-color: rgba(74, 144, 226, 0.3); /* Blue tint instead of white */
+    color: #fff; /* Ensure text stays white */
 }
 
 
@@ -1401,6 +1445,39 @@ credit: w3schools.com
         font-size: 0.9rem;
     }
 
+    /*HR*/
+    main#manage-dashboard {
+        margin: 60px 20px !important;
+        padding: 30px 25px !important;
+    }
+
+    .dashboard-form {
+        gap: 12px;
+    }
+    
+    .input-text, 
+    .input-select {
+        padding: 8px 10px;
+        font-size: 0.95em;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    .btn {
+        padding: 8px 16px;
+        font-size: 0.95em;
+        width: 100%;
+    }
+    
+    .dashboard-form label {
+        font-size: 1em;
+        margin-bottom: 4px;
+    }
+    
+    .dashboard-form br {
+        display: none;
+    }
+    
 }
 
 /* Mobile M 375px */
@@ -1472,6 +1549,39 @@ credit: w3schools.com
         width: 100%;
         margin: 0;
         font-size: 1rem;
+    }
+
+    /*HR*/
+    main#manage-dashboard {
+        margin: 50px 15px !important;
+        padding: 25px 20px !important;
+    }
+    
+    .dashboard-form {
+        gap: 10px;
+    }
+    
+    .input-text, 
+    .input-select {
+        padding: 7px 9px;
+        font-size: 0.9em;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+    .btn {
+        padding: 7px 14px;
+        font-size: 0.9em;
+        width: 100%;
+    }
+    
+    .dashboard-form label {
+        font-size: 0.95em;
+        margin-bottom: 3px;
+    }
+    
+    .dashboard-form br {
+        display: none;
     }
 }
 
@@ -1553,6 +1663,49 @@ credit: w3schools.com
         margin: 0;
         font-size: 0.9rem;
         height: 2.8em;
+    }
+
+    /*HR*/
+    main#manage-dashboard {
+        margin: 40px 10px !important;
+        padding: 20px 15px !important;
+    }
+
+    .page-title {
+        font-size: 1.5em !important;
+    }
+    
+    .section-title {
+        font-size: 1.1em !important;
+    }
+
+    .dashboard-form {
+        gap: 8px;
+    }
+
+    .input-text, 
+    .input-select {
+        padding: 6px 8px;
+        font-size: 0.85em;
+        width: 100% !important;
+        box-sizing: border-box;
+    }
+    
+}
+
+/*Laptop 1024px*/
+@media only screen and (max-width: 1024px) {
+    main#manage-dashboard {
+        margin: 100px 40px !important;
+        padding: 60px 80px !important;
+    }
+}
+
+/*Tablet 768px*/
+@media only screen and (max-width: 768px) {
+    main#manage-dashboard {
+        margin: 80px 30px !important;
+        padding: 40px 50px !important;
     }
 }
 
@@ -1691,7 +1844,7 @@ LIRA KHISHA
 -Learnt: 1.Multidimensional Associative Array in PHP https://www.geeksforgeeks.org/php/multidimensional-associative-array-in-php/
          2.Concatenation of two strings in PHP https://www.geeksforgeeks.org/php/concatenation-two-string-php/-->
          3.foreach loop syntax adapted from https://www.geeksforgeeks.org/php/how-to-populate-dropdown-list-with-array-values-in-php/
-
+-Home Page layout inspired from: https://cdn.dribbble.com/userupload/4150194/file/original-34c2c6a7f43bd94a993265e192f72314.jpg?resize=752x&vertical=center
 VENSON
 */
 
