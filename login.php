@@ -22,6 +22,23 @@ session_start();
         <link href="https://fonts.googleapis.com/css2?family=Barlow:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> <!-- load Barlow font-->
         <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"> <!-- Load Google icons -->
         <style>
+            .login-box {
+                background: linear-gradient(135deg, 
+                   #051225 0%,     
+                   #1c4159 50%,   
+                   #191428ff 100% );
+                padding: 30px 50px;
+                border-radius: 12px;
+                box-shadow:
+                    0 0 18px rgba(0, 200, 255, 0.25),
+                    0 0 35px rgba(0, 150, 255, 0.15),
+                    inset 0 0 10px rgba(255, 255, 255, 0.03);
+                width: 700px;
+                min-height: 500px;
+                height: auto;
+                position: relative; 
+                z-index: 1; 
+            }
             .large-icon {
                     font-size: 64px;
                     width: 64px;
