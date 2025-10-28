@@ -802,7 +802,7 @@ ALTER TABLE `about_quote`
 -- Constraints for table `eoi_location`
 --
 ALTER TABLE `eoi_location`
-  ADD CONSTRAINT `eoi_location_ibfk_1` FOREIGN KEY (`eoi_id`) REFERENCES `eoi_main` (`eoi_id`);
+  ADD CONSTRAINT `eoi_location_ibfk_1` FOREIGN KEY (`eoi_id`) REFERENCES `eoi_main` (`eoi_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `eoi_main`
@@ -814,8 +814,8 @@ ALTER TABLE `eoi_main`
 -- Constraints for table `eoi_skill_selection`
 --
 ALTER TABLE `eoi_skill_selection`
-  ADD CONSTRAINT `eoi_skill_selection_ibfk_1` FOREIGN KEY (`eoi_id`) REFERENCES `eoi_main` (`eoi_id`),
-  ADD CONSTRAINT `eoi_skill_selection_ibfk_2` FOREIGN KEY (`skill_id`) REFERENCES `eoi_skill` (`skill_id`);
+  ADD CONSTRAINT `eoi_skill_selection_ibfk_1` FOREIGN KEY (`eoi_id`) REFERENCES `eoi_main` (`eoi_id`) ON DELETE CASCADE,
+  ADD CONSTRAINT `eoi_skill_selection_ibfk_2` FOREIGN KEY (`skill_id`) REFERENCES `eoi_skill` (`skill_id`) ON DELETE CASCADE;
 
 --
 -- Constraints for table `job_appeal`
