@@ -7,9 +7,6 @@ Description: Landing page for administrator access users
 -->
 
 <?php
-// Turn on error reporting for debugging
-error_reporting(E_ALL);
-ini_set('display_errors', 1);
 
 session_start();
 
