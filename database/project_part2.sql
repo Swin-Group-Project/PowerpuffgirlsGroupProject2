@@ -248,7 +248,7 @@ CREATE TABLE `eoi_main` (
 -- --------------------------------------------------------
 
 INSERT INTO `eoi_main` (`eoi_id`, `email`, `ref_num`, `first_name`, `last_name`, `birth_date`, `gender`, `phone_num`, `other_skills`, `status`) VALUES
-(1, 'johndoe@gmail.com', 'REF-SE842', 'John', 'Doe', '01/01/2000', 'male', '1234567890', 'Resident tree hugger', 'New');
+(1, 'johndoe@gmail.com', 'REF-SE842', 'John', 'Doe', '01/01/2000', 'male', '1234567890', 'Resident tree hugger', 'New'),
 (2, 'maryjane@gmail.com', 'REF-SE842', 'Mary', 'Jane', '01/01/2000', 'female', '1234567890', 'Drawing', 'New');
 
 --
