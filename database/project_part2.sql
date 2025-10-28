@@ -225,7 +225,8 @@ CREATE TABLE `eoi_location` (
 -- --------------------------------------------------------
 
 INSERT INTO `eoi_location` (`eoi_id`, `street_address`, `suburb_town`, `state`, `postcode`) VALUES
-(1, '6/7 Happy Street', 'Frankston', 'vic', 3000);
+(1, '6/7 Happy Street', 'Frankston', 'vic', 3000),
+(2, '420 Sad Lane', 'Brunswick East', 'vic', 2000);
 
 --
 -- Table structure for table `eoi_main`
@@ -248,6 +249,7 @@ CREATE TABLE `eoi_main` (
 
 INSERT INTO `eoi_main` (`eoi_id`, `email`, `ref_num`, `first_name`, `last_name`, `birth_date`, `gender`, `phone_num`, `other_skills`, `status`) VALUES
 (1, 'johndoe@gmail.com', 'REF-SE842', 'John', 'Doe', '01/01/2000', 'male', '1234567890', 'Resident tree hugger', 'New');
+(2, 'maryjane@gmail.com', 'REF-SE842', 'Mary', 'Jane', '01/01/2000', 'female', '1234567890', 'Drawing', 'New');
 
 --
 -- Table structure for table `eoi_skill`
@@ -286,7 +288,12 @@ INSERT INTO `eoi_skill_selection` (`eoi_id`, `skill_id`) VALUES
 (1, 2),
 (1, 3),
 (1, 4),
-(1, 5);
+(1, 5),
+(2, 1),
+(2, 3),
+(2, 5),
+(2, 6),
+(2, 7);
 
 --
 -- Table structure for table `jobs`
