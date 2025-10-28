@@ -52,15 +52,15 @@ The system demonstrates how HTML, CSS, PHP, and MySQL can be combined to build a
 # Login Credentials
 
 ## Admin Account
-Username: Admin
-Password: Admin
+**Username:** Admin
+**Password:** Admin
 
-* These credentials can be modified in the database if required.
+**These credentials can be modified in the database if required.**
 
 ## User Access
-Username: user1
-Password: 1234
-Note: Users can access the main page and job listings directly without logging in.
+**Username:** user1
+**Password:** 1234
+**Note: Users can access the main page and job listings directly without logging in.**
 
 
 # Learning Outcomes
