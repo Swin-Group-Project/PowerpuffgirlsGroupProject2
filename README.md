@@ -47,6 +47,20 @@ The system demonstrates how HTML, CSS, PHP, and MySQL can be combined to build a
 - Update database credentials inside settings.php.
 - Start Apache and MySQL from XAMPP Control Panel.
 - Visit the project in your browser
+  
+
+# Login Credentials
+
+## Admin Account
+Username: Admin
+Password: Admin
+
+* These credentials can be modified in the database if required.
+
+## User Access
+Username: user1
+Password: 1234
+Note: Users can access the main page and job listings directly without logging in.
 
 
 # Learning Outcomes
